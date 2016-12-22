@@ -1,7 +1,7 @@
-function categoryCtrl($scope, $stateParams, $http) {
+function categoryCtrl($scope, $stateParams) {
   $scope.currentCat = $stateParams.category;
-
-
+  var model = this;
+  
 }
 
 angular.module('newsApp').component('categoryBusiness', {
@@ -9,8 +9,8 @@ angular.module('newsApp').component('categoryBusiness', {
   controller: categoryCtrl
 });
 
-angular.module('newsApp').component('categoryPolitics', {
-  templateUrl: './components/category/politics.html',
+angular.module('newsApp').component('categoryTech', {
+  templateUrl: './components/category/tech.html',
   controller: categoryCtrl
 });
 
@@ -19,8 +19,18 @@ angular.module('newsApp').component('categoryEconomy', {
   controller: categoryCtrl
 });
 
-angular.module('newsApp').component('categoryTech', {
-  templateUrl: './components/category/tech.html',
+angular.module('newsApp').component('categoryPolitics', {
+  templateUrl: './components/category/politics.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryScience', {
+  templateUrl: './components/category/science.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryHealth', {
+  templateUrl: './components/category/health.html',
   controller: categoryCtrl
 });
 

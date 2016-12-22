@@ -1,9 +1,11 @@
 function topMenuCtrl($scope, $state) {
   $scope.categories = [
     'business',
-    'politics',
-    'economy',
     'tech',
+    'economy',
+    'politics',
+    'science',
+    'health',
     'sports',
     'lifestyle',
     'entertainment',

@@ -3,6 +3,8 @@
   <span ng-repeat="item in categories">
     <li class="menu-item"><a ui-sref="category({category: item})" ng-bind="item"></a></li>
   </span>
-  <li class="menu-item"><i class="material-icons nav-icon">search</i></li>
+  <li class="menu-item" ui-sref-active="menu-item-active"><a ui-sref="search"><i class="material-icons nav-icon">search</i></a></li>
   <li class="menu-item"><i class="material-icons nav-icon">person</i></li>
+  <!-- move to user dropdown -->
+  <li class="menu-item"><a ui-sref="editor">edit</a></li>
 </ul>

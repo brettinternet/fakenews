@@ -1,5 +1,18 @@
-<h5>Related articles in</h5>
-<span ng-bind="currentCat"></span>
-<ul ng-repeat="tag in tags">
-  <li ng-bind="tag"></li>
-</ul>
+<div class="card">
+  <span class="card-title">Related</span>
+  <ul ng-repeat="article in model.articleMatches">
+    <li>
+      <ul class="related-news">
+        <li ng-bind="article.title" class="category-news-title"></li>
+        <li><span ng-bind="article.author" class="category-news-author"></span><span ng-bind="article.timestamp | date: 'longDate'" class="category-news-timestamp"></span></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="card-title">Tags</span>
+  <ul ng-repeat="tag in model.tags">
+    <li ng-bind="tag"></li>
+  </ul>
+</div>

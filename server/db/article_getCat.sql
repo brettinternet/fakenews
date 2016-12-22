@@ -1,0 +1,12 @@
+-- categories
+-- 1 - business
+-- 2 - tech
+-- 3 - economy
+-- 4 - politics
+-- 5 - science
+-- 6 - health
+-- 7 - sports
+-- 8 - lifestyle
+-- 9 - entertainment
+-- 10 - world
+-- 11 - opinion

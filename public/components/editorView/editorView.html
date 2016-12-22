@@ -1,0 +1,71 @@
+<ul ng-repeat="article in model.articles">
+  <li ng-click="model.openArticle(article)">
+    <ul>
+      <li ng-bind="article.title"></li>
+      <li ng-bind="article.timestamp | date: 'longDate'"></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="editor-container">
+  <table>
+    <tr>
+      <td>ID:</td>
+      <td><span ng-bind="model.editArticle.id"></span><br/></td>
+    </tr>
+    <tr>
+      <td>Title:</td>
+      <td><input type="text" ng-model="model.editArticle.title" placeholder="title"></td>
+    </tr>
+    <tr>
+      <td>Author:</td>
+      <!-- <td><select ng-model="model.editArticle.author"></select></td> -->
+    </tr>
+    <tr>
+      <td>Time:</td>
+      <td><input type="text" ng-model="model.editArticle.timestamp"></td>
+    </tr>
+    <tr>
+      <td><span>Breaking News</span></td>
+      <td><input type="checkbox" ng-model="model.editArticle.breakingnews"></td>
+    </tr>
+    <tr>
+      <td>Category:</td>
+      <!-- <td><select ng-options="i for model.editArticle.category in model.categories"></select></td> -->
+    </tr>
+    <tr>
+      <td>Tags:</td>
+      <td><input type="text" ng-model="model.editArticle.tags"></td>
+    </tr>
+    <tr>
+      <td>Location:</td>
+      <td><input type="text" ng-model="model.editArticle.location"></td>
+    </tr>
+    <tr>
+      <td>RegionID:</td>
+      <td><input type="text" ng-model="model.editArticle.regionid"></td>
+    </tr>
+    <tr>
+      <td>Image Link:</td>
+      <td><input type="link" ng-model="model.editArticle.img"></td>
+    </tr>
+    <tr>
+      <td>Image description:</td>
+      <td><input type="text" ng-model="model.editArticle.imgdesc"></td>
+    </tr>
+    <tr>
+      <td>Headline:</td>
+      <td><input type="text" ng-model="model.editArticle.headline"></td>
+    </tr>
+    <tr>
+      <td>Article:</td>
+      <td><textarea ng-model="model.editArticle.content" rows="8" cols="80"></textarea></td>
+    </tr>
+    <tr>
+      <td><span>Published</span></td>
+      <td><input type="checkbox" ng-model="model.editArticle.published"></td>
+    </tr>
+  </table>
+</div>
+<button type="button" ng-submit="model.submitArticle(model.editArticle)">Submit Changes</button>
+<button type="button" ng-submit="model.deleteArticle(model.editArticle)">Delete Article</button>

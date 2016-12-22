@@ -2,7 +2,15 @@ angular.module('newsApp').config(function($stateProvider, $urlRouterProvider, $l
   $stateProvider
     .state('home', {
       url: '/',
-      template: '<landing></landing>',
+      template: '<landing></landing>'
+    })
+    .state('editor', {
+      url: '/editor',
+      template: '<editor-view></editor-view>'
+    })
+    .state('search', {
+      url: '/search',
+      template: '<search-view></search-view>'
     })
     .state('category', {
       url: '/:category',
@@ -12,7 +20,7 @@ angular.module('newsApp').config(function($stateProvider, $urlRouterProvider, $l
     })
     .state('article', {
       url: '/:category/:articleId',
-      template: '<article-view></article-view>',
+      template: '<article-view></article-view>'
     })
   $urlRouterProvider.otherwise('/');
   // $locationProvider.html5Mode(true);

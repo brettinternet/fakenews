@@ -1,13 +1,13 @@
-function articleViewCtrl($scope, articleService, $stateParams) {
-  (function() {
-    articleService.getArticle()
+function articleViewCtrl(articleService, $stateParams) {
+  var model = this;
+  model.$onInit = function() {
+    articleService.getArticles()
       .then(function(resp) {
-        var articles = resp.data;
+        let articles = resp;
         (function() {
-          for (var i = 0; i < articles.length; i++) {
+          for (let i = 0; i < articles.length; i++) {
             if (articles[i].id == $stateParams.articleId) {
-              $scope.article = articles[i];
-              $scope.tags = $scope.article.tags;
+              model.article = articles[i];
             }
           }
         })();
@@ -16,13 +16,12 @@ function articleViewCtrl($scope, articleService, $stateParams) {
         $scope.error = err;
         console.error(err);
       })
-  })();
+  }
 }
+
 
 angular.module('newsApp').component('articleView', {
   templateUrl: './components/articleView/articleView.html',
-  controller: articleViewCtrl,
-  bindings: {
-    tags: "<"
-  }
+  controllerAs: 'model',
+  controller: ['articleService', '$stateParams', articleViewCtrl]
 });
