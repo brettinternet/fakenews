@@ -4,7 +4,7 @@
     <a ui-sref="article({category: article.category, articleId: article.id})"><span ng-bind="article.title" class="category-news-title"></span></a><br/>
     <span ng-bind="article.headline" class="category-news-headline"></span><br/>
     <span ng-bind="article.author" class="category-news-author"></span>
-    <span ng-bind="article.timestamp | date: 'longDate'" class="category-news-timestamp"></span>
+    <span ng-bind="article.createdat | date: 'longDate'" class="category-news-createdat"></span>
     <span ng-bind="article.location" class="category-news-location"></span>
 </div>
 <error-display></error-display>

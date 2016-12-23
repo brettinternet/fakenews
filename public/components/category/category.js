@@ -1,7 +1,8 @@
-function categoryCtrl($scope, $stateParams) {
-  $scope.currentCat = $stateParams.category;
+function categoryCtrl($stateParams) {
   var model = this;
-  
+  model.currentCat = $stateParams.category;
+
+
 }
 
 angular.module('newsApp').component('categoryBusiness', {

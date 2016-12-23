@@ -52,7 +52,7 @@ module.exports = {
                 }
               });
             };
-            response.status(200).send('Article created');
+            response.status(204).send();
           });
         });
       });
@@ -61,20 +61,25 @@ module.exports = {
 
   getId: function(req, response) {
     let articleObj = {};
-    db.run("SELECT articles.*, array_agg(tags.tag) AS tags, countries.name AS countryname, countries.twoletter AS countrytwoletter FROM articles JOIN tags on tags.articleid = articles.id JOIN countries on countries.id = articles.countryid WHERE articles.id = $1 GROUP BY articles.id, countries.name, countries.twoletter", [req.params.articleId], (err, res) => {
+    db.run("SELECT articles.*, array_agg(tags.tag) AS tags, countries.name AS countryname, countries.twoletter AS countrytwoletter FROM articles LEFT JOIN tags on tags.articleid = articles.id JOIN countries on countries.id = articles.countryid WHERE articles.id = $1 AND articles.published = true GROUP BY articles.id, countries.name, countries.twoletter", [req.params.articleId], (err, res) => {
       if (err) {
+        console.log(err);
         winston.error.error(err);
         return response.status(500).send(err);
       }
-      articleObj.article = res[0];
-      db.run("SELECT authors.firstname, authors.lastname, authors.email, categories.category FROM authors JOIN categories on categories.id = authors.categoryid WHERE authors.id = $1", [articleObj.article.authorid], (err, res) => {
-        if (err) {
-          winston.error.error(err);
-          return response.status(500).send(err);
-        }
-        articleObj.author = res[0];
-        response.status(200).send(articleObj);
-      });
+      if (res.length >= 1) {
+        articleObj.article = res[0];
+        db.run("SELECT authors.firstname, authors.lastname, authors.email, categories.category FROM authors JOIN categories on categories.id = authors.categoryid WHERE authors.id = $1", [articleObj.article.authorid], (err, res) => {
+          if (err) {
+            winston.error.error(err);
+            return response.status(500).send(err);
+          }
+          articleObj.author = res[0];
+          response.status(200).send(articleObj);
+        });
+      } else {
+        response.status(404).send();
+      }
     });
   },
 
@@ -90,7 +95,7 @@ module.exports = {
   // },
 
   getCat: function(req, response) {
-    db.run("SELECT articles.*, categories.category, authors.firstname, authors.lastname FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE upper(categories.category) = upper($1) ORDER BY createdat DESC LIMIT 10", [req.params.category], (err, res) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND upper(categories.category) = upper($1) ORDER BY createdat DESC LIMIT 10", [req.params.category], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -100,7 +105,7 @@ module.exports = {
   },
 
   getCatTags: function(req, response) {
-    db.run("SELECT tags.tag, categories.category, count(tags.id) AS count FROM tags JOIN articles ON articles.id = tags.articleid JOIN categories ON categories.id = articles.categoryid WHERE categories.category = $1 GROUP BY tags.tag, categories.category", [req.params.category], (err, res) => {
+    db.run("SELECT tags.tag, categories.category, count(tags.id) AS count FROM tags JOIN articles ON articles.id = tags.articleid JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND categories.category = $1 GROUP BY tags.tag, categories.category", [req.params.category], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -111,7 +116,7 @@ module.exports = {
 
   getArticlesByTag: function(req, response) {
     let tagTerm = '%' + req.params.tag + '%';
-    db.run("SELECT articles.*, categories.category, authors.firstname, authors.lastname FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid JOIN tags on tags.articleid = articles.id  WHERE tags.tag LIKE lower($1) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY createdat DESC LIMIT 10", [tagTerm], (err, res) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid JOIN tags on tags.articleid = articles.id  WHERE articles.published = true AND tags.tag LIKE lower($1) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY createdat DESC LIMIT 10", [tagTerm], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -123,7 +128,7 @@ module.exports = {
   // TODO: Offset and paginate response
   searchTitle: function(req, response) {
     let searchTerm = '%' + req.query.title + '%';
-    db.run("SELECT articles.*, categories.category, authors.firstname, authors.lastname, array_agg(tags.tag) AS tags FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid JOIN tags on tags.articleid = articles.id  WHERE upper(articles.title) LIKE upper($1) OR upper(articles.headline) LIKE upper($1) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY createdat DESC LIMIT 10", [searchTerm], (err, res) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author, array_agg(tags.tag) AS tags FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid LEFT JOIN tags on tags.articleid = articles.id  WHERE articles.published = true AND (upper(articles.title) LIKE upper($1) OR upper(articles.headline) LIKE upper($1)) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY createdat DESC LIMIT 10", [searchTerm], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -180,7 +185,7 @@ module.exports = {
                   if (err) return response.status(500).send(err);
                 });
               };
-              response.status(200).send('Article updated');
+              response.status(204).send();
             });
           });
         });
@@ -195,7 +200,7 @@ module.exports = {
         winston.error.error(err);
         return response.status(500).send(err);
       }
-      response.status(200).send('Article deleted');
+      response.status(204).send();
     });
   }
 

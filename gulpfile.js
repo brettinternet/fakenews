@@ -13,12 +13,12 @@ var cachebust = new CacheBuster();
 
 gulp.task('clean', function(cb) {
   del([
-    'public/dist'
+    './public/dist'
   ], cb);
 });
 
 gulp.task('watch', function() {
-    return gulp.watch(['./public/index.html','./public/components/**/*.html', './public/assets/css/*.*css', './public/**/*.js'], ['build']);
+    return gulp.watch(['./public/index.html','./public/components/**/*.html', './public/assets/css/*.*css', './public/components/**/*.js', './public/services/*.js', './public/routes.js'], ['build']);
 });
 
 gulp.task('build', ['clean', 'build-css', 'build-js'],

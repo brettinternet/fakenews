@@ -1,12 +1,17 @@
-<input type="text" ng-model="searchInput.title" placeholder="Search">
+<form class="search-form" ng-submit="model.submitSearch(query)">
+  <input type="search" placeholder="Search" class="search-input" ng-model="query">
+  <button type="submit">Search</button>
+</form>
 <div class="card">
-  <div ng-repeat="article in model.articles | filter: searchInput" class="search-article">
+  <div ng-repeat="article in model.articles" class="search-article">
     <a ui-sref="article({category: article.category, articleId: article.id})">
-      <span ng-bind="article.category" class="category-news-category"></span>
-      <span ng-bind="article.location" class="category-news-location"></span><br/>
-      <img ng-src="{{article.img}}" class="category-news-img">
-      <div ng-bind="article.title" class="category-news-title"></div>
-      <span ng-bind="article.timestamp | date: 'longDate'" class="category-news-timestamp"></span><span ng-bind="model.article.timestamp | date: 'h:mm a'" class="category-news-timestamp"></span>
+      <span ng-bind="article.category" class="news-category"></span>
+      <span ng-bind="article.location" class="news-location"></span><br/>
+      <img ng-src="{{article.img}}" class="news-img">
+      <div ng-bind="article.title" class="news-title"></div>
+      <span ng-bind="article.author" class="category-news-author"></span>
+      <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span><span ng-bind="model.article.createdat | date: 'h:mm a'" class="news-createdat"></span>
     </a>
   </div>
 </div>
+<error-display error="model.error" softerr="model.softerr"></error-display>

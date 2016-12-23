@@ -41,12 +41,28 @@ angular.module('newsApp').service('articleService', function ($http) {
   // get articles by category
   this.getArticles = function (category) {
     return $http.get('http://localhost:3000/api/' + category).then(function (res) {
-      console.log(res.data);
       return res.data;
     }).catch(function (err) {
-      return console.error(err);
+      console.error(err);
     });
   };
+
+  this.getArticleById = function (id) {
+    return $http.get('http://localhost:3000/api/article/' + id).then(function (res) {
+      return res.data;
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
+
+  this.searchTitles = function (query) {
+    return $http.get('http://localhost:3000/api/search?title=' + query).then(function (res) {
+      return res.data;
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
+
   // verify authentication before peforming these actions!!
   // this.putArticle = function(article) {
   //   $http.put('sampleData.json', newArticle);
@@ -62,16 +78,20 @@ angular.module('newsApp').service('articleService', function ($http) {
 
 function articleViewCtrl(articleService, $stateParams) {
   var model = this;
+  var modifyResponse = function modifyResponse(article, author) {
+    author.name = author.firstname + ' ' + author.lastname;
+    console.log(article.tags);
+    console.log(article.tags.length);
+    if (article.tags[0] === null) {
+      article.tags = ['No tags'];
+      console.log('done');
+    }
+  };
   model.$onInit = function () {
-    articleService.getArticles().then(function (resp) {
-      var articles = resp;
-      (function () {
-        for (var i = 0; i < articles.length; i++) {
-          if (articles[i].id == $stateParams.articleId) {
-            model.article = articles[i];
-          }
-        }
-      })();
+    articleService.getArticleById($stateParams.articleId).then(function (res) {
+      model.article = res.article;
+      model.author = res.author;
+      modifyResponse(model.article, model.author);
     }).catch(function (err) {
       $scope.error = err;
       console.error(err);
@@ -86,9 +106,9 @@ angular.module('newsApp').component('articleView', {
 });
 'use strict';
 
-function categoryCtrl($scope, $stateParams) {
-  $scope.currentCat = $stateParams.category;
+function categoryCtrl($stateParams) {
   var model = this;
+  model.currentCat = $stateParams.category;
 }
 
 angular.module('newsApp').component('categoryBusiness', {
@@ -150,14 +170,12 @@ angular.module('newsApp').component('categoryOpinion', {
 function categoryNewsCtrl($stateParams, articleService) {
   var model = this;
   // model.articles = [];
-  console.log($stateParams);
   model.$onInit = function () {
     model.category = $stateParams.category;
-    console.log(model.category);
-    articleService.getArticles(model.category.category).then(function (res) {
+    articleService.getArticles(model.category).then(function (res) {
       model.articles = res;
     }).catch(function (err) {
-      $scope.error = err;
+      model.error = err;
       console.error(err);
     });
   };
@@ -227,11 +245,19 @@ angular.module('newsApp').component('editorView', {
 });
 'use strict';
 
-function errorDisplayCtrl($scope) {}
+function errorDisplayCtrl() {
+  var model = this;
+}
 
 angular.module('newsApp').component('errorDisplay', {
   templateUrl: './components/errorDisplay/errorDisplay.html',
-  controller: errorDisplayCtrl
+  controllerAs: 'model',
+  controller: errorDisplayCtrl,
+  bindings: {
+    error: '<',
+    softerr: '<'
+  },
+  require: '^searchViewCtrl'
 });
 'use strict';
 
@@ -291,12 +317,17 @@ angular.module('newsApp').component('addonCategory', {
 
 function searchViewCtrl(articleService) {
   var model = this;
-  model.articles = [];
-  model.$onInit = function () {
-    articleService.getArticles().then(function (resp) {
-      model.articles = resp;
+  var modifyResponse = function modifyResponse(articles) {
+    if (articles.length < 1) {
+      model.softerr = 'No articles match your search.';
+    }
+  };
+  model.submitSearch = function (query) {
+    articleService.searchTitles(query).then(function (res) {
+      model.articles = res;
+      modifyResponse(model.articles);
     }).catch(function (err) {
-      $scope.error = err;
+      model.error = err;
       console.error(err);
     });
   };

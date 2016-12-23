@@ -1,13 +1,18 @@
 function searchViewCtrl(articleService) {
   var model = this;
-  model.articles = [];
-  model.$onInit = function() {
-    articleService.getArticles()
-      .then(function(resp) {
-        model.articles = resp;
+  let modifyResponse = function(articles) {
+    if (articles.length < 1) {
+      model.softerr = 'No articles match your search.';
+    }
+  }
+  model.submitSearch = (query) => {
+    articleService.searchTitles(query)
+      .then(function(res) {
+        model.articles = res;
+        modifyResponse(model.articles)
       })
       .catch(function(err) {
-        $scope.error = err;
+        model.error = err;
         console.error(err);
       })
   }

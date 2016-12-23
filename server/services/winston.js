@@ -25,7 +25,7 @@ const logger = new (winston.Logger)({
     })
   ]
 });
-const logErr = new (winston.Logger)({
+const logger2 = new (winston.Logger)({
   transports: [
     new (winston.transports.Console)({
       timestamp: tsFormat,
@@ -33,7 +33,53 @@ const logErr = new (winston.Logger)({
       level: 'warn'
     }),
     new (winston.transports.File)({
-      filename: `${logDir}/errors.log`,
+      filename: `${logDir}/results2.log`,
+      timestamp: tsFormat,
+      level: 'info',
+    })
+  ]
+});
+const dbErrors = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({
+      timestamp: tsFormat,
+      colorize: true,
+      level: 'warn'
+    }),
+    new (winston.transports.File)({
+      filename: `${logDir}/database.log`,
+      timestamp: tsFormat,
+      level: 'info',
+      json: false,
+      formatter: logFormat
+    })
+  ]
+});
+const getErrors = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({
+      timestamp: tsFormat,
+      colorize: true,
+      level: 'warn'
+    }),
+    new (winston.transports.File)({
+      filename: `${logDir}/requests.log`,
+      timestamp: tsFormat,
+      level: 'info',
+      json: false,
+      formatter: logFormat
+    })
+  ]
+});
+const processErrors = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({
+      timestamp: tsFormat,
+      colorize: true,
+      level: 'warn'
+    }),
+    new (winston.transports.File)({
+      filename: `${logDir}/processing.log`,
       timestamp: tsFormat,
       level: 'info',
       json: false,
@@ -44,5 +90,8 @@ const logErr = new (winston.Logger)({
 
 module.exports = {
   log: logger,
-  error: logErr
+  log2: logger2,
+  error: dbErrors,
+  get: getErrors,
+  process: processErrors
 }

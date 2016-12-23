@@ -16,7 +16,8 @@ INSERT INTO categories (category) VALUES ('business'),
 ('lifestyle'),
 ('entertainment'),
 ('world'),
-('opinion');
+('opinion'),
+('front');
 
 -- ########################################################
 -- ########################################################
@@ -30,6 +31,20 @@ CREATE TABLE tags
 );
 
 INSERT INTO tags (tag, articleid) VALUES ('wow', 1)
+
+-- ########################################################
+-- ########################################################
+-- ########################################################
+
+CREATE TABLE scraped
+(
+  id SERIAL PRIMARY KEY not null,
+  redditid VARCHAR(40) not null,
+  domain VARCHAR(40),
+  articleid INTEGER REFERENCES articles(id)
+);
+
+INSERT INTO scraped (redditid, domain, articleid) VALUES ()
 
 -- ########################################################
 -- ########################################################

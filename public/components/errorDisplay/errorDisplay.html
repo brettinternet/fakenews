@@ -1,1 +1,3 @@
-<span ng-if="error" ng-bind="error"></span>
+<span ng-if="model.softerr" ng-bind="model.error"></span>
+<span ng-if="model.error && model.softerr">and...</span>
+<span ng-if="model.softerr" ng-bind="model.softerr"></span>

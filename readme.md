@@ -10,3 +10,4 @@ View my app's blueprint on my [Wekan board](https://brett.sandcats.io/shared/IpY
 ## Features
 
 ## What I've Learned
+This is a silly app. However, it fulfilled its primary purpose to allow me the opportunity to work with complex datatypes in a full stack app.

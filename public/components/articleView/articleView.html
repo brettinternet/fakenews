@@ -1,12 +1,12 @@
-<span ng-bind="model.article.category" class="category-news-category"></span>
+<span ng-bind="model.author.category" class="category-news-category"></span>
 <span ng-if="model.article.breakingnews" class="category-news-breakingnews">Breaking News</span>
 <span ng-bind="model.article.location" class="category-news-location"></span>
 <div ng-bind="model.article.title" class="category-news-title"></div>
 <img ng-src="{{model.article.img}}" alt="article image"><br/>
 <div ng-bind="model.article.imgdesc" class="category-news-imgdesc"></div>
-<span class="category-news-author">By: </span><span ng-bind="model.article.author" class="category-news-author"></span>
-<span ng-bind="model.article.timestamp | date: 'fullDate'" class="category-news-timestamp"></span class="category-news-timestamp"><span> at</span>
-<span ng-bind="model.article.timestamp | date: 'h:mm a'" class="category-news-timestamp"></span>
+<span class="category-news-author">By: </span><span ng-bind="model.author.name" class="category-news-author"></span>
+<span ng-bind="model.article.createdat | date: 'fullDate'" class="category-news-createdat"></span class="category-news-createdat"><span> at</span>
+<span ng-bind="model.article.createdat | date: 'h:mm a'" class="category-news-createdat"></span>
 <em><div ng-bind="model.article.headline" class="category-news-headline"></div></em>
 <div ng-bind="model.article.content" class="category-news-content"></div>
 <addon-article tags="model.article.tags"></addon-article>

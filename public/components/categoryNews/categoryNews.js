@@ -1,16 +1,14 @@
 function categoryNewsCtrl($stateParams, articleService) {
   let model = this;
   // model.articles = [];
-  console.log($stateParams);
   model.$onInit = function() {
     model.category = $stateParams.category;
-    console.log(model.category);
-    articleService.getArticles(model.category.category)
+    articleService.getArticles(model.category)
       .then(function(res) {
         model.articles = res;
       })
       .catch(function(err) {
-        $scope.error = err;
+        model.error = err;
         console.error(err);
       })
   }
