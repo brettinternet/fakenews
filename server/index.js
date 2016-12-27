@@ -41,7 +41,8 @@ app.set('db', massiveInstance);
 const db = app.get('db');
 const articleCtrl = require('./controllers/articleCtrl'),
       articleProcessor = require('./controllers/articleProcessor'),
-      redditCtrl = require('./controllers/redditCtrl');
+      redditCtrl = require('./controllers/redditCtrl'),
+      commentCtrl = require('./controllers/commentCtrl');
 
 
 app.get('/api/search', articleCtrl.searchTitle);

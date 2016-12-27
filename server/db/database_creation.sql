@@ -89,7 +89,8 @@ CREATE TABLE articles
   createdAt TIMESTAMP WITH TIME ZONE,
   CategoryId INTEGER REFERENCES Categories(id) not null,
   BreakingNews BOOLEAN not null,
-  flag BOOLEAN not null
+  flag BOOLEAN not null,
+  hot BOOLEAN not null
 );
 
 INSERT INTO articles (published, authorid, city, state, country, title, img, imgnail, imgdesc, headline, content, createdat, categoryid, breakingnews) VALUES ('');
@@ -126,10 +127,11 @@ CREATE TABLE comments
   UserId INTEGER REFERENCES users(id) not null,
   ParentId INTEGER,
   ArticleId INTEGER REFERENCES articles(id) not null,
-  createdAt TIMESTAMP WITH TIME ZONE
+  createdAt TIMESTAMP WITH TIME ZONE,
+  redditid VARCHAR(40)
 );
 
-INSERT INTO comments (comment, userid, parentid, articleid, createdat) VALUES ('');
+INSERT INTO comments (comment, userid, parentid, articleid, createdat, redditid) VALUES ('');
 
 -- ########################################################
 -- ########################################################

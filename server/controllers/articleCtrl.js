@@ -9,6 +9,7 @@ module.exports = {
     if (inc.createdat == null) {
       inc.createdat = new Date();
     }
+    // if 2 authors per category
     db.run("SELECT id FROM authors WHERE categoryid = (SELECT id FROM categories WHERE upper(category) = upper($1)) OFFSET floor(random()*(2)) LIMIT 1", [inc.category], (err, res) => {
       if (err) winston.error.error(err);
       let authorid = res[0].id;
