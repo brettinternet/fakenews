@@ -6,20 +6,16 @@ module.exports = {
 
   create: function(req, response) {
     let inc = req.body;
-    if (inc.createdat == null) {
-      inc.createdat = new Date();
-    }
     // if 2 authors per category
     db.run("SELECT id FROM authors WHERE categoryid = (SELECT id FROM categories WHERE upper(category) = upper($1)) OFFSET floor(random()*(2)) LIMIT 1", [inc.category], (err, res) => {
       if (err) winston.error.error(err);
       let authorid = res[0].id;
-      db.run("SELECT	id FROM countries WHERE upper(twoletter) = upper($1)", [inc.country], (err, res) => {
+      db.run("SELECT id FROM countries WHERE upper(twoletter) = upper($1)", [inc.country], (err, res) => {
         if (err) winston.error.error(err);
         let countryid = res[0].id;
         db.run("SELECT id FROM categories WHERE upper(category) = upper($1)", [inc.category], (err, res) => {
           if (err) winston.error.error(err);
           let categoryid = res[0].id;
-          logger.info(req.body);
           let values = {
             published: inc.published,
             authorid: authorid,
@@ -31,7 +27,7 @@ module.exports = {
             imgnail: inc.imgnail,
             imgdesc: inc.imgdesc,
             headline: inc.headline,
-            content: inc.content,
+            body: inc.body,
             createdat: inc.createdat,
             categoryid: categoryid,
             breakingnews: inc.breakingnews,
@@ -165,7 +161,7 @@ module.exports = {
             imgnail: inc.imgnail,
             imgdesc: inc.imgdesc,
             headline: inc.headline,
-            content: inc.content,
+            body: inc.body,
             createdat: inc.createdat,
             categoryid: categoryid,
             breakingnews: inc.breakingnews,

@@ -41,6 +41,11 @@ CREATE TABLE scraped
   id SERIAL PRIMARY KEY not null,
   redditid VARCHAR(40) not null,
   domain VARCHAR(40),
+  score INTEGER,
+  redditurl VARCHAR(500),
+  mediatype VARCHAR(40),
+  linktitle VARCHAR(500),
+  fulltext TEXT,
   articleid INTEGER REFERENCES articles(id)
 );
 
@@ -85,12 +90,11 @@ CREATE TABLE articles
   ImgNail VARCHAR(1000),
   ImgDesc VARCHAR(1000),
   Headline VARCHAR(1000),
-  Content VARCHAR(10000),
+  body TEXT,
   createdAt TIMESTAMP WITH TIME ZONE,
   CategoryId INTEGER REFERENCES Categories(id) not null,
   BreakingNews BOOLEAN not null,
-  flag BOOLEAN not null,
-  hot BOOLEAN not null
+  flag BOOLEAN not null
 );
 
 INSERT INTO articles (published, authorid, city, state, country, title, img, imgnail, imgdesc, headline, content, createdat, categoryid, breakingnews) VALUES ('');
@@ -140,7 +144,8 @@ INSERT INTO comments (comment, userid, parentid, articleid, createdat, redditid)
 CREATE TABLE countries (
   id SERIAL PRIMARY KEY not null,
   name VARCHAR(100) not null,
-  twoletter VARCHAR(2) not null
+  twoletter VARCHAR(2) not null,
+  search VARCHAR(100) not null
 );
 
 ALTER TABLE authors ALTER COLUMN countryid TYPE integer USING (countryid::integer);

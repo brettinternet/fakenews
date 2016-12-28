@@ -1,66 +1,145 @@
 const winston = require('../services/winston'),
       request = require('request'),
       app = require('../index'),
+      schedule = require('node-schedule'),
       db = app.get('db');
 
-concatComment = () => {
-  salutations = [
-    'umm hi ',
-    'haha ok ',
-    'Listen ',
-    'Whatever '
-  ];
-  return salutations[Math.floor(Math.random() * salutations.length)]
+concatComment = (str, author) => {
+  if (!str.charAt(str.length-1).match(/[!.?"”']/g)) {
+    puncArr = ['.', '?', '!'];
+    punc = puncArr[Math.floor(Math.random() * puncArr.length)];
+    str += punc;
+  }
+  let STR = str.charAt(0).toUpperCase() + str.slice(1);
+  if (author) {
+    salutations = [
+      `umm hi ${author}, ${str}`,
+      `haha ok ${author}, ${str}`,
+      `Listen ${author}, ${str}`,
+      `Whatever ${author}, ${str}`,
+      `That's brilliant! ${author}, ${str}`,
+      `${author} is right since ${str}`,
+      `${author}, have you considered that ${str}`,
+      `${author}, I find your lack of understanding disturbing. Consider that ${str}`,
+      `Did you know that ${str}`,
+      `${str} Think about that ${author}.`,
+      `Consider this ${author}. ${STR}`,
+      `LOL ${author} wow, ${str}`,
+      `That's very clever, ${author}. But ${str}`,
+      `Quite frankly ${author} I don't believe you because ${str}`,
+      `Wow ${author}, I never knew. Also, ${str}`,
+      `You just don't get it, do you ${author}? Imagine that ${str}`,
+      `Interesting, ${author}. ${STR}`,
+      `Dear ${author}, ${str}`,
+      `${author}, ${str}`,
+      `${author}, ${str}`,
+      `${author}, ${str}`,
+      `So, ${str}`,
+      `${STR}`,
+      `${STR}`,
+      `${STR}`,
+      `${STR}`,
+    ];
+    return salutations[Math.floor(Math.random() * salutations.length)];
+  } else {
+    salutations = [
+      `umm ${str}`,
+      `I heard once that ${str}`,
+      `haha ok but ${str}`,
+      `I just read somewhere that ${str}`,
+      `Listen, ${str}`,
+      `Whatever, ${str}`,
+      `That's brilliant! ${STR}`,
+      `But ${str}`,
+      `THIS. ${STR}`,
+      `Have you considered that ${str}`,
+      `${STR} Think about that.`,
+      `I find your lack of understanding disturbing. Consider ${str}`,
+      `Did you know that ${str}`,
+      `Consider this. ${STR}`,
+      `LOL wow, ${str}`,
+      `Quite frankly I don't believe you because ${str}`,
+      `I never knew that ${str}`,
+      `${STR}`,
+      `${STR}`,
+      `${STR}`,
+      `${STR}`,
+    ];
+    return salutations[Math.floor(Math.random() * salutations.length)];
+  };
+
 }
 
-// request('https://www.reddit.com/r/showerthoughts/top/.json', (err, res, raw) => {
-//   let source = 'shower';
-//   if (!err && res.statusCode == 200) {
-//     let body = JSON.parse(raw);
-//     commentProcessor(body, source);
-//   } else {
-//     winston.get.error(err);
-//   }
-// });
-// request('https://www.reddit.com/r/youshouldknow/top/.json', (err, res, raw) => {
-//   let source = 'ysk';
-//   if (!err && res.statusCode == 200) {
-//     let body = JSON.parse(raw);
-//     commentProcessor(body, source);
-//   } else {
-//     winston.get.error(err);
-//   }
-// });
+// Cron job time format
+// *    *    *    *    *    *
+// ┬    ┬    ┬    ┬    ┬    ┬
+// │    │    │    │    │    |
+// │    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
+// │    │    │    │    └───── month (1 - 12)
+// │    │    │    └────────── day of month (1 - 31)
+// │    │    └─────────────── hour (0 - 23)
+// │    └──────────────────── minute (0 - 59)
+// └───────────────────────── second (0 - 59, OPTIONAL)
 
-request('https://www.reddit.com/r/todayilearned/top/.json', (err, res, raw) => {
-  let source = 'til';
-  if (!err && res.statusCode == 200) {
-    let body = JSON.parse(raw);
-    commentProcessor(body, source);
-  } else {
-    winston.get.error(err);
-  }
+let ysk = new schedule.RecurrenceRule();
+ysk.minute = 10; // hh:10 hourly
+
+schedule.scheduleJob('*/1 * * * *', () => {
+  request('https://www.reddit.com/r/showerthoughts/top/.json', (err, res, raw) => {
+    let source = 'shower';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      commentProcessor(body, source);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
+
+schedule.scheduleJob(ysk, () => {
+  request('https://www.reddit.com/r/youshouldknow/top/.json', (err, res, raw) => {
+    let source = 'ysk';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      commentProcessor(body, source);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
+
+schedule.scheduleJob('*/1 * * * *', () => {
+  request('https://www.reddit.com/r/todayilearned/top/.json', (err, res, raw) => {
+    let source = 'til';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      commentProcessor(body, source);
+    } else {
+      winston.get.error(err);
+    }
+  });
 });
 
 commentProcessor = (body, source) => {
   let allComments = body.data.children,
       uniqueComment = [];
   function checkComment(comments, i) {
-    let redditid = comments[i].data.id;
-    db.run("SELECT comments.id FROM comments WHERE lower(redditid) = lower($1)", [redditid], (err, res) => {
-      // how to handle if all 25 (or less) currently in DB
-      if (err) winston.process.error(err);
-      if (res.length >= 1) {
-        console.log('Skipping duplicate');
-        i++;
-        checkComment(allComments, i);
-      } else {
-        console.log('Found a comment');
-        uniqueComment.push(allComments[i]);
-        processComment(uniqueComment[0], source, redditid);
-        return true;
-      };
-    });
+    if (comments[i]) {
+      let redditid = comments[i].data.id;
+      db.run("SELECT id FROM comments WHERE lower(redditid) = lower($1) AND id in (SELECT id FROM comments ORDER BY createdat DESC LIMIT 25)", [redditid], (err, res) => {
+        if (err) winston.process.error(err);
+        if (res.length >= 1) {
+          i++;
+          checkComment(allComments, i);
+        } else {
+          processComment(allComments[i], source, redditid);
+          return true;
+        };
+      });
+    } else {
+      let redditid = allComments[0].data.id;
+      processComment(allComments[0], source, redditid);
+    }
   }
   checkComment(allComments, 0);
 }
@@ -80,14 +159,14 @@ processComment = (comment, source, redditid) => {
   } else {
     str = text;
   }
-  if (str.charAt(0) == str.charAt(0).toUpperCase() && !(str.charAt(0).match('/I/'))) {
+  // TODO: If first word is proper noun, then keep capitalized
+  if (str.charAt(0) == str.charAt(0).toUpperCase() && !(str.charAt(0) + str.charAt(1)).match(/I\s/)) {
     str = str.charAt(0).toLowerCase() + str.slice(1);
   }
   saveComment(str, redditid);
 }
 
 saveComment = (str, redditid) => {
-  winston.log.info('comment: ', str)
   rollDice = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -98,32 +177,19 @@ saveComment = (str, redditid) => {
       if (err) winston.process.error(err);
       let articleid = res[Math.floor(Math.random() * res.length)].id;
       let roll1 = rollDice(1, 10);
-      console.log('ID: ', articleid);
-      if (roll1 >= 1) {
+      console.log('commenting on articleID: ', articleid);
+      if (roll1 > 4) {
         db.run("SELECT comments.id, users.firstname FROM comments JOIN articles ON articles.id = comments.articleid JOIN users ON users.id = comments.userid WHERE articles.id = $1 LIMIT 1 OFFSET floor(random()*(SELECT count(*) FROM comments JOIN articles ON articles.id = comments.articleid WHERE articles.id = $1))", [articleid], (err, response) => {
           if (err) winston.process.error(err);
-          let roll2 = rollDice(1, 10),
-              fullComment = '';
-          console.log(response);
+          let fullComment = '';
           if (response.length > 0) {
             var parentid = response[0].id,
                 author = response[0].firstname;
             author = author.charAt(0).toUpperCase() + author.slice(1);
-            if (roll2 >= 1) {
-                  // TODO: invoke str in newSalutation() for added customization
-              let randomHello = concatComment();
-              fullComment = randomHello + author + ' ' + str;
-            } else {
-              fullComment = str;
-            }
+            fullComment = concatComment(str, author);
           } else {
             var parentid = null;
-            if (roll2 >= 1) {
-              let randomHello = concatComment();
-              fullComment = randomHello + str;
-            } else {
-              fullComment = str;
-            }
+            fullComment = concatComment(str, '');
           }
           db.run("INSERT INTO comments (comment, userid, parentid, articleid, redditid) VALUES ($1, $2, $3, $4, $5)", [fullComment, userid, parentid, articleid, redditid], (err, res) => {
             if (err) winston.process.error(err);
@@ -132,16 +198,10 @@ saveComment = (str, redditid) => {
       } else {
         db.run("SELECT authors.firstname FROM authors JOIN articles ON articles.authorid = authors.id WHERE articles.id = $1", [articleid], (err, res) => {
           if (err) winston.process.error(err);
-          let author = res[0],
-              roll2 = rollDice(1, 10),
+          let author = res[0].firstname,
               fullComment = '';
           author = author.charAt(0).toUpperCase() + author.slice(1);
-          if (roll2 > 6) {
-            let randomHello = concatComment();
-            fullComment = randomHello + author + ' ' + str;
-          } else {
-            fullComment = str;
-          }
+          fullComment = concatComment(str, author);
           db.run("INSERT INTO comments (comment, userid, articleid, redditid) VALUES ($1, $2, $3, $4)", [fullComment, userid, articleid, redditid], (err, res) => {
             if (err) winston.process.error(err);
           });

@@ -2,19 +2,177 @@ const app = require('../index'),
       db = app.get('db'),
       winston = require('../services/winston'),
       lexrank = require('lexrank'),
-      pos = require('pos');
+      watson = require('watson-developer-cloud'),
+      config = require('../config'),
+      pos = require('pos'),
+      request = require('request'),
+      extractor = require('unfluff');
 
-lies = (arr) => {
-  // for (var i = 0; i < arr.length; i++) {
-  //   if (arr[i].tag === 'PDT') {
-  //     arr[i].word = 'none'
-  //     }
-  //   }
-  // }
-  console.log('done');
+const getWatson = watson.alchemy_language({
+  api_key: config.watsonKey
+});
+
+aggregateData = (post, category) => {
+  aggregatedObj = function(post, category) {
+    let obj = post.data;
+    this.domain = obj.domain;
+    this.redditid = obj.id;
+    this.score = obj.score;
+    this.url = obj.url;
+    this.reddittitle = obj.title;
+    this.redditurl = obj.permalink;
+    this.type = obj.post_hint;
+    this.category = category;
+  }
+  var newsObj = new aggregatedObj(post[0], category);
+  processUrl(newsObj);
+}
+
+processUrl = (obj) => {
+  request(obj.url, (err, res, raw) => {
+    if (!err && res.statusCode == 200) {
+      getHtmlData(raw);
+    } else {
+      winston.get.error(err);
+    }
+  });
+  getHtmlData = (html) => {
+    console.log(obj);
+    extract = extractor.lazy(html, 'en');
+    obj.title = extract.title();
+    obj.imgdesc = extract.softTitle();
+    cannonLink = extract.canonicalLink();
+    if (cannonLink) {
+      obj.url = cannonLink;
+    }
+    obj.headline = extract.description();
+    obj.tags = extract.tags();
+    obj.img = extract.image();
+    obj.fulltext = extract.text();
+    getSummary(obj);
+  }
+}
+
+getSummary = (obj) => {
+  let topLines = lexrank.summarize(obj.fulltext, 6, function (err, topLines, text) {
+    if (err) winston.process.error(err);
+    obj.body = text;
+    getWatson.entities({url: obj.url}, (err, res) => {
+      if (err) winston.process.error(err);
+      let entities = res.entities;
+      processData(obj, entities);
+    });
+  });
+}
+
+processData = (obj, entities) => {
+  obj.breakingnews = false;
+  if (obj.score > 20000) {
+    obj.breakingnews = true;
+  }
+  for (var i = 0; i < entities.length; i++) {
+    // add entities as tags
+    // if (entities[i].disambiguated) {
+    //   obj.tags.push(entities[i].text)
+    // }
+    if (entities[i].type == 'City') {
+      obj.city = entities[i].text;
+    }
+    if (entities[i].type == 'StateOrCounty') {
+      obj.state = entities[i].text;
+    }
+    if (entities[i].type == 'Country') {
+      obj.country = entities[i].text;
+    }
+  }
+  if (obj.country) {
+    var searchCountry = `%${obj.country}%`;
+    console.log('Country: ', obj.country);
+  } else {
+    var searchCountry = null;
+  }
+  if (!obj.imgnail) {
+    obj.imgnail = obj.img;
+  }
+  db.run("SELECT id FROM authors WHERE categoryid = (SELECT id FROM categories WHERE upper(category) = upper($1)) OFFSET floor(random()*(2)) LIMIT 1", [obj.category], (err, res) => {
+    if (err) winston.process.error(err);
+    let authorid = res[0].id;
+    db.run("SELECT id FROM countries WHERE upper(name) like upper($1)", [searchCountry], (err, resC) => {
+      if (err) winston.process.error(err);
+      if (resC) {
+        var countryid = res[0].id;
+      }
+      db.run("SELECT id FROM categories WHERE upper(category) = upper($1)", [obj.category], (err, res) => {
+        if (err) winston.process.error(err);
+        let categoryid = res[0].id;
+        let articleValues = {
+          published: true,
+          authorid: authorid,
+          city: obj.city,
+          state: obj.state,
+          title: obj.title,
+          img: obj.img,
+          imgnail: obj.imgnail,
+          imgdesc: obj.imgdesc,
+          headline: obj.headline,
+          body: obj.body,
+          categoryid: categoryid,
+          breakingnews: obj.breakingnews,
+          flag: true,
+          origin: obj.url
+        };
+        if (obj.country) {
+          articleValues.countryid = countryid;
+        }
+        db.articles.insert(articleValues, (err, article) => {
+          if (err) winston.process.error(err);
+          let scrapedValues = {
+            redditid: obj.redditid,
+            domain: obj.domain,
+            articleid: article.id,
+            score: obj.score,
+            redditurl: obj.redditurl,
+            reddittitle: obj.reddittitle,
+            fulltext: obj.fulltext
+          }
+          if (obj.type) {
+            scrapedValues.mediatype = obj.type;
+          }
+          db.scraped.insert(scrapedValues, (err, res) => {
+            if (err) winston.process.error(err);
+          });
+          for (let i = 0; i < obj.tags.length; i++) {
+            let tagsObj = {};
+            tagsObj.tag = obj.tags[i];
+            tagsObj.articleid = article.id;
+            db.tags.insert(tagsObj, (err, res) => {
+              if (err) winston.process.error(err);
+            });
+          };
+        });
+      });
+    });
+  });
 }
 
 
+// ######################################################
+// ######################################################
+
+// TODO: MAKE THE NEWS FAKE! :)
+// TODO: imgthumbnails https://www.npmjs.com/package/gm
+
+// get grammar
+// getWatson.relations({text: obj.body}, (err, res) => {
+//   if (err) winston.process.error(err);
+//   let parsedRes = JSON.stringify(res, null, 2);
+//   console.log('relations', parsedRes);
+//   console.log(obj.body);
+// });
+// also sentiment, then use sentiment results to make article more extreme;
+// http://www.ibm.com/watson/developercloud/alchemy-language/api/v1/?node#targeted_sentiment
+
+// skipping for now
 processText = (text) => {
   let words = new pos.Lexer().lex(text),
       tagger = new pos.Tagger(),
@@ -30,34 +188,16 @@ processText = (text) => {
   lies(arr);
 }
 
-processUrl = (url) => {
-  let topLines = lexrank.summarizePage(url, 4, function (err, topLines, text) {
-    if (err) winston.process.error(err);
-    // winston.log.info(topLines);
-    // winston.log2.info(text);
-    processText(text);
-  });
+lies = (arr) => {
+  // for (var i = 0; i < arr.length; i++) { // https://github.com/dariusk/pos-js
+  //   if (arr[i].tag === 'PDT') {
+  //     arr[i].word = 'none'
+  //     }
+  //   }
+  // }
+  console.log('done');
 }
 
-aggregateData = (post) => {
-  console.log(`Aggregating ${post}`);
-  // winston.log.info(post)
-  aggregatedObj = function(post) {
-    let obj = post.data;
-    this.domain = obj.domain;
-    this.id = obj.id;
-    this.score = obj.score;
-    this.url = obj.url;
-    this.title = obj.title;
-    this.redditurl = obj.permalink;
-    this.type = obj.post_hint;
-  }
-  var newsObj = new aggregatedObj(post[0]);
-  // processData(newsObj);
-  console.log(newsObj.title);
-  console.log(newsObj.url);
-  processUrl(newsObj.url);
-}
 
 module.exports = {
 
@@ -94,13 +234,16 @@ module.exports = {
         if (err) winston.process.error(err);
         if (res.length >= 1) {
           console.log('Skipping duplicate');
-          // update duplicate post's score
+          db.scraped.update({id: res[0].id, score: posts[i].data.score}, (err, res) => {
+            if (err) winston.process.error(err);
+            console.log('Score updated');
+          });
           i++;
           checkPost(newsArr, i);
         } else {
           console.log('Found a post');
           uniquePost.push(newsArr[i]);
-          aggregateData(uniquePost);
+          aggregateData(uniquePost, category);
           return true;
         };
       });
