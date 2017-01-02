@@ -1,7 +1,17 @@
 angular.module('newsApp').service('articleService', function($http) {
   // get articles by category
   this.getArticles = (category) => {
-    return $http.get('http://localhost:3000/api/' + category)
+    return $http.get('http://localhost:3000/api/category/' + category)
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(err) {
+        console.error(err)
+      });
+  }
+
+  this.getPics = (category) => {
+    return $http.get('http://localhost:3000/api/pics/' + category)
       .then(function(res) {
         return res.data;
       })
@@ -21,7 +31,17 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.searchTitles = (query) => {
-    return $http.get('http://localhost:3000/api/search?title=' + query)
+    return $http.get('http://localhost:3000/api/search/' + query)
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(err) {
+        console.error(err)
+      });
+  }
+
+  this.getComments = (id) => {
+    return $http.get('http://localhost:3000/api/comments/' + id)
       .then(function(res) {
         return res.data;
       })

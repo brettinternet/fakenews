@@ -1,7 +1,4 @@
 function editorViewCtrl(articleService) {
-  // TODO: assign random author according to category
-
-
   var model = this;
   model.$onInit = function() {
     ngModel.$viewChangeListeners.push(onChange);
@@ -11,19 +8,34 @@ function editorViewCtrl(articleService) {
       model.modelValue = model.ngModel.$modelValue;
     }
   model.categories = [
+    'front',
     'business',
-    'politics',
-    'economy',
     'tech',
+    'economy',
+    'politics',
+    'science',
+    'health',
     'sports',
     'lifestyle',
     'entertainment',
     'world',
     'opinion'
   ];
+  model.currentCat = 'front';
+  model.setCategory = (category) => {
+    model.currentCat = category;
+    articleService.getArticles(model.currentCat)
+      .then(function(resp) {
+        model.articles = resp;
+      })
+      .catch(function(err) {
+        $scope.error = err;
+        console.error(err);
+      })
+  }
   model.articles = [];
   model.$onInit = function() {
-    articleService.getArticles()
+    articleService.getArticles(model.currentCat)
       .then(function(resp) {
         model.articles = resp;
       })

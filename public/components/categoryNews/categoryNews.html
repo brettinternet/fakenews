@@ -1,10 +1,24 @@
-<div ng-repeat="article in model.articles | limitTo: '4'" class="category-news-container">
-  <span class="category-news">
-    <img ng-src="{{article.img}}"></img><br/>
-    <a ui-sref="article({category: article.category, articleId: article.id})"><span ng-bind="article.title" class="category-news-title"></span></a><br/>
-    <span ng-bind="article.headline" class="category-news-headline"></span><br/>
-    <span ng-bind="article.author" class="category-news-author"></span>
-    <span ng-bind="article.createdat | date: 'longDate'" class="category-news-createdat"></span>
-    <span ng-bind="article.location" class="category-news-location"></span>
+<div ng-repeat="article in model.articles" class="news-container">
+  <span class="news">
+    <img ng-src="{{article.img}}" width="400px"></img><br/>
+    <a ui-sref="article({category: article.category, articleId: article.id})"><span ng-bind="article.title" class="news-title"></span></a><br/>
+    <span ng-bind="article.headline" class="news-headline"></span><br/>
+    <span ng-bind="article.author" class="news-author"></span>
+    <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
+    <span ng-bind="article.location" class="news-location"></span>
+</div>
+
+<div ng-repeat="article in model.articlesMore" class="news-container">
+  <span class="news">
+    <img ng-src="{{article.img}}" width="400px"></img><br/>
+    <a ui-sref="article({category: article.category, articleId: article.id})"><span ng-bind="article.title" class="news-title"></span></a><br/>
+    <span ng-bind="article.headline" class="news-headline"></span><br/>
+    <span ng-bind="article.author" class="news-author"></span>
+    <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
+    <span ng-bind="article.city" class="news-city"></span>
+    <span ng-bind="article.state" class="news-city"></span>
+    <span ng-bind="article.country" class="news-city"></span>
+</div>
+
 </div>
 <error-display></error-display>

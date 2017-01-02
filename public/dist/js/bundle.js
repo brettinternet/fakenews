@@ -10,6 +10,9 @@ angular.module('newsApp').config(function ($stateProvider, $urlRouterProvider, $
   }).state('search', {
     url: '/search',
     template: '<search-view></search-view>'
+  }).state('tags', {
+    url: '/tags/:tag',
+    template: '<search-view></search-view>'
   }).state('category', {
     url: '/:category',
     template: function template($state) {
@@ -40,7 +43,15 @@ angular.module('newsApp').config(function ($stateProvider, $urlRouterProvider, $
 angular.module('newsApp').service('articleService', function ($http) {
   // get articles by category
   this.getArticles = function (category) {
-    return $http.get('http://localhost:3000/api/' + category).then(function (res) {
+    return $http.get('http://localhost:3000/api/category/' + category).then(function (res) {
+      return res.data;
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
+
+  this.getPics = function (category) {
+    return $http.get('http://localhost:3000/api/pics/' + category).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -56,7 +67,15 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.searchTitles = function (query) {
-    return $http.get('http://localhost:3000/api/search?title=' + query).then(function (res) {
+    return $http.get('http://localhost:3000/api/search/' + query).then(function (res) {
+      return res.data;
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
+
+  this.getComments = function (id) {
+    return $http.get('http://localhost:3000/api/comments/' + id).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -80,12 +99,6 @@ function articleViewCtrl(articleService, $stateParams) {
   var model = this;
   var modifyResponse = function modifyResponse(article, author) {
     author.name = author.firstname + ' ' + author.lastname;
-    console.log(article.tags);
-    console.log(article.tags.length);
-    if (article.tags[0] === null) {
-      article.tags = ['No tags'];
-      console.log('done');
-    }
   };
   model.$onInit = function () {
     articleService.getArticleById($stateParams.articleId).then(function (res) {
@@ -103,6 +116,133 @@ angular.module('newsApp').component('articleView', {
   templateUrl: './components/articleView/articleView.html',
   controllerAs: 'model',
   controller: ['articleService', '$stateParams', articleViewCtrl]
+});
+'use strict';
+
+function categoryNewsCtrl($stateParams, articleService) {
+  var model = this;
+  var modifyResponse = function modifyResponse(articles) {
+    model.articlesMore = articles.splice(3);
+  };
+  model.$onInit = function () {
+    model.category = $stateParams.category;
+    articleService.getArticles(model.category).then(function (res) {
+      model.articles = res;
+      modifyResponse(model.articles);
+    }).catch(function (err) {
+      model.error = err;
+      console.error(err);
+    });
+    articleService.getPics(model.category).then(function (res) {
+      model.pics = res;
+      modifyResponse(model.articles);
+    }).catch(function (err) {
+      model.error = err;
+      console.error(err);
+    });
+  };
+}
+
+angular.module('newsApp').component('categoryNews', {
+  templateUrl: './components/categoryNews/categoryNews.html',
+  controllerAs: 'model',
+  controller: ['$stateParams', 'articleService', categoryNewsCtrl]
+});
+'use strict';
+
+function errorDisplayCtrl() {
+  var model = this;
+}
+
+angular.module('newsApp').component('errorDisplay', {
+  templateUrl: './components/errorDisplay/errorDisplay.html',
+  controllerAs: 'model',
+  controller: errorDisplayCtrl,
+  bindings: {
+    error: '<',
+    softerr: '<'
+  },
+  require: '^searchViewCtrl'
+});
+'use strict';
+
+function topMenuCtrl($state) {
+  var model = this;
+  model.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
+  model.searchShow = false;
+  model.showSearch = function () {
+    model.searchShow = !model.searchShow;
+  };
+}
+
+angular.module('newsApp').component('topMenu', {
+  templateUrl: './components/header/header.html',
+  controllerAs: 'model',
+  controller: topMenuCtrl
+});
+'use strict';
+
+function editorViewCtrl(articleService) {
+  var model = this;
+  model.$onInit = function () {
+    ngModel.$viewChangeListeners.push(onChange);
+    ngModel.$render = onChange;
+  };
+  function onChange() {
+    model.modelValue = model.ngModel.$modelValue;
+  }
+  model.categories = ['front', 'business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
+  model.currentCat = 'front';
+  model.setCategory = function (category) {
+    model.currentCat = category;
+    articleService.getArticles(model.currentCat).then(function (resp) {
+      model.articles = resp;
+    }).catch(function (err) {
+      $scope.error = err;
+      console.error(err);
+    });
+  };
+  model.articles = [];
+  model.$onInit = function () {
+    articleService.getArticles(model.currentCat).then(function (resp) {
+      model.articles = resp;
+    }).catch(function (err) {
+      $scope.error = err;
+      console.error(err);
+    });
+  };
+  model.openArticle = function (article) {
+    return model.editArticle = article;
+  };
+  var putArticle = function putArticle() {
+    articleService.putArticle(article);
+    model.editArticle = '';
+  };
+  var postArticle = function postArticle() {
+    articleService.postArticle(article);
+    model.editArticle = '';
+  };
+  model.deleteArticle = function (article) {
+    articleService.deleteArticle(article.id);
+    model.editArticle = '';
+  };
+  model.submitArticle = function (article) {
+    console.log(article);
+    if (article.id == null) {
+      console.log('no id');
+      postArticle(article);
+    } else {
+      console.log('yes id');
+      putArticle(article);
+    }
+  };
+}
+
+angular.module('newsApp').component('editorView', {
+  templateUrl: './components/editorView/editorView.html',
+  controllerAs: 'model',
+  controller: ['articleService', editorViewCtrl],
+  require: 'ngModel'
 });
 'use strict';
 
@@ -167,13 +307,23 @@ angular.module('newsApp').component('categoryOpinion', {
 });
 'use strict';
 
-function categoryNewsCtrl($stateParams, articleService) {
+function landingCtrl(articleService) {
   var model = this;
-  // model.articles = [];
+  var modifyResponse = function modifyResponse(articles) {
+    model.articlesMore = articles.splice(3);
+  };
   model.$onInit = function () {
-    model.category = $stateParams.category;
+    model.category = 'front';
     articleService.getArticles(model.category).then(function (res) {
       model.articles = res;
+      modifyResponse(model.articles);
+    }).catch(function (err) {
+      model.error = err;
+      console.error(err);
+    });
+    articleService.getPics(model.category).then(function (res) {
+      model.pics = res;
+      modifyResponse(model.articles);
     }).catch(function (err) {
       model.error = err;
       console.error(err);
@@ -181,110 +331,18 @@ function categoryNewsCtrl($stateParams, articleService) {
   };
 }
 
-angular.module('newsApp').component('categoryNews', {
-  templateUrl: './components/categoryNews/categoryNews.html',
-  controllerAs: 'model',
-  controller: ['$stateParams', 'articleService', categoryNewsCtrl]
-});
-'use strict';
-
-function editorViewCtrl(articleService) {
-  // TODO: assign random author according to category
-
-
-  var model = this;
-  model.$onInit = function () {
-    ngModel.$viewChangeListeners.push(onChange);
-    ngModel.$render = onChange;
-  };
-  function onChange() {
-    model.modelValue = model.ngModel.$modelValue;
-  }
-  model.categories = ['business', 'politics', 'economy', 'tech', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
-  model.articles = [];
-  model.$onInit = function () {
-    articleService.getArticles().then(function (resp) {
-      model.articles = resp;
-    }).catch(function (err) {
-      $scope.error = err;
-      console.error(err);
-    });
-  };
-  model.openArticle = function (article) {
-    return model.editArticle = article;
-  };
-  var putArticle = function putArticle() {
-    articleService.putArticle(article);
-    model.editArticle = '';
-  };
-  var postArticle = function postArticle() {
-    articleService.postArticle(article);
-    model.editArticle = '';
-  };
-  model.deleteArticle = function (article) {
-    articleService.deleteArticle(article.id);
-    model.editArticle = '';
-  };
-  model.submitArticle = function (article) {
-    console.log(article);
-    if (article.id == null) {
-      console.log('no id');
-      postArticle(article);
-    } else {
-      console.log('yes id');
-      putArticle(article);
-    }
-  };
-}
-
-angular.module('newsApp').component('editorView', {
-  templateUrl: './components/editorView/editorView.html',
-  controllerAs: 'model',
-  controller: ['articleService', editorViewCtrl],
-  require: 'ngModel'
-});
-'use strict';
-
-function errorDisplayCtrl() {
-  var model = this;
-}
-
-angular.module('newsApp').component('errorDisplay', {
-  templateUrl: './components/errorDisplay/errorDisplay.html',
-  controllerAs: 'model',
-  controller: errorDisplayCtrl,
-  bindings: {
-    error: '<',
-    softerr: '<'
-  },
-  require: '^searchViewCtrl'
-});
-'use strict';
-
-function topMenuCtrl($scope, $state) {
-  $scope.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
-}
-
-angular.module('newsApp').component('topMenu', {
-  templateUrl: './components/header/header.html',
-  controller: topMenuCtrl
-});
-'use strict';
-
-function landingCtrl() {}
-
 angular.module('newsApp').component('landing', {
   templateUrl: './components/landing/landing.html',
-  controller: landingCtrl
+  controllerAs: 'model',
+  controller: ['articleService', landingCtrl]
 });
 'use strict';
 
 function addonArticleCtrl($stateParams, articleService) {
   var model = this;
-  model.currentCat = $stateParams.category;
-  // replace with sql query
   model.$onInit = function () {
-    articleService.getArticles().then(function (resp) {
+    model.currentCat = $stateParams.category;
+    articleService.getArticles($stateParams.category).then(function (resp) {
       model.articleMatches = resp;
     }).catch(function (err) {
       $scope.error = err;
@@ -315,27 +373,68 @@ angular.module('newsApp').component('addonCategory', {
 });
 'use strict';
 
-function searchViewCtrl(articleService) {
+function comments(articleService, $stateParams) {
   var model = this;
+  var modifyResponse = function modifyResponse(comments) {
+    for (var i = 0; i < comments.length; i++) {
+      if (comments[i].country !== 'US') {
+        comments[i].locCountry = comments[i].country;
+      } else {
+        comments[i].locState = comments[i].state;
+      }
+    }
+  };
+  model.$onInit = function () {
+    articleService.getComments($stateParams.articleId).then(function (res) {
+      model.comments = res;
+      modifyResponse(model.comments);
+    }).catch(function (err) {
+      $scope.error = err;
+      console.error(err);
+    });
+  };
+}
+
+angular.module('newsApp').component('comments', {
+  templateUrl: './components/comments/comments.html',
+  controllerAs: 'model',
+  controller: ['articleService', '$stateParams', comments]
+});
+'use strict';
+
+function searchViewCtrl($state, articleService) {
+  var model = this;
+  console.log($state);
   var modifyResponse = function modifyResponse(articles) {
     if (articles.length < 1) {
       model.softerr = 'No articles match your search.';
     }
   };
-  model.submitSearch = function (query) {
-    articleService.searchTitles(query).then(function (res) {
-      model.articles = res;
-      modifyResponse(model.articles);
-    }).catch(function (err) {
-      model.error = err;
-      console.error(err);
-    });
+  model.$onInit = function () {
+    model.submitSearch = function (query) {
+      if (search.$valid) {
+        $state.href('/search/:query');
+      };
+      articleService.searchTitles(query).then(function (res) {
+        model.articles = res;
+        modifyResponse(model.articles);
+      }).catch(function (err) {
+        model.error = err;
+        console.error(err);
+      });
+    };
   };
 }
 
 angular.module('newsApp').component('searchView', {
   templateUrl: './components/searchView/searchView.html',
   controllerAs: 'model',
-  controller: ['articleService', searchViewCtrl]
+  controller: ['articleService', '$state', searchViewCtrl]
+});
+
+angular.module('newsApp').component('searchForm', {
+  templateUrl: './components/searchView/searchForm.html',
+  controllerAs: 'model',
+  controller: ['articleService', '$state', searchViewCtrl]
 });
 //# sourceMappingURL=bundle.js.map

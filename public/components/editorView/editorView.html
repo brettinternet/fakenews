@@ -1,8 +1,11 @@
+<span ng-repeat="i in model.categories">
+  <li class="menu-item" ng-bind="i" ng-click="model.setCategory(i)"></li>
+</span>
 <ul ng-repeat="article in model.articles">
   <li ng-click="model.openArticle(article)">
     <ul>
       <li ng-bind="article.title"></li>
-      <li ng-bind="article.timestamp | date: 'longDate'"></li>
+      <li ng-bind="article.createdat | date: 'longDate'"></li>
     </ul>
   </li>
 </ul>
@@ -23,7 +26,7 @@
     </tr>
     <tr>
       <td>Time:</td>
-      <td><input type="text" ng-model="model.editArticle.timestamp"></td>
+      <td><input type="text" ng-model="model.editArticle.createdat"></td>
     </tr>
     <tr>
       <td><span>Breaking News</span></td>
@@ -59,7 +62,7 @@
     </tr>
     <tr>
       <td>Article:</td>
-      <td><textarea ng-model="model.editArticle.content" rows="8" cols="80"></textarea></td>
+      <td><textarea ng-model="model.editArticle.body" rows="8" cols="80"></textarea></td>
     </tr>
     <tr>
       <td><span>Published</span></td>

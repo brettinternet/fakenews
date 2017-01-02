@@ -1,13 +1,10 @@
-<form class="search-form" ng-submit="model.submitSearch(query)">
-  <input type="search" placeholder="Search" class="search-input" ng-model="query">
-  <button type="submit">Search</button>
-</form>
+<search-form></search-form>
 <div class="card">
   <div ng-repeat="article in model.articles" class="search-article">
     <a ui-sref="article({category: article.category, articleId: article.id})">
       <span ng-bind="article.category" class="news-category"></span>
       <span ng-bind="article.location" class="news-location"></span><br/>
-      <img ng-src="{{article.img}}" class="news-img">
+      <img ng-src="{{article.img}} height="400px"" class="news-img">
       <div ng-bind="article.title" class="news-title"></div>
       <span ng-bind="article.author" class="category-news-author"></span>
       <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span><span ng-bind="model.article.createdat | date: 'h:mm a'" class="news-createdat"></span>

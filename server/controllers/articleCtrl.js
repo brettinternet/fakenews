@@ -58,7 +58,7 @@ module.exports = {
 
   getId: function(req, response) {
     let articleObj = {};
-    db.run("SELECT articles.*, array_agg(tags.tag) AS tags, countries.name AS countryname, countries.twoletter AS countrytwoletter FROM articles LEFT JOIN tags on tags.articleid = articles.id JOIN countries on countries.id = articles.countryid WHERE articles.id = $1 AND articles.published = true GROUP BY articles.id, countries.name, countries.twoletter", [req.params.articleId], (err, res) => {
+    db.run("SELECT articles.*, array_agg(tags.tag) AS tags, countries.name AS countryname, countries.twoletter AS countrytwoletter FROM articles LEFT JOIN tags on tags.articleid = articles.id LEFT JOIN countries on countries.id = articles.countryid WHERE articles.id = $1 AND articles.published = true GROUP BY articles.id, countries.name, countries.twoletter", [req.params.articleId], (err, res) => {
       if (err) {
         console.log(err);
         winston.error.error(err);
@@ -80,6 +80,16 @@ module.exports = {
     });
   },
 
+  getComments: function(req, response) {
+    db.run("SELECT comments.id, comments.comment, comments.parentid, comments.createdat, users.firstname::text || ' ' || users.lastname::text AS user, users.state, countries.name AS country, users.imgnail FROM comments JOIN articles ON articles.id = comments.articleid JOIN users ON users.id = comments.userid JOIN countries ON countries.id = users.countryid WHERE articles.id = $1", [req.params.articleId], (err, res) => {
+      if (err) {
+        winston.error.error(err);
+        return response.status(500).send(err);
+      }
+      response.status(200).send(res);
+    });
+  },
+
   // getFewIds: function(req, response) {
   //   req.field1
   //   db.run("", [req.params.category], (err, res) => {
@@ -92,7 +102,17 @@ module.exports = {
   // },
 
   getCat: function(req, response) {
-    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND upper(categories.category) = upper($1) ORDER BY createdat DESC LIMIT 10", [req.params.category], (err, res) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND articles.body != '' AND upper(categories.category) = upper($1) ORDER BY createdat DESC LIMIT 10", [req.params.category], (err, res) => {
+      if (err) {
+        winston.error.error(err);
+        return response.status(500).send(err);
+      }
+      response.status(200).send(res);
+    });
+  },
+
+  getPics: function(req, response) {
+    db.run("SELECT articles.title, articles.img, articles.imgnail, categories.category FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND articles.picspost = true AND upper(categories.category) = upper($1) ORDER BY createdat DESC LIMIT 10", [req.params.category], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -124,7 +144,7 @@ module.exports = {
 
   // TODO: Offset and paginate response
   searchTitle: function(req, response) {
-    let searchTerm = '%' + req.query.title + '%';
+    let searchTerm = '%' + req.params.title + '%';
     db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author, array_agg(tags.tag) AS tags FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid LEFT JOIN tags on tags.articleid = articles.id  WHERE articles.published = true AND (upper(articles.title) LIKE upper($1) OR upper(articles.headline) LIKE upper($1)) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY createdat DESC LIMIT 10", [searchTerm], (err, res) => {
       if (err) {
         winston.error.error(err);

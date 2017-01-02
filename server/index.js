@@ -1,3 +1,7 @@
+// install forever
+// https://github.com/foreverjs/forever
+// http://stackoverflow.com/questions/12701259/how-to-make-a-node-js-application-run-permanently
+
 const express = require('express'),
       bodyParser = require('body-parser'),
       cors = require('cors'),
@@ -45,11 +49,13 @@ const articleCtrl = require('./controllers/articleCtrl'),
       commentCtrl = require('./controllers/commentCtrl');
 
 
-app.get('/api/search', articleCtrl.searchTitle);
-app.get('/api/:category', articleCtrl.getCat);
+app.get('/api/search/:title', articleCtrl.searchTitle);
+app.get('/api/category/:category', articleCtrl.getCat);
+app.get('/api/pics/:category', articleCtrl.getPics);
 app.get('/api/tags/:category', articleCtrl.getCatTags);
 app.get('/api/article/:articleId', articleCtrl.getId);
 app.get('/api/tag/:tag', articleCtrl.getArticlesByTag);
+app.get('/api/comments/:articleId', articleCtrl.getComments);
 // app.get('/api/articles', articleCtrl.getFewIds);
 app.put('/api/article/:articleId', articleCtrl.update);
 app.post('/api/article', articleCtrl.create);

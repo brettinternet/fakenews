@@ -1,0 +1,13 @@
+<div class="card" ng-repeat="i in model.comments | orderBy: 'createdat'">
+  <div class="card comment">
+    <!-- <span ng-if>In reply to</span><span ng-bind=""></span> -->
+    <!-- TODO: get parentid user name from SELECT statement on same table -->
+    <img ng-src="{{i.imgnail}}" alt="user image">
+    <span ng-bind="i.user"></span>
+    <span class="comment-state" ng-if="i.locState" ng-bind="i.locState"></span>
+    <span class="comment-country" ng-if="i.locCountry" ng-bind="i.locCountry"></span>
+    <span class="comment-createdat" ng-bind="i.createdat | date: 'fullDate'"></span>
+    <span class="comment-createdat" ng-bind="i.createdat | date: 'h:mm a'"></span>
+    <div class="comment-comment" ng-bind="i.comment"></div>
+  </div>
+</div>

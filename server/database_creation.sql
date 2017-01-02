@@ -132,7 +132,8 @@ CREATE TABLE comments
   ParentId INTEGER,
   ArticleId INTEGER REFERENCES articles(id) not null,
   createdAt TIMESTAMP WITH TIME ZONE,
-  redditid VARCHAR(40)
+  redditid VARCHAR(40),
+  -- source VARCHAR(40)
 );
 
 INSERT INTO comments (comment, userid, parentid, articleid, createdat, redditid) VALUES ('');
@@ -151,3 +152,7 @@ CREATE TABLE countries (
 ALTER TABLE authors ALTER COLUMN countryid TYPE integer USING (countryid::integer);
 
 ALTER SEQUENCE authors_id_seq RESTART WITH 1492;
+
+-- ########################################################
+-- ########################################################
+-- ########################################################

@@ -3,23 +3,12 @@ const https = require('https'),
       // fs = require('fs'),
       request = require('request'),
       schedule = require('node-schedule'),
+      picProcessor = require('./picProcessor'),
       articleProcessor = require('./articleProcessor');
-
-// ## FOR TESTING ##
-// request('https://www.reddit.com/r/news/top/.json', (err, res, raw) => {
-//   let category = 'front';
-//   if (!err && res.statusCode == 200) {
-//     let body = JSON.parse(raw);
-//     articleProcessor.findPost(body, category);
-//   } else {
-//     winston.get.error(err);
-//   }
-// });
 
 let front = new schedule.RecurrenceRule(),
     business = new schedule.RecurrenceRule(),
     tech = new schedule.RecurrenceRule(),
-    techGadgets = new schedule.RecurrenceRule(),
     economy = new schedule.RecurrenceRule(),
     politics = new schedule.RecurrenceRule(),
     science = new schedule.RecurrenceRule(),
@@ -28,7 +17,10 @@ let front = new schedule.RecurrenceRule(),
     lifestyle = new schedule.RecurrenceRule(),
     entertainment = new schedule.RecurrenceRule(),
     world = new schedule.RecurrenceRule(),
-    opinion = new schedule.RecurrenceRule();
+    opinion = new schedule.RecurrenceRule(),
+    secondary = new schedule.RecurrenceRule(),
+    pic = new schedule.RecurrenceRule();
+
 front.minute = 1;
 business.minute = 5;
 tech.minute = 10;
@@ -42,8 +34,9 @@ entertainment.minute = 45;
 world.minute = 50;
 opinion.minute = 55;
 
-techGadgets.hour = 17;
-techGadgets.minute = 0;
+pic.minute = 1;
+secondary.hour = 17;
+secondary.minute = 0;
 
 schedule.scheduleJob(front, () => {
   request('https://www.reddit.com/r/news/top/.json', (err, res, raw) => {
@@ -57,17 +50,65 @@ schedule.scheduleJob(front, () => {
   });
 });
 
-// schedule.scheduleJob(front, () => {
-  // request('https://www.reddit.com/r/pics/top/.json', (err, res, raw) => {
-  //   let category = 'front';
-  //   if (!err && res.statusCode == 200) {
-  //     let body = JSON.parse(raw);
-  //     picsProcessor.findPost(body, category);
-  //   } else {
-  //     winston.get.error(err);
-  //   }
-  // });
-// });
+schedule.scheduleJob(pic, () => {
+  request('https://www.reddit.com/r/pics/top/.json', (err, res, raw) => {
+    let category = 'front';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      picProcessor.findPost(body, category);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
+
+schedule.scheduleJob(pic, () => {
+  request('https://www.reddit.com/r/aww/top/.json', (err, res, raw) => {
+    let category = 'front';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      picProcessor.findPost(body, category);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
+
+schedule.scheduleJob(pic, () => {
+  request('https://www.reddit.com/r/funny/top/.json', (err, res, raw) => {
+    let category = 'front';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      picProcessor.findPost(body, category);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
+
+schedule.scheduleJob(pic, () => {
+  request('https://www.reddit.com/r/adviceanimals/top/.json', (err, res, raw) => {
+    let category = 'front';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      picProcessor.findPost(body, category);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
+
+schedule.scheduleJob(pic, () => {
+  request('https://www.reddit.com/r/wholesomememes/top/.json', (err, res, raw) => {
+    let category = 'front';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      picProcessor.findPost(body, category);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
 
 schedule.scheduleJob(business, () => {
   request('https://www.reddit.com/r/business/top/.json', (err, res, raw) => {
@@ -117,18 +158,6 @@ schedule.scheduleJob(science, () => {
   });
 });
 
-// schedule.scheduleJob(science, () => {
-  // request('https://www.reddit.com/r/shittyaskscience/top/.json', (err, res, raw) => {
-  //   let category = 'science';
-  //   if (!err && res.statusCode == 200) {
-  //     let body = JSON.parse(raw);
-  //     articleProcessor.findPost(body, category);
-  //   } else {
-  //     winston.get.error(err);
-  //   }
-  // });
-// });
-
 schedule.scheduleJob(health, () => {
   request('https://www.reddit.com/r/health/top/.json', (err, res, raw) => {
     let category = 'health';
@@ -141,19 +170,29 @@ schedule.scheduleJob(health, () => {
   });
 });
 
-// https://www.reddit.com/r/fitness/top/.json
+schedule.scheduleJob('* */2 * * *', () => {
+  request('https://www.reddit.com/r/mealprepsunday/top/.json', (err, res, raw) => {
+    let category = 'health';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      picProcessor.findPost(body, category);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
 
-// schedule.scheduleJob(health, () => {
-  // request('https://www.reddit.com/r/mealprepsunday/top/.json', (err, res, raw) => {
-  //   let category = 'health';
-  //   if (!err && res.statusCode == 200) {
-  //     let body = JSON.parse(raw);
-  //     picProcessor.findPost(body, category);
-  //   } else {
-  //     winston.get.error(err);
-  //   }
-  // });
-// });
+schedule.scheduleJob('* */2 * * *', () => {
+  request('https://www.reddit.com/r/food/top/.json', (err, res, raw) => {
+    let category = 'health';
+    if (!err && res.statusCode == 200) {
+      let body = JSON.parse(raw);
+      picProcessor.findPost(body, category);
+    } else {
+      winston.get.error(err);
+    }
+  });
+});
 
 schedule.scheduleJob(tech, () => {
   request('https://www.reddit.com/r/futurology/top/.json', (err, res, raw) => {
@@ -167,7 +206,7 @@ schedule.scheduleJob(tech, () => {
   });
 });
 
-schedule.scheduleJob(techGadgets, () => {
+schedule.scheduleJob(secondary, () => {
   request('https://www.reddit.com/r/gadgets/top/.json', (err, res, raw) => {
     let category = 'tech';
     if (!err && res.statusCode == 200) {
@@ -227,7 +266,7 @@ schedule.scheduleJob(world, () => {
   });
 });
 
-schedule.scheduleJob(opinion, () => {
+schedule.scheduleJob(secondary, () => {
   request('https://www.reddit.com/r/philosophy/top/.json', (err, res, raw) => {
     let category = 'opinion';
     if (!err && res.statusCode == 200) {

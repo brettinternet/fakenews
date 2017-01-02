@@ -10,6 +10,10 @@ angular.module('newsApp').config(function($stateProvider, $urlRouterProvider, $l
     })
     .state('search', {
       url: '/search',
+      template: '<search-view></search-view>',
+    })
+    .state('tags', {
+      url: '/tags/:tag',
       template: '<search-view></search-view>'
     })
     .state('category', {

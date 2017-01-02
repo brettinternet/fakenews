@@ -1,9 +1,8 @@
 function addonArticleCtrl($stateParams, articleService) {
   var model = this;
-  model.currentCat = $stateParams.category;
-  // replace with sql query
   model.$onInit = function() {
-    articleService.getArticles()
+    model.currentCat = $stateParams.category;
+    articleService.getArticles($stateParams.category)
       .then(function(resp) {
         model.articleMatches = resp;
       })
