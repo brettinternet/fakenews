@@ -1,4 +1,3 @@
-<!-- map card? -->
 <div class="card left">
   <span class="card-title">Now</span>
   <div ng-repeat="article in model.articles" class="news-container">
@@ -11,24 +10,6 @@
       <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
     </div>
-    <error-display></error-display>
-  </div>
-</div>
-
-<div class="card left cleft">
-  <span class="card-title">Stories</span>
-  <div ng-repeat="article in model.articlesOtherMore" class="news-container">
-    <span class="breakingnews" ng-if="article.breakingnews">Breaking News</span>
-    <span class="category-title" ng-bind="article.category"></span>
-    <img ng-src="{{article.img}}"></img>
-    <div class="news-text">
-      <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-      <div ng-bind="article.headline" class="news-headline"></div></a>
-      <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
-      <span am-time-ago="article.createdat" class="news-createdat"></span>
-      <span ng-bind="article.location" class="news-location"></span>
-    </div>
-    <error-display></error-display>
   </div>
 </div>
 
@@ -45,28 +26,41 @@
       <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
     </div>
-    <error-display></error-display>
   </div>
 </div>
 
-<div class="card right cright">
+<div class="card right">
   <span class="card-title">Top Memes</span>
   <div ng-repeat="pic in model.pics" class="pics-container">
     <a ui-sref="article({category: pic.category, articleId: pic.id})"><span ng-bind="pic.title" class="pics-title"></span>
     <img ng-src="{{pic.img}}"></img></a>
-    <span ng-if="pic.breakingnews" class="pics-hot">Hot</span><span ng-repeat="tag in pic.tags" class="pics-tags">#<span ng-bind="tag"></span></span><span am-time-ago="pic.createdat" class="pics-createdat"></span>
-    <error-display></error-display>
+    <span ng-if="pic.breakingnews" class="pics-hot">Hot</span><span ng-if="pic.tags[0] != null" ng-repeat="tag in pic.tags" class="pics-tags">#<span ng-bind="tag"></span></span><span am-time-ago="pic.createdat" class="pics-createdat"></span>
   </div>
 </div>
 
-<div class="card right-two-alt cboth">
+<div class="card left">
+  <span class="card-title">Stories</span>
+  <div ng-repeat="article in model.articlesOtherMore" class="news-container">
+    <span class="breakingnews" ng-if="article.breakingnews">Breaking News</span>
+    <span class="category-title" ng-bind="article.category"></span>
+    <img ng-src="{{article.img}}"></img>
+    <div class="news-text">
+      <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
+      <div ng-bind="article.headline" class="news-headline"></div></a>
+      <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
+      <span am-time-ago="article.createdat" class="news-createdat"></span>
+      <span ng-bind="article.location" class="news-location"></span>
+    </div>
+  </div>
+</div>
+
+<div class="card right-two" id="borderless-card">
   <span class="card-title">Recent Memes</span>
   <div class="inside-left">
     <div ng-repeat="pic in model.picsMore" class="pics-container">
       <a ui-sref="article({category: pic.category, articleId: pic.id})"><span ng-bind="pic.title" class="pics-title"></span>
       <img ng-src="{{pic.img}}"></img></a>
       <span ng-if="pic.breakingnews" class="pics-hot">Hot</span><span ng-repeat="tag in pic.tags" class="pics-tags">#<span ng-bind="tag"></span></span><span am-time-ago="pic.createdat" class="pics-createdat"></span>
-      <error-display></error-display>
     </div>
   </div>
   <div class="inside-right">
@@ -74,29 +68,51 @@
       <a ui-sref="article({category: pic.category, articleId: pic.id})"><span ng-bind="pic.title" class="pics-title"></span>
       <img ng-src="{{pic.img}}"></img></a>
       <span ng-if="pic.breakingnews" class="pics-hot">Hot</span><span ng-repeat="tag in pic.tags" class="pics-tags">#<span ng-bind="tag"></span></span><span am-time-ago="pic.createdat" class="pics-createdat"></span>
-      <error-display></error-display>
     </div>
   </div>
 </div>
 
-<div class="card left-two cleft" id="borderless-card">
-  <span class="card-title">Recently</span>
-  <div ng-repeat="article in model.articlesMore" class="news-container">
+<div class="card right-two">
+  <span class="card-title">More Stories</span>
+  <div ng-repeat="article in model.articlesOtherMore2" class="news-container">
     <span class="breakingnews" ng-if="article.breakingnews">Breaking News</span>
+    <span class="category-title" ng-bind="article.category"></span>
     <img ng-src="{{article.img}}"></img>
     <div class="news-text">
       <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
       <div ng-bind="article.headline" class="news-headline"></div></a>
       <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
-      <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
+      <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
     </div>
   </div>
 </div>
 
-<div class="card right add-bottom-pad cright" id="borderless-card">
-  <span class="card-title">Tags</span>
-  <span ng-repeat="tag in model.catTags" class="category-tag"><span class="category-hashtag">#</span><span ng-bind="tag.tag"></span><span ng-if="tag.count > 1">({{tag.count}})</span></span>
-  <error-display></error-display>
+<div class="card left-two" id="borderless-card">
+  <span class="card-title">Recently</span>
+  <div ng-repeat="article in model.articlesMore" class="news-container">
+    <span class="breakingnews" ng-if="article.breakingnews">Breaking News</span>
+    <table>
+      <tr>
+        <td><div class="img" style="background-image: url('{{article.img}}')"></div></td>
+        <td>
+          <div class="news-text">
+            <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
+            <div ng-bind="article.headline" class="news-headline"></div></a>
+            <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
+            <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
+            <span ng-bind="article.location" class="news-location"></span>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
+
+<div class="card right add-bottom-pad" id="borderless-card">
+  <span class="card-title">Tags</span>
+  <span ng-repeat="tag in model.catTags" class="category-tag"><span class="category-hashtag">#</span><span ng-bind="tag.tag"></span><span ng-if="tag.count > 1"> ({{tag.count}})</span></span>
+  </div>
+</div>
+
+<error-display class="right"></error-display>

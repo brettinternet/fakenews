@@ -24,3 +24,18 @@
 5:30:02 PM ERROR 
 6:30:02 PM ERROR 
 7:30:01 PM ERROR 
+8:30:03 PM ERROR 
+9:25:04 PM ERROR 
+	{"message":"Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500","stack":"Error: Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500\n    at Redirect.onResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/lib/redirect.js:98:27)\n    at Request.onRequestResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/request.js:917:22)\n    at emitOne (events.js:96:13)\n    at ClientRequest.emit (events.js:188:7)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:473:21)\n    at HTTPParser.parserOnHeadersComplete (_http_common.js:99:23)\n    at Socket.socketOnData (_http_client.js:362:20)\n    at emitOne (events.js:96:13)\n    at Socket.emit (events.js:188:7)\n    at readableAddChunk (_stream_readable.js:176:18)"}
+9:30:04 PM ERROR 
+9:40:05 PM ERROR 
+10:30:01 PM ERROR 
+11:01:20 PM ERROR 
+11:25:09 PM ERROR 
+	{"message":"Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500","stack":"Error: Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500\n    at Redirect.onResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/lib/redirect.js:98:27)\n    at Request.onRequestResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/request.js:917:22)\n    at emitOne (events.js:96:13)\n    at ClientRequest.emit (events.js:188:7)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:473:21)\n    at HTTPParser.parserOnHeadersComplete (_http_common.js:99:23)\n    at Socket.socketOnData (_http_client.js:362:20)\n    at emitOne (events.js:96:13)\n    at Socket.emit (events.js:188:7)\n    at readableAddChunk (_stream_readable.js:176:18)"}
+11:30:02 PM ERROR 
+11:40:02 PM ERROR 
+12:25:03 AM ERROR 
+	{"message":"Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500","stack":"Error: Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500\n    at Redirect.onResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/lib/redirect.js:98:27)\n    at Request.onRequestResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/request.js:917:22)\n    at emitOne (events.js:96:13)\n    at ClientRequest.emit (events.js:188:7)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:473:21)\n    at HTTPParser.parserOnHeadersComplete (_http_common.js:99:23)\n    at Socket.socketOnData (_http_client.js:362:20)\n    at emitOne (events.js:96:13)\n    at Socket.emit (events.js:188:7)\n    at readableAddChunk (_stream_readable.js:176:18)"}
+12:30:02 AM ERROR 
+12:40:02 AM ERROR 

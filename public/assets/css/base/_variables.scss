@@ -10,12 +10,13 @@ $yellow: #AE9131;
 
 $font: Helvetica, sans-serif;
 $title: 'Merriweather', serif;
-$body: 'Roboto', sans-serif;
+$other: 'Roboto', sans-serif;
 $headline: 'Libre Franklin', sans-serif;
+$body: Georgia, serif;
+$gar: 'EB Garamond', serif;
 
-@include add-grid(2 1 1);
+@include add-grid(4);
 @include add-gutter(1/24);
-// @include add-gutter-style('split');
-@include sgs-change('output', 'isolation');
+@include sgs-change('output', 'float');
 // @include sgs-change('debug', true);
 // @include background-grid($color: blue);

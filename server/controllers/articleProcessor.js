@@ -124,6 +124,7 @@ processUrl = (obj) => {
       }
       db.scraped.insert(scrapedValues, (err, res) => {
         if (err) winston.process.error(err);
+        console.log('DATABASE: recorded error id');
       });
     }
   });

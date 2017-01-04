@@ -19,6 +19,7 @@
   "dependencies": {
     "angular": "^1.6.0",
     "angular-moment": "^1.0.1",
+    "angular-sanitize": "^1.6.1",
     "angular-ui-router": "^0.3.2",
     "body-parser": "^1.15.2",
     "breakpoint-sass": "^2.7.1",

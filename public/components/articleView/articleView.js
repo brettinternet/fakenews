@@ -2,6 +2,11 @@ function articleViewCtrl(articleService, $stateParams) {
   let model = this;
   let modifyResponse = function(article, author) {
     author.name = author.firstname + ' ' + author.lastname;
+    let artArr = article.body.match(/[^\.!\?]+[\.!\?]+/g);
+    if (artArr[2].charAt(0) === " ") {
+      artArr[2] = "<br/>" + artArr[2].slice(1);
+    }
+    model.article.body = artArr.join(' ');
   }
   model.$onInit = function() {
     articleService.getArticleById($stateParams.articleId)
@@ -11,6 +16,14 @@ function articleViewCtrl(articleService, $stateParams) {
           model.author = res.author;
           modifyResponse(model.article, model.author);
         }
+      })
+      .catch(function(err) {
+        model.error = err;
+        console.error(err);
+      });
+    articleService.getArticles($stateParams.category)
+      .then(function(resp) {
+        model.articleMatches = resp;
       })
       .catch(function(err) {
         model.error = err;

@@ -66,7 +66,7 @@ module.exports = {
       }
       if (res.length >= 1) {
         articleObj.article = res[0];
-        db.run("SELECT authors.firstname, authors.lastname, authors.email, categories.category FROM authors JOIN categories on categories.id = authors.categoryid WHERE authors.id = $1", [articleObj.article.authorid], (err, res) => {
+        db.run("SELECT authors.firstname, authors.lastname, authors.email, authors.username, categories.category FROM authors JOIN categories on categories.id = authors.categoryid WHERE authors.id = $1", [articleObj.article.authorid], (err, res) => {
           if (err) {
             winston.error.error(err);
             return response.status(500).send(err);

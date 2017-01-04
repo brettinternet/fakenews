@@ -1,7 +1,8 @@
-var angular = require('angular');
-var uiRouter = require('angular-ui-router');
-var moment = require('moment');
-var ngMoment = require('angular-moment');
+var angular = require('angular'),
+    uiRouter = require('angular-ui-router'),
+    moment = require('moment'),
+    ngMoment = require('angular-moment'),
+    ngSanitize = require('angular-sanitize');
 
 
-angular.module('newsApp', [uiRouter, ngMoment]);
+angular.module('newsApp', [uiRouter, ngMoment, ngSanitize]);

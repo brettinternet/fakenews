@@ -1,14 +1,19 @@
 function categoryNewsCtrl($stateParams, articleService) {
   let model = this;
-  let modifyResponse = (articles) => {
-    model.articlesMore = articles.splice(3);
-  }
   model.$onInit = function() {
     model.category = $stateParams.category;
     articleService.getArticles(model.category)
       .then(function(res) {
         model.articles = res;
-        modifyResponse(model.articles);
+        model.articlesMore = model.articles.splice(5);
+      })
+      .catch(function(err) {
+        model.error = err;
+        console.error(err);
+      });
+    articleService.getTagList(model.category)
+      .then(function(res) {
+        model.catTags = res;
       })
       .catch(function(err) {
         model.error = err;
@@ -16,7 +21,16 @@ function categoryNewsCtrl($stateParams, articleService) {
       });
     articleService.getPics(model.category)
       .then(function(res) {
-        model.pics = res;
+        if (res.length > 6) {
+          model.pics = res;
+          model.picsMore = model.pics.splice(4);
+          model.picsMore2 = model.picsMore.splice(3);
+        } else if (6 >= res.length > 3) {
+          model.pics = res;
+          model.picsMore = model.pics.splice(3);
+        } else {
+          model.pics = res;
+        }
       })
       .catch(function(err) {
         model.error = err;

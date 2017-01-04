@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css?family=Libre+Franklin:500|Merriweather:400,700|Roboto");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin:500|Merriweather:400,700|Roboto");
 
 
 
@@ -289,6 +289,112 @@ template {
 [hidden] {
   display: none; }
 
+br {
+  line-height: 2.2em; }
+
+.atitle {
+  font-size: 3em;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  margin-bottom: 10px; }
+
+.news-imgdesc {
+  color: #2A363B;
+  font-family: "Libre Franklin", sans-serif;
+  margin-top: 10px; }
+
+.author-date-line {
+  margin-top: 20px;
+  display: block; }
+
+.news-headline-container {
+  padding: 10px 10px;
+  text-align: left;
+  margin: 15px 50px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #848C8E;
+  font-weight: 700;
+  font-size: 1.8em;
+  line-height: 1.2em; }
+
+.news-body {
+  line-height: 1.5em;
+  font-size: 1.3em;
+  font-family: Georgia, serif;
+  padding: 0 30px; }
+
+.email-icon {
+  font-size: 1em;
+  transform: translateY(0.2em); }
+
+.atime {
+  float: right; }
+
+.author-name {
+  text-transform: capitalize; }
+
+#author-info {
+  font-size: 1em; }
+
+.list-title {
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+  font-weight: 700; }
+
+.list-subtext {
+  font-family: Helvetica, sans-serif;
+  font-size: .7em;
+  font-weight: 600;
+  color: black; }
+
+.list-author, .list-createdat {
+  font-family: Helvetica, sans-serif;
+  font-size: .7em;
+  color: #2A363B; }
+
+.list-author {
+  text-transform: capitalize; }
+
+.list-createdat {
+  background-color: #AE9131;
+  padding: .2em .4em;
+  color: #FEFEFE; }
+
+.comment {
+  position: relative;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #151515; }
+  .comment table {
+    text-align: left;
+    vertical-align: bottom; }
+  .comment img {
+    display: inline-block;
+    border-radius: 50%;
+    width: 50px; }
+  .comment .comment-user {
+    font-family: Helvetica, sans-serif;
+    text-transform: capitalize;
+    color: #1B264F; }
+  .comment .comment-country, .comment .comment-state {
+    font-family: "Merriweather", serif;
+    text-transform: capitalize;
+    color: #2A363B; }
+  .comment .comment-createdat {
+    background-color: #AE9131;
+    padding: .2em .4em;
+    color: #FEFEFE;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .8em; }
+  .comment .comment-body {
+    font-size: 1em;
+    font-family: "Roboto", sans-serif; }
+
 .footer-container {
   background-color: #151515;
   color: #FEFEFE;
@@ -311,50 +417,47 @@ template {
     color: #AE9131; }
   .footer-container .copyright {
     height: auto;
-    font-family: "Roboto", sans-serif; }
+    font-family: Georgia, serif; }
 
 .left {
-  width: 48.97959%;
+  width: 49.49495%;
+  clear: right;
   float: left;
-  margin-right: -100%;
   margin-left: 0;
-  clear: none; }
+  margin-right: 1.0101%; }
 
 .left-two {
-  width: 74.4898%;
+  width: 74.74747%;
+  clear: right;
   float: left;
-  margin-right: -100%;
   margin-left: 0;
-  clear: none; }
+  margin-right: 1.0101%; }
 
 .middle {
-  width: 24.4898%;
+  width: 24.24242%;
+  clear: right;
   float: left;
-  margin-right: -100%;
-  margin-left: 50%;
-  clear: none;
-  clear: both; }
+  margin-left: 0;
+  margin-right: 1.0101%; }
 
 .right {
-  width: 24.4898%;
+  width: 24.24242%;
+  clear: right;
   float: right;
-  margin-left: 0;
-  margin-right: 0;
-  clear: none; }
+  margin-right: 0; }
 
 .right-two {
-  width: 50%;
+  width: 49.49495%;
+  clear: right;
   float: right;
-  margin-left: 0;
-  margin-right: 0;
-  clear: none; }
+  margin-right: 0; }
 
 .right-two-alt {
-  width: 50%;
-  float: right;
+  width: 49.49495%;
+  clear: right;
+  float: left;
   margin-left: 0;
-  margin-right: 0;
-  clear: none; }
+  margin-right: 1.0101%; }
 
 body {
   background-color: #FEFEFE; }
@@ -378,7 +481,12 @@ ul {
   font-family: serif;
   font-size: 2.8em;
   color: #151515;
-  margin: auto; }
+  margin: auto;
+  font-family: Georgia, serif; }
+  .logo .now {
+    font-family: "Merriweather", serif; }
+  .logo .news {
+    font-family: "EB Garamond", serif; }
 
 .logo-container {
   display: table;
@@ -460,7 +568,7 @@ ul {
   padding: 2em 1em 0 1em;
   border: 1px solid #848C8E;
   border-radius: .1em;
-  margin-bottom: .5em;
+  margin-bottom: .8em;
   position: relative;
   clear: none; }
   .card .card-title {
@@ -470,10 +578,16 @@ ul {
     background-color: #151515;
     color: #FEFEFE;
     font-size: .9em;
-    padding: .2em .4em; }
+    padding: .2em .4em;
+    text-transform: capitalize; }
   .card .news-container {
     margin-bottom: 10px;
     position: relative; }
+    .card .news-container td .img {
+      height: 200px;
+      width: 300px;
+      background-position: center center;
+      background-repeat: no-repeat; }
     .card .news-container .category-title, .card .news-container .breakingnews {
       position: absolute;
       top: 0;
@@ -493,8 +607,6 @@ ul {
       display: block; }
     .card .news-container .news-text {
       padding: 5px 10px 10px 10px;
-      text-align: justify;
-      text-justify: distribute;
       margin: 0; }
       .card .news-container .news-text .news-title {
         font-family: "Merriweather", serif;
@@ -504,7 +616,9 @@ ul {
         font-family: "Libre Franklin", sans-serif;
         font-size: 1em;
         font-weight: 500;
-        margin: 10px 0 5px 0; }
+        margin: 5px 0;
+        text-align: justify;
+        text-justify: distribute; }
       .card .news-container .news-text .news-subtext {
         font-family: Helvetica, sans-serif;
         font-size: .8em;
@@ -520,7 +634,8 @@ ul {
         background-color: #AE9131;
         font-size: .9em;
         padding: .2em .4em;
-        color: #FEFEFE; }
+        color: #FEFEFE;
+        white-space: nowrap; }
   .card a:link, .card a:visited {
     color: inherit;
     text-decoration: none; }

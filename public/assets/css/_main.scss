@@ -3,7 +3,7 @@
   padding: 2em 1em 0 1em;
   border: 1px solid $whiteB;
   border-radius: .1em;
-  margin-bottom: .5em;
+  margin-bottom: .8em;
   position: relative;
   clear: none;
 
@@ -15,11 +15,21 @@
     color: $whiteA;
     font-size: .9em;
     padding: .2em .4em;
+    text-transform: capitalize;
   }
 
   .news-container {
     margin-bottom: 10px;
     position: relative;
+
+    td {
+      .img {
+        height: 200px;
+        width: 300px;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+    }
 
     .category-title, .breakingnews {
       position: absolute;
@@ -48,8 +58,6 @@
 
     .news-text {
       padding: 5px 10px 10px 10px;
-      text-align: justify;
-      text-justify: distribute;
       margin: 0;
 
       .news-title {
@@ -62,7 +70,9 @@
         font-family: $headline;
         font-size: 1em;
         font-weight: 500;
-        margin: 10px 0 5px 0;
+        margin: 5px 0;
+        text-align: justify;
+        text-justify: distribute;
       }
 
       .news-subtext {
@@ -87,6 +97,7 @@
         font-size: .9em;
         padding: .2em .4em;
         color: $whiteA;
+        white-space: nowrap;
       }
     }
   }
@@ -102,11 +113,11 @@
 
 
   .inside-left {
-    @include grid-span(1, 1, 2, 1/12, 'float');
+    @include grid-span(1, 1, 2, 1/12);
   }
 
   .inside-right {
-    @include grid-span(1, 2, 2, 1/12, 'float');
+    @include grid-span(1, 2, 2, 1/12);
   }
 
   .pics-container {

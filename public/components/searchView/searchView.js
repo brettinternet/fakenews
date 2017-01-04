@@ -1,6 +1,5 @@
 function searchViewCtrl($state, articleService) {
   var model = this;
-  console.log($state);
   let modifyResponse = function(articles) {
     if (articles.length < 1) {
       model.softerr = 'No articles match your search.';

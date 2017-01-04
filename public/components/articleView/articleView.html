@@ -1,17 +1,47 @@
-<span ng-bind="model.author.category" class="category-news-category"></span>
-<span ng-if="model.article.breakingnews" class="category-news-breakingnews">Hot</span>
-<span ng-bind="model.article.location" class="category-news-location"></span>
-<div ng-bind="model.article.title" class="category-news-title"></div>
-<img ng-src="{{model.article.img}}" width="600px" alt="article image"><br/>
-<div ng-bind="model.article.imgdesc" class="category-news-imgdesc"></div>
-<span ng-if="model.author.name" class="category-news-author">By: </span><span ng-bind="model.author.name" class="category-news-author"></span>
-<span ng-bind="model.article.createdat | date: 'fullDate'" class="category-news-createdat"></span class="category-news-createdat"><span> at</span>
-<span ng-bind="model.article.createdat | date: 'h:mm a'" class="category-news-createdat"></span>
-<em><div ng-bind="model.article.headline" class="category-news-headline"></div></em>
-<div ng-bind="model.article.body" class="category-news-body"></div>
+<div ng-bind="model.article.title" class="atitle"></div>
+<div class="card left-two">
+  <span class="card-title" ng-bind="model.author.category"></span>
+  <span ng-if="model.article.breakingnews" class="breakingnews">Hot</span>
+  <div class="news-container">
+    <div class="news-text">
+      <span ng-bind="model.article.location" class="news-location"></span>
+      <img ng-src="{{model.article.img}}">
+      <div ng-hide="model.article.title === model.article.imgdesc" ng-bind="model.article.imgdesc" class="news-imgdesc"></div>
+      <span class="author-date-line"><span ng-if="model.author.name"><span class="news-subtext">By: </span><span ng-bind="model.author.name" class="news-author"></span>
+      <a href="mailto:{{model.author.email}}"><i class="material-icons email-icon">email</i></a></span><span ng-bind="model.article.createdat | date: 'fullDate'" class="news-createdat atime"></span></span>
+      <div class="news-headline-container"><span ng-bind="model.article.headline" class="news-headline"></span></div>
+      <div ng-bind-html="model.article.body" class="news-body"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card add-bottom-pad right">
+  <span class="card-title">Related</span>
+  <div ng-repeat="article in model.articleMatches" class="news-container">
+    <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="list-title"></div></a>
+    <span class="list-subtext">By </span><span ng-bind="article.author" class="list-author"></span><span class="list-subtext"> • </span>
+    <span am-time-ago="article.createdat" class="list-createdat"></span>
+  </div>
+</div>
+
+<div ng-if="model.article.tags[0] != null" class="card right" id="borderless-card">
+  <span class="card-title">Tags</span>
+  <span ng-repeat="tag in model.article.tags" class="category-tag">
+    <span class="category-hashtag">#</span><span ng-bind="tag"></span>
+  </span>
+</div>
+
+<div class="card left-two">
+  <span class="card-title">About the Author</span>
+  <div class="news-container">
+    <div class="news-text">
+      <span class="news-subtext" id="author-info"><span class="author-name" ng-bind="model.author.name"></span> is a <span ng-bind="model.author.category"></span> reporter at <em>NowNewsToday</em>. <a target="_blank" href="https://twitter.com/search?f=users&vertical=news&q={{model.author.username}}&src=typd">Follow @<span ng-bind="model.author.username"></span></a></span>
+    </div>
+  </div>
+</div>
+
 
 <!-- <a ng-href="{{model.article.origin}}">{{model.article.origin}}</a> -->
 
 <error-display></error-display>
-<comments></comments>
-<addon-article tags="model.article.tags"></addon-article>
+<comments class="left-two"></comments>

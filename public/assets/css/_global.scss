@@ -1,26 +1,25 @@
 .left {
-  @include grid-span(1,1);
+  @include float-span(2);
 }
 
 .left-two {
-  @include grid-span(2,1);
+  @include float-span(3);
 }
 
 .middle {
-  @include grid-span(1,2);
-  clear: both;
+  @include float-span(1);
 }
 
 .right {
-  @include grid-span(1,3);
+  @include float-span(1, 'last');
 }
 
 .right-two {
-  @include grid-span(2,2);
+  @include float-span(2, 'last');
 }
 
 .right-two-alt {
-  @include grid-span(2,2);
+  @include float-span(2);
 }
 
 body {

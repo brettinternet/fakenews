@@ -1,0 +1,135 @@
+
+br {
+  line-height: 2.2em;
+}
+
+.atitle {
+  font-size: 3em;
+  font-family: $title;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.news-imgdesc {
+  color: $grey;
+  font-family: $headline;
+  margin-top: 10px;
+}
+
+.author-date-line {
+  margin-top: 20px;
+  display: block;
+}
+
+.news-headline-container {
+  padding: 10px 10px;
+  text-align: left;
+  margin: 15px 50px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: $whiteB;
+  font-weight: 700;
+  font-size: 1.8em;
+  line-height: 1.2em;
+}
+
+.news-body {
+  line-height: 1.5em;
+  font-size: 1.3em;
+  font-family: $body;
+  padding: 0 30px;
+}
+
+.email-icon {
+  font-size: 1em;
+  transform: translateY(.2em);
+}
+
+.atime {
+  float: right;
+}
+
+.author-name {
+  text-transform: capitalize;
+}
+
+#author-info {
+  font-size: 1em;
+}
+
+
+.list-title {
+  font-family: $title;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.list-subtext {
+  font-family: $font;
+  font-size: .7em;
+  font-weight: 600;
+  color: black;
+}
+
+.list-author, .list-createdat {
+  font-family: $font;
+  font-size: .7em;
+  color: $grey;
+}
+
+.list-author {
+  text-transform: capitalize;
+}
+
+.list-createdat {
+  background-color: $yellow;
+  padding: .2em .4em;
+  color: $whiteA;
+}
+
+.comment {
+  position: relative;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: $black;
+
+  table {
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  img {
+    display: inline-block;
+    border-radius: 50%;
+    width: 50px;
+  }
+
+  .comment-user {
+    font-family: $font;
+    text-transform: capitalize;
+    color: $darkblue;
+  }
+
+  .comment-country, .comment-state {
+    font-family: $title;
+    text-transform: capitalize;
+    color: $grey;
+  }
+
+  .comment-createdat {
+    background-color: $yellow;
+    padding: .2em .4em;
+    color: $whiteA;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .8em;
+  }
+
+  .comment-body {
+    font-size: 1em;
+    font-family: $other;
+  }
+}

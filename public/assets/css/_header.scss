@@ -6,6 +6,15 @@ $menuWide: 90%;
   font-size: 2.8em;
   color: $black;
   margin: auto;
+  font-family: $body;
+
+  .now {
+    font-family: $title;
+  }
+
+  .news {
+    font-family: $gar;
+  }
 }
 
 .logo-container {

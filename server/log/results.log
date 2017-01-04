@@ -365,3 +365,109 @@
 {"0":"New York City","1":"BREWSTER","2":"Greenwich Village","level":"info","message":"CITY:","timestamp":"7:40:06 PM"}
 {"0":"NY","1":"Putnam County","level":"info","message":"STATE:","timestamp":"7:40:06 PM"}
 {"0":"‘08","level":"info","message":"CITY:","timestamp":"7:45:10 PM"}
+{"0":"Pakistan","1":"Gujrat","level":"info","message":"COUNTRY:","timestamp":"7:55:05 PM"}
+{"0":"Tuticorin","1":"Mumbai","2":"Marrakech","3":"London","4":"Adani","level":"info","message":"CITY:","timestamp":"8:01:21 PM"}
+{"0":"India","1":"US","2":"UK","3":"China","4":"Australia","level":"info","message":"COUNTRY:","timestamp":"8:01:21 PM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"8:05:10 PM"}
+{"0":"Los Angeles","1":"Morono Valley","level":"info","message":"CITY:","timestamp":"8:10:10 PM"}
+{"0":"California","1":"Ontario","level":"info","message":"STATE:","timestamp":"8:10:10 PM"}
+{"0":"Stamford","1":"Tripoli","2":"Wellington","level":"info","message":"CITY:","timestamp":"8:15:11 PM"}
+{"0":"Connecticut","1":"Florida","level":"info","message":"STATE:","timestamp":"8:15:11 PM"}
+{"0":"U.S.","1":"Kuwait","2":"Oman","3":"Libya","4":"Mexico","5":"Russia","level":"info","message":"COUNTRY:","timestamp":"8:15:11 PM"}
+{"0":"South Carolina","level":"info","message":"STATE:","timestamp":"8:20:08 PM"}
+{"0":"Mecca","level":"info","message":"CITY:","timestamp":"8:50:05 PM"}
+{"0":"Saudi Arabia","1":"Lebanon","level":"info","message":"COUNTRY:","timestamp":"8:50:05 PM"}
+{"0":"Omaha","1":"1,647","2":"Utica","3":"Jefferson","4":"Arlington","5":"Lamesa","level":"info","message":"CITY:","timestamp":"8:55:04 PM"}
+{"0":"New York","1":"Iowa","2":"Kentucky","3":"Texas","level":"info","message":"STATE:","timestamp":"8:55:04 PM"}
+{"0":"China","1":"U.S.","2":"Canada","3":"Switzerland","level":"info","message":"COUNTRY:","timestamp":"8:55:04 PM"}
+{"0":"New York","level":"info","message":"CITY:","timestamp":"9:05:13 PM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:05:13 PM"}
+{"0":"Palm Beach","level":"info","message":"CITY:","timestamp":"9:20:06 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"9:20:06 PM"}
+{"0":"Sydney","1":"Randwick","level":"info","message":"CITY:","timestamp":"9:50:05 PM"}
+{"0":"Australia","level":"info","message":"COUNTRY:","timestamp":"9:50:05 PM"}
+{"0":"Pennsylvania","1":"Nevada","2":"Wisconsin","3":"Erie County","4":"Luzerne County","5":"Michigan","6":"Arizona","7":"New Hampshire","level":"info","message":"STATE:","timestamp":"9:55:04 PM"}
+{"0":"MONTPELIER","1":"LA","2":"Pawlet","3":"East Wallingford","level":"info","message":"CITY:","timestamp":"10:01:13 PM"}
+{"0":"Vermont","1":"Vt.","2":"Quebec","level":"info","message":"STATE:","timestamp":"10:01:13 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"10:01:13 PM"}
+{"0":"Washington","1":"New York","2":"Las Vegas","3":"Istanbul","level":"info","message":"CITY:","timestamp":"10:05:13 PM"}
+{"0":"D.C.","1":"Indiana","2":"Florida","3":"Virginia","level":"info","message":"STATE:","timestamp":"10:05:13 PM"}
+{"0":"United States","1":"Turkey","2":"United Arab Emirates","level":"info","message":"COUNTRY:","timestamp":"10:05:13 PM"}
+{"0":"College Park","1":"Delft","2":"New Haven","3":"Berkeley","4":"Santa Barbara","5":"Boulder","level":"info","message":"CITY:","timestamp":"10:10:04 PM"}
+{"0":"Connecticut","1":"California","2":"Colorado","level":"info","message":"STATE:","timestamp":"10:10:04 PM"}
+{"0":"Austria","1":"Netherlands","level":"info","message":"COUNTRY:","timestamp":"10:10:04 PM"}
+{"0":"Washington","1":"New York","level":"info","message":"CITY:","timestamp":"10:15:02 PM"}
+{"0":"Vermont","1":"Washington","2":"New Jersey","3":"Oregon","4":"South Dakota","5":"Alaska","6":"Maryland","7":"Montana","8":"Arizona","9":"Massachusetts","10":"Ohio","11":"Arkansas","12":"Hawaii","13":"Maine","14":"Connecticut","15":"Missouri","16":"Colorado","17":"Michigan","18":"Florida","19":"California","20":"D.C.","level":"info","message":"STATE:","timestamp":"10:15:02 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"10:20:04 PM"}
+{"0":"New England","level":"info","message":"CITY:","timestamp":"10:25:05 PM"}
+{"0":"California","level":"info","message":"STATE:","timestamp":"10:25:05 PM"}
+{"0":"Chicagoland","1":"North Shore","2":"Chicago","3":"Zion","level":"info","message":"CITY:","timestamp":"10:40:05 PM"}
+{"0":"Pennsylvania","level":"info","message":"STATE:","timestamp":"10:40:05 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"10:45:02 PM"}
+{"0":"Sofia","1":"Istanbul","2":"Casablanca","3":"Reina","level":"info","message":"CITY:","timestamp":"10:50:23 PM"}
+{"0":"Turkey","level":"info","message":"COUNTRY:","timestamp":"10:50:23 PM"}
+{"0":"New York","1":"Queens","2":"Albany","level":"info","message":"CITY:","timestamp":"10:55:02 PM"}
+{"0":"Tennessee","1":"Oregon","2":"Minnesota","level":"info","message":"STATE:","timestamp":"10:55:02 PM"}
+{"0":"New York","1":"Albany","2":"Brooklyn","level":"info","message":"CITY:","timestamp":"11:05:13 PM"}
+{"0":"New York","1":"Vermont","level":"info","message":"STATE:","timestamp":"11:05:13 PM"}
+{"0":"Mississippi","level":"info","message":"STATE:","timestamp":"11:10:03 PM"}
+{"0":"NEW YORK","1":"Toronto","2":"Philadelphia","3":"San Francisco","4":"Houston","level":"info","message":"CITY:","timestamp":"11:15:07 PM"}
+{"0":"U.S.","1":"Germany","2":"China","3":"Japan","4":"France","level":"info","message":"COUNTRY:","timestamp":"11:15:07 PM"}
+{"0":"New York City","1":"New York","2":"Queens","level":"info","message":"CITY:","timestamp":"11:20:03 PM"}
+{"0":"New York","level":"info","message":"STATE:","timestamp":"11:20:03 PM"}
+{"0":"Dunkirk","1":"Indio","2":"Hollywood","level":"info","message":"CITY:","timestamp":"11:45:05 PM"}
+{"0":"California","level":"info","message":"STATE:","timestamp":"11:45:05 PM"}
+{"0":"SEOUL","1":"Copenhagen","level":"info","message":"CITY:","timestamp":"11:50:03 PM"}
+{"0":"Denmark","1":"South Korea","2":"Germany","level":"info","message":"COUNTRY:","timestamp":"11:50:03 PM"}
+{"0":"masscannabis","level":"info","message":"CITY:","timestamp":"12:01:12 AM"}
+{"0":"Massachusetts","level":"info","message":"STATE:","timestamp":"12:01:12 AM"}
+{"0":"San Luis Potosi","1":"Mexico City","2":"Lordstown","3":"Hermosillo","level":"info","message":"CITY:","timestamp":"12:05:10 AM"}
+{"0":"Michigan","1":"Ohio","2":"Indiana","3":"Kentucky","level":"info","message":"STATE:","timestamp":"12:05:10 AM"}
+{"0":"United States","1":"Mexican Republic","level":"info","message":"COUNTRY:","timestamp":"12:05:10 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"12:10:08 AM"}
+{"0":"New Delhi","1":"Delhi","2":"Washington","level":"info","message":"CITY:","timestamp":"12:15:04 AM"}
+{"0":"India","1":"India","2":"U.S.","3":"Uttar Pradesh","4":"Punjab","level":"info","message":"COUNTRY:","timestamp":"12:15:04 AM"}
+{"0":"New York","level":"info","message":"CITY:","timestamp":"12:20:04 AM"}
+{"0":"Maryland","1":"Massachusetts","2":"Maine","3":"California","4":"R-Baltimore County","level":"info","message":"STATE:","timestamp":"12:20:04 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"12:20:04 AM"}
+{"0":"Björk","level":"info","message":"CITY:","timestamp":"12:45:04 AM"}
+{"0":"Brexit","level":"info","message":"CITY:","timestamp":"12:50:04 AM"}
+{"0":"UK","level":"info","message":"COUNTRY:","timestamp":"12:50:04 AM"}
+{"0":"London","level":"info","message":"CITY:","timestamp":"11:40:04 AM"}
+{"0":"United Kingdom","level":"info","message":"COUNTRY:","timestamp":"11:40:04 AM"}
+{"0":"Hollywood","level":"info","message":"CITY:","timestamp":"11:45:11 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"11:45:11 AM"}
+{"0":"Hamburg","level":"info","message":"CITY:","timestamp":"11:50:05 AM"}
+{"0":"San Mateo","1":"Sacramento","2":"Concord","3":"Bay Area","4":"Fresno","5":"San Francisco","6":"Fayetteville","7":"Aurora","8":"Westfield Valley","9":"San Jose","10":"Westfield Oakridge","level":"info","message":"CITY:","timestamp":"11:55:08 AM"}
+{"0":"California","1":"North Carolina","2":"Colorado","level":"info","message":"STATE:","timestamp":"11:55:08 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"11:55:08 AM"}
+{"0":"Washington","1":"Oregon","2":"Colorado","3":"California","4":"Massachusetts","5":"Maine","6":"Alaska","7":"Nevada","level":"info","message":"STATE:","timestamp":"12:01:12 PM"}
+{"0":"US","1":"Australia","level":"info","message":"COUNTRY:","timestamp":"12:01:12 PM"}
+{"0":"Berlin","level":"info","message":"CITY:","timestamp":"12:05:06 PM"}
+{"0":"Singapore","level":"info","message":"COUNTRY:","timestamp":"12:05:06 PM"}
+{"0":"Hamburg","level":"info","message":"CITY:","timestamp":"12:10:06 PM"}
+{"0":"United States","1":"Russia","2":"Ukraine","3":"Crimea","level":"info","message":"COUNTRY:","timestamp":"12:20:05 PM"}
+{"0":"MD","level":"info","message":"STATE:","timestamp":"12:30:04 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"12:30:04 PM"}
+{"0":"Beijing","1":"Pyongyang","2":"Seoul","level":"info","message":"CITY:","timestamp":"12:50:03 PM"}
+{"0":"China","1":"North Korea","2":"South Korea","3":"U.S.","4":"Japan","5":"Taiwan","level":"info","message":"COUNTRY:","timestamp":"12:50:03 PM"}
+{"0":"Washington","1":"Lordstown","2":"Indianapolis","level":"info","message":"CITY:","timestamp":"1:05:10 PM"}
+{"0":"Ohio","1":"Washington","2":"Michigan","level":"info","message":"STATE:","timestamp":"1:05:10 PM"}
+{"0":"Mexico","1":"U.S.","2":"Canada","level":"info","message":"COUNTRY:","timestamp":"1:05:10 PM"}
+{"0":"30,000","level":"info","message":"CITY:","timestamp":"1:10:05 PM"}
+{"0":"UK","level":"info","message":"COUNTRY:","timestamp":"1:10:05 PM"}
+{"0":"WASHINGTON","level":"info","message":"CITY:","timestamp":"1:15:03 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"1:15:03 PM"}
+{"0":"Ala.","level":"info","message":"STATE:","timestamp":"1:20:03 PM"}
+{"0":"Drusen","level":"info","message":"CITY:","timestamp":"1:25:12 PM"}
+{"0":"Nine Lives","level":"info","message":"CITY:","timestamp":"1:45:06 PM"}
+{"0":"United States","1":"UK","level":"info","message":"COUNTRY:","timestamp":"1:55:08 PM"}
+{"0":"WASHINGTON","level":"info","message":"CITY:","timestamp":"2:01:11 PM"}
+{"0":"D.C.","1":"Texas","level":"info","message":"STATE:","timestamp":"2:01:11 PM"}
+{"0":"Atlanta","1":"Las Vegas","2":"Agoura Hills","3":"Newport Beach","4":"New York","level":"info","message":"CITY:","timestamp":"2:05:20 PM"}
+{"0":"Fulton County","1":"Georgia","2":"California","level":"info","message":"STATE:","timestamp":"2:05:20 PM"}
+{"0":"U.S","level":"info","message":"COUNTRY:","timestamp":"2:05:20 PM"}
+{"0":"San Diego","level":"info","message":"CITY:","timestamp":"2:10:10 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"2:10:10 PM"}
+{"0":"Glasgow","level":"info","message":"CITY:","timestamp":"2:15:03 PM"}
+{"0":"Scotland","1":"UK","2":"Switzerland","3":"Finland","4":"Netherlands","5":"India","level":"info","message":"COUNTRY:","timestamp":"2:15:03 PM"}

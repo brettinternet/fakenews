@@ -18,6 +18,7 @@ function landingCtrl(articleService) {
       .then(function(res) {
         model.articlesOther = res;
         model.articlesOtherMore = model.articlesOther.splice(4);
+        model.articlesOtherMore2 = model.articlesOtherMore.splice(4);
       })
       .catch(function(err) {
         model.error = err;
