@@ -58,7 +58,7 @@ module.exports = {
     });
     if (picsArr.length > 0) {
       let body = {data: {children: picsArr}};
-      picProcessor.findPost(body, category);
+      picProcessor.findPicPost(body, category);
     }
     console.log('=========================');
     console.log(`HTTP: category: ${category} total: ${arr.length} | news: ${newsArr.length} | self: ${self} | imgur: ${imgur} | redditUp: ${redditUploads} | redd.it: ${redd_it} | reddit: ${reddit} | otherImg: ${otherImg} | banned: ${banned}`);
@@ -67,7 +67,6 @@ module.exports = {
       db.run("SELECT scraped.id FROM scraped JOIN articles ON scraped.articleid = articles.id WHERE lower(redditid) = lower($1)", [redditid], (err, res) => {
         if (err) winston.process.error(err);
         if (res.length >= 1) {
-          console.log('PROCESS: skipping duplicate');
           db.scraped.update({id: res[0].id, score: posts[i].data.score}, (err, res) => {
             if (err) winston.process.error(err);
           });
@@ -106,15 +105,30 @@ processUrl = (obj) => {
     obj.type = 'video';
   }
   obj.url = obj.url.replace(/&amp;/g, '&');
-  console.log(`PROCESS: getting url: ${obj.url}`);
+  console.log(`PROCESS: getting HTML: ${obj.url}`);
   request(obj.url, (err, res, raw) => {
     if (!err && res.statusCode == 200) {
       getHtmlData(raw);
     } else {
       winston.get.error(err);
+      let scrapedValues = {
+        redditid: obj.redditid,
+        domain: obj.domain,
+        score: obj.score,
+        redditurl: obj.redditurl,
+        reddittitle: obj.reddittitle,
+        fulltext: 'ERROR: could not get HTML from URL'
+      }
+      if (obj.type) {
+        scrapedValues.mediatype = obj.type;
+      }
+      db.scraped.insert(scrapedValues, (err, res) => {
+        if (err) winston.process.error(err);
+      });
     }
   });
   getHtmlData = (html) => {
+    console.log(`PROCESS: processing HTML`);
     extract = extractor.lazy(html, 'en');
     obj.title = extract.title();
     obj.imgdesc = extract.softTitle();
@@ -246,7 +260,7 @@ processData = (obj, entities) => {
           articleValues.countryid = countryid;
         }
         db.articles.insert(articleValues, (err, article) => {
-          if (err) winston.process.error(err);
+          if (err) winston.process.error(err, articleValues);
           console.log(`DATABASE: new article in ${obj.category}`);
           let scrapedValues = {
             redditid: obj.redditid,

@@ -1,0 +1,34 @@
+$menuWide: 90%;
+
+.footer-container {
+  background-color: $black;
+  color: $whiteA;
+  height: auto;
+  width: 100vw;
+  margin-top: 10px;
+  font-family: $font;
+  font-size: 1em;
+  float: left;
+  text-align: left;
+
+  ul {
+    padding: 10px 5%;
+    margin: 0;
+    margin: 10px 0;
+  }
+
+  li {
+    list-style: none;
+    height: 4vh;
+    text-transform: capitalize;
+  }
+
+  .footer-item-active {
+    color: $yellow;
+  }
+
+  .copyright {
+    height: auto;
+    font-family: $body;
+  }
+}

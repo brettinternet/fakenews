@@ -14,10 +14,28 @@ function landingCtrl(articleService) {
         model.error = err;
         console.error(err);
       });
+    articleService.getOtherArticles(model.category)
+      .then(function(res) {
+        model.articlesOther = res;
+        model.articlesOtherMore = model.articlesOther.splice(4);
+      })
+      .catch(function(err) {
+        model.error = err;
+        console.error(err);
+      });
+    articleService.getTagList(model.category)
+      .then(function(res) {
+        model.catTags = res;
+      })
+      .catch(function(err) {
+        model.error = err;
+        console.error(err);
+      });
     articleService.getPics(model.category)
       .then(function(res) {
         model.pics = res;
-        modifyResponse(model.articles);
+        model.picsMore = model.pics.splice(4);
+        model.picsMore2 = model.picsMore.splice(3);
       })
       .catch(function(err) {
         model.error = err;

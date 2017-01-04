@@ -176,12 +176,16 @@ saveComment = (str, redditid) => {
           });
         });
       } else {
-        db.run("SELECT authors.firstname FROM authors JOIN articles ON articles.authorid = authors.id WHERE articles.id = $1", [articleid], (err, res) => {
+        db.run("SELECT authors.firstname FROM authors JOIN articles ON articles.authorid = authors.id WHERE articles.id = $1", [articleid], (err, response) => {
           if (err) winston.process.error(err);
-          let author = res[0].firstname,
-              fullComment = '';
-          author = author.charAt(0).toUpperCase() + author.slice(1);
-          fullComment = commentSrv.concatComment(str, author);
+          let fullComment = '';
+          if (response.length > 0) {
+            var author = response[0].firstname;
+            author = author.charAt(0).toUpperCase() + author.slice(1);
+            fullComment = commentSrv.concatComment(str, author);
+          } else {
+            fullComment = commentSrv.concatComment(str, '');
+          }
           db.run("INSERT INTO comments (comment, userid, articleid, redditid) VALUES ($1, $2, $3, $4)", [fullComment, userid, articleid, redditid], (err, res) => {
             if (err) winston.process.error(err);
           });

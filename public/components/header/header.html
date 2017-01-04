@@ -1,12 +1,19 @@
-<ul class="menu">
-  <li class="menu-item" ui-sref-active="menu-item-active"><a ui-sref="home"><i class="material-icons nav-icon">home</i></a></li>
-  <span ng-repeat="item in model.categories">
-    <li class="menu-item" ui-sref-active="menu-item-active">
-      <a ui-sref="category({category: item})" ng-bind="item"></a>
+<div class="logo"><a ui-sref="home">Now<em>News</em><strong>Today</strong></a></div>
+<div class="logo-container">
+  <ul>
+    <li ng-bind="model.timeNow | amDateFormat:'dddd, MMMM Do, YYYY'" class="date"></li>
+    <li class="logo-subtext">America's Truest News Source</li>
+    <li class="weather"><span>New York</span> • <span class="numbers"><span class="high">32°</span> | <span class="low">5°</span></span></li>
+  </ul>
+</div>
+<div class="menu">
+  <ul>
+    <li class="menu-item icon" id="home" ui-sref-active="menu-item-active"><a ui-sref="home"></a><i class="material-icons nav-icon">home</i></li>
+    <li ng-repeat="item in model.categories" class="menu-item" ui-sref-active="menu-item-active">
+      <a ui-sref="category({category: item})"></a>
+      <span ng-bind="item"></span>
     </li>
-  </span>
-  <li class="menu-item"><i class="material-icons nav-icon" ng-click="model.showSearch()">search</i><search-form ng-show="model.searchShow"></search-form></li>
-  <li class="menu-item"><i class="material-icons nav-icon">person</i></li>
-  <!-- move to user dropdown -->
-  <li class="menu-item"><a ui-sref="editor">edit</a></li>
-</ul>
+    <li class="menu-item icon"><i class="material-icons nav-icon" ng-click="model.showSearch()">search</i><search-form ng-show="model.searchShow"></search-form></li>
+    <li class="menu-item icon"><i ng-click="model.showEdit()" class="material-icons nav-icon">person</i><a ng-show="model.editShow" ui-sref="editor">edit</a></li>
+  </ul>
+</div>

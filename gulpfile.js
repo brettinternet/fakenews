@@ -2,14 +2,23 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
+    importer = require('node-sass-globbing'),
     del = require('del'),
+    stripCssComments = require('gulp-strip-css-comments'),
     uglify = require('gulp-uglify'),
     print = require('gulp-print'),
     babel = require('gulp-babel');
     // babel-preset-es2015
 
-var CacheBuster = require('gulp-cachebust');
-var cachebust = new CacheBuster();
+var CacheBuster = require('gulp-cachebust'),
+    cachebust = new CacheBuster(),
+    sass_config = {
+      importer: importer,
+      includePaths: [
+        'node_modules/breakpoint-sass/stylesheets/',
+        'node_modules/singularitygs/stylesheets/'
+      ]
+    };
 
 gulp.task('clean', function(cb) {
   del([
@@ -34,10 +43,11 @@ gulp.task('build-css', function() {
       'public/assets/css/*.*css',
     ])
     .pipe(sourcemaps.init())
-    .pipe(sass())
+    .pipe(sass(sass_config))
     .pipe(cachebust.resources())
     .pipe(concat('styles.css'))
     .pipe(sourcemaps.write('./maps'))
+    .pipe(stripCssComments({preserve: false}))
     .pipe(gulp.dest('./public/dist'));
 });
 

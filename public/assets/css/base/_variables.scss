@@ -1,0 +1,21 @@
+$whiteA: #FEFEFE;
+$whiteB: #848C8E;
+$lightblue: #274690;
+$darkblue: #1B264F;
+$olive: #30292F;
+$grey: #2A363B;
+$black: #151515;
+$red: #E84A5F;
+$yellow: #AE9131;
+
+$font: Helvetica, sans-serif;
+$title: 'Merriweather', serif;
+$body: 'Roboto', sans-serif;
+$headline: 'Libre Franklin', sans-serif;
+
+@include add-grid(2 1 1);
+@include add-gutter(1/24);
+// @include add-gutter-style('split');
+@include sgs-change('output', 'isolation');
+// @include sgs-change('debug', true);
+// @include background-grid($color: blue);

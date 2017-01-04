@@ -1,0 +1,181 @@
+.card {
+  background-color: white;
+  padding: 2em 1em 0 1em;
+  border: 1px solid $whiteB;
+  border-radius: .1em;
+  margin-bottom: .5em;
+  position: relative;
+  clear: none;
+
+  .card-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $black;
+    color: $whiteA;
+    font-size: .9em;
+    padding: .2em .4em;
+  }
+
+  .news-container {
+    margin-bottom: 10px;
+    position: relative;
+
+    .category-title, .breakingnews {
+      position: absolute;
+      top: 0;
+      color: $whiteA;
+      font-size: .9em;
+      padding: .2em .4em;
+      text-transform: capitalize;
+    }
+
+    .category-title {
+      background-color: $lightblue;
+      right: 0;
+    }
+
+    .breakingnews {
+      background-color: $red;
+      left: 0;
+    }
+
+    img {
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .news-text {
+      padding: 5px 10px 10px 10px;
+      text-align: justify;
+      text-justify: distribute;
+      margin: 0;
+
+      .news-title {
+        font-family: $title;
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+
+      .news-headline {
+        font-family: $headline;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px 0 5px 0;
+      }
+
+      .news-subtext {
+        font-family: $font;
+        font-size: .8em;
+        font-weight: 600;
+        color: black;
+      }
+
+      .news-author, .news-createdat {
+        font-family: $font;
+        font-size: .9em;
+        color: $grey;
+      }
+
+      .news-author {
+        text-transform: capitalize;
+      }
+
+      .news-createdat {
+        background-color: $yellow;
+        font-size: .9em;
+        padding: .2em .4em;
+        color: $whiteA;
+      }
+    }
+  }
+
+  a:link, a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover, a:active {
+    color: $lightblue;
+  }
+
+
+  .inside-left {
+    @include grid-span(1, 1, 2, 1/12, 'float');
+  }
+
+  .inside-right {
+    @include grid-span(1, 2, 2, 1/12, 'float');
+  }
+
+  .pics-container {
+    margin-bottom: 20px;
+
+    .pics-hot, .pics-tags, .pics-createdat {
+      font-family: $font;
+      font-size: .9em;
+      background-color: $red;
+      color: $whiteA;
+      padding: .2em .4em;
+      display: inline-block;
+      margin: 0;
+    }
+
+    .pics-tags {
+      background-color: $grey;
+      text-transform: capitalize;
+    }
+
+    .pics-createdat {
+      background-color: $yellow;
+    }
+
+    img {
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .pics-title {
+      font-family: $headline;
+    }
+  }
+}
+
+.cright {
+  clear: right;
+}
+
+.cleft {
+  clear: left;
+}
+
+.cboth {
+  clear: both;
+}
+
+#borderless-card {
+  background-color: none;
+  border: none;
+  border-radius: none;
+}
+
+.category-hashtag {
+  color: $whiteB;
+}
+
+.category-tag {
+  text-transform: capitalize;
+  font-family: $font;
+  font-size: .9em;
+  background-color: $grey;
+  color: $whiteA;
+  padding: .2em .4em;
+  display: inline-block;
+  margin: 0;
+}
+
+.add-bottom-pad {
+  padding-bottom: 20px;
+}

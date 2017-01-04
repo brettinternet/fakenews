@@ -50,6 +50,35 @@ angular.module('newsApp').service('articleService', function($http) {
       });
   }
 
+  this.getOtherArticles = () => {
+    return $http.get('http://localhost:3000/api/other/all/')
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(err) {
+        console.error(err)
+      });
+  }
+
+  this.getTagList = (category) => {
+    return $http.get('/api/tags/' + category)
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(err) {
+        console.error(err)
+      });
+  }
+
+  this.getWeather = (location) => {
+    return $http.get('http://localhost:3000/api/weather/' + location)
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(err) {
+        console.error(err)
+      });
+  }
 
 
   // verify authentication before peforming these actions!!

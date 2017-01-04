@@ -20,5 +20,17 @@
     <span ng-bind="article.country" class="news-city"></span>
 </div>
 
+<div class="card">
+  <span class="card-title">Pics</span>
+  <div class="card-secondary">
+    <div ng-repeat="pic in model.pics" class="pics-container">
+      <span class="pics">
+        <img ng-src="{{pic.img}}" width="400px"></img><br/>
+        <a ui-sref="article({category: pic.category, articleId: pic.id})"><span ng-bind="pic.title" class="pics-title"></span></a><br/>
+        <span ng-bind="article.createdat | date: 'longDate'" class="pics-createdat"></span>
+    </div>
+    <error-display></error-display>
+  </div>
 </div>
+
 <error-display></error-display>

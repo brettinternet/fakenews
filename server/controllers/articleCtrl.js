@@ -102,7 +102,7 @@ module.exports = {
   // },
 
   getCat: function(req, response) {
-    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND articles.body != '' AND upper(categories.category) = upper($1) ORDER BY createdat DESC LIMIT 10", [req.params.category], (err, res) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND articles.body != '' AND articles.headline != '' AND upper(categories.category) = upper($1) ORDER BY articles.createdat DESC LIMIT 10", [req.params.category], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -112,7 +112,7 @@ module.exports = {
   },
 
   getPics: function(req, response) {
-    db.run("SELECT articles.title, articles.img, articles.imgnail, categories.category FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND articles.picspost = true AND upper(categories.category) = upper($1) ORDER BY createdat DESC LIMIT 10", [req.params.category], (err, res) => {
+    db.run("SELECT articles.id, articles.title, articles.img, articles.imgnail, articles.createdat, articles.breakingnews, categories.category, array_agg(tags.tag) AS tags FROM articles JOIN categories ON categories.id = articles.categoryid LEFT JOIN tags ON tags.articleid = articles.id WHERE articles.published = true AND articles.picpost = true AND upper(categories.category) = upper($1) GROUP BY articles.id, articles.title, articles.img, categories.category ORDER BY articles.createdat DESC LIMIT 10", [req.params.category], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -122,7 +122,17 @@ module.exports = {
   },
 
   getCatTags: function(req, response) {
-    db.run("SELECT tags.tag, categories.category, count(tags.id) AS count FROM tags JOIN articles ON articles.id = tags.articleid JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND categories.category = $1 GROUP BY tags.tag, categories.category", [req.params.category], (err, res) => {
+    db.run("SELECT tags.tag, categories.category, count(tags.id) AS count FROM tags JOIN articles ON articles.id = tags.articleid JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND lower(categories.category) = lower($1) GROUP BY tags.tag, categories.category, articles.id ORDER BY articles.id desc LIMIT 50", [req.params.category], (err, res) => {
+      if (err) {
+        winston.error.error(err);
+        return response.status(500).send(err);
+      }
+      response.status(200).send(res);
+    });
+  },
+
+  getOtherArticles: (req, response) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid WHERE articles.published = true AND articles.body != '' AND articles.headline != '' AND lower(categories.category) != lower('front') ORDER BY articles.createdat DESC LIMIT 10", (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -133,7 +143,7 @@ module.exports = {
 
   getArticlesByTag: function(req, response) {
     let tagTerm = '%' + req.params.tag + '%';
-    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid JOIN tags on tags.articleid = articles.id  WHERE articles.published = true AND tags.tag LIKE lower($1) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY createdat DESC LIMIT 10", [tagTerm], (err, res) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid JOIN tags on tags.articleid = articles.id  WHERE articles.published = true AND tags.tag LIKE lower($1) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY articles.createdat DESC LIMIT 10", [tagTerm], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -145,7 +155,7 @@ module.exports = {
   // TODO: Offset and paginate response
   searchTitle: function(req, response) {
     let searchTerm = '%' + req.params.title + '%';
-    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author, array_agg(tags.tag) AS tags FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid LEFT JOIN tags on tags.articleid = articles.id  WHERE articles.published = true AND (upper(articles.title) LIKE upper($1) OR upper(articles.headline) LIKE upper($1)) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY createdat DESC LIMIT 10", [searchTerm], (err, res) => {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author, array_agg(tags.tag) AS tags FROM articles JOIN categories ON categories.id = articles.categoryid JOIN authors ON authors.id = articles.authorid LEFT JOIN tags on tags.articleid = articles.id  WHERE articles.published = true AND (upper(articles.title) LIKE upper($1) OR upper(articles.headline) LIKE upper($1)) GROUP BY articles.id, categories.category, authors.firstname, authors.lastname ORDER BY articles.createdat DESC LIMIT 10", [searchTerm], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);

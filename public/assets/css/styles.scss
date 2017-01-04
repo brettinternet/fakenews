@@ -3,8 +3,8 @@ grids: https://github.com/at-import/Singularity
 breakpoints: https://github.com/at-import/breakpoint/wiki/Basic-Media-Queries#default-single-and-pair
 */
 
-@import 'base/variables';
-@import 'header';
-@import 'footer';
-@import 'main';
-@import 'article';
+@import 'singularitygs';
+@import 'breakpoint';
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:500|Merriweather:400,700|Roboto');
+@import 'base/*.scss';
+@import '*.scss';

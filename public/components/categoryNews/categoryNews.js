@@ -17,7 +17,6 @@ function categoryNewsCtrl($stateParams, articleService) {
     articleService.getPics(model.category)
       .then(function(res) {
         model.pics = res;
-        modifyResponse(model.articles);
       })
       .catch(function(err) {
         model.error = err;

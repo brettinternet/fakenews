@@ -50,6 +50,7 @@ const articleCtrl = require('./controllers/articleCtrl'),
 
 
 app.get('/api/search/:title', articleCtrl.searchTitle);
+app.get('/api/other/all', articleCtrl.getOtherArticles);
 app.get('/api/category/:category', articleCtrl.getCat);
 app.get('/api/pics/:category', articleCtrl.getPics);
 app.get('/api/tags/:category', articleCtrl.getCatTags);

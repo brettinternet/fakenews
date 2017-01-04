@@ -1,4 +1,4 @@
-function topMenuCtrl($state) {
+function topMenuCtrl() {
   let model = this;
   model.categories = [
     'business',
@@ -13,9 +13,17 @@ function topMenuCtrl($state) {
     'world',
     'opinion'
   ];
+  model.getWeather = () => {
+
+  }
+  model.timeNow = new Date();
   model.searchShow = false;
   model.showSearch = () => {
     model.searchShow = !model.searchShow;
+  }
+  model.editShow = false;
+  model.showEdit = () => {
+    model.editShow = !model.editShow;
   }
 }
 

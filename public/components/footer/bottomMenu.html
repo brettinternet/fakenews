@@ -1,0 +1,24 @@
+<div class="footer-container">
+  <ul class="left">
+    <li><search-form></search-form></li>
+    <li><a ui-sref="editor">edit</a></li>
+    <li><a href="#">Help and Contact Us</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    <li><a href="#">Submissions Policy</a></li>
+    <li><a href="#">Ad Listings</a></li>
+    <li class="copyright">Copyright &#169; 2017 Now<em>News</em>Today All Rights Reserved.</li>
+  </ul>
+  <ul class="middle">
+    <li>Login</li>
+    <li>User Portal</li>
+    <li>Resources</li>
+  </ul>
+  <ul class="right">
+    <li ui-sref-active="footer-item-active"><a ui-sref="home">Front Page</a></li>
+    <li ng-repeat="item in model.categories" ui-sref-active="footer-item-active">
+      <a ui-sref="category({category: item})"><span ng-bind="item"></span></a>
+    </li>
+  </ul>
+  <div </div>
+</div>

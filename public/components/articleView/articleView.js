@@ -7,13 +7,15 @@ function articleViewCtrl(articleService, $stateParams) {
     articleService.getArticleById($stateParams.articleId)
       .then(function(res) {
         model.article = res.article;
-        model.author = res.author;
-        modifyResponse(model.article, model.author);
+        if (res.author) {
+          model.author = res.author;
+          modifyResponse(model.article, model.author);
+        }
       })
       .catch(function(err) {
-        $scope.error = err;
+        model.error = err;
         console.error(err);
-      })
+      });
   }
 }
 

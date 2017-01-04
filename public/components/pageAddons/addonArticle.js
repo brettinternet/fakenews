@@ -7,9 +7,9 @@ function addonArticleCtrl($stateParams, articleService) {
         model.articleMatches = resp;
       })
       .catch(function(err) {
-        $scope.error = err;
+        model.error = err;
         console.error(err);
-      })
+      });
   }
 }
 
