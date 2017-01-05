@@ -1,9 +1,7 @@
 <div ng-if="model.comments.length > 0" class="card add-bottom-pad">
-  <span class="card-title">Comments</span>
+  <span class="card-title"><span ng-bind="model.comments.length"></span> Comment<span ng-if="model.comments.length > 1">s</span></span>
   <div class="comment" ng-repeat="i in model.comments | orderBy: 'createdat'">
     <span class="comment-createdat" am-time-ago="i.createdat"></span>
-    <!-- <span ng-if>In reply to</span><span ng-bind=""></span> -->
-    <!-- TODO: get parentid user name from SELECT statement on same table -->
     <table>
       <tr>
         <th><img ng-src="{{i.imgnail}}"></th>

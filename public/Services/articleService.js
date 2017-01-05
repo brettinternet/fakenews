@@ -10,6 +10,16 @@ angular.module('newsApp').service('articleService', function($http) {
       });
   }
 
+  this.getArticlesLoc = () => {
+    return $http.get('http://localhost:3000/api/location/')
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(err) {
+        console.error(err)
+      });
+  }
+
   this.getPics = (category) => {
     return $http.get('http://localhost:3000/api/pics/' + category)
       .then(function(res) {

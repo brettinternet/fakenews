@@ -16,6 +16,24 @@ const getWatson = watson.alchemy_language({
 
 // TODO: Use embed.ly for sports / vids
 
+skipArticle = () => {
+  let scrapedValues = {
+    redditid: obj.redditid,
+    domain: obj.domain,
+    score: obj.score,
+    redditurl: obj.redditurl,
+    reddittitle: obj.reddittitle,
+    fulltext: obj.error
+  }
+  if (obj.type) {
+    scrapedValues.mediatype = obj.type;
+  }
+  db.scraped.insert(scrapedValues, (err, res) => {
+    if (err) winston.process.error(err);
+    console.log('DATABASE: recorded error id');
+  });
+}
+
 module.exports = {
 
   findPost: (body, category) => {
@@ -64,7 +82,7 @@ module.exports = {
     console.log(`HTTP: category: ${category} total: ${arr.length} | news: ${newsArr.length} | self: ${self} | imgur: ${imgur} | redditUp: ${redditUploads} | redd.it: ${redd_it} | reddit: ${reddit} | otherImg: ${otherImg} | banned: ${banned}`);
     function checkPost(posts, i) {
       let redditid = posts[i].data.id;
-      db.run("SELECT scraped.id FROM scraped JOIN articles ON scraped.articleid = articles.id WHERE lower(redditid) = lower($1)", [redditid], (err, res) => {
+      db.run("SELECT scraped.id FROM scraped WHERE lower(redditid) = lower($1)", [redditid], (err, res) => {
         if (err) winston.process.error(err);
         if (res.length >= 1) {
           db.scraped.update({id: res[0].id, score: posts[i].data.score}, (err, res) => {
@@ -80,7 +98,7 @@ module.exports = {
         };
       });
     }
-    checkPost(newsArr, 0);
+    if (newsArr.length > 0) checkPost(newsArr, 0);
   }
 }
 
@@ -111,21 +129,8 @@ processUrl = (obj) => {
       getHtmlData(raw);
     } else {
       winston.get.error(err);
-      let scrapedValues = {
-        redditid: obj.redditid,
-        domain: obj.domain,
-        score: obj.score,
-        redditurl: obj.redditurl,
-        reddittitle: obj.reddittitle,
-        fulltext: 'ERROR: could not get HTML from URL'
-      }
-      if (obj.type) {
-        scrapedValues.mediatype = obj.type;
-      }
-      db.scraped.insert(scrapedValues, (err, res) => {
-        if (err) winston.process.error(err);
-        console.log('DATABASE: recorded error id');
-      });
+      obj.error = 'ERROR: could not get HTML from URL';
+      skipArticle(obj);
     }
   });
   getHtmlData = (html) => {
@@ -241,6 +246,11 @@ processData = (obj, entities) => {
       db.run("SELECT id FROM categories WHERE upper(category) = upper($1)", [obj.category], (err, res) => {
         if (err) winston.process.error(err);
         let categoryid = res[0].id;
+        if (obj.headline) {
+          if (obj.headline.length > 2000) {
+            let removed = obj.headline.slice(1998);
+          }
+        }
         let articleValues = {
           published: true,
           authorid: authorid,
@@ -261,7 +271,11 @@ processData = (obj, entities) => {
           articleValues.countryid = countryid;
         }
         db.articles.insert(articleValues, (err, article) => {
-          if (err) winston.process.error(err, articleValues);
+          if (err) {
+            winston.process.error(err, articleValues);
+            obj.error = 'ERROR: could not save article';
+            skipArticle(obj);
+          }
           console.log(`DATABASE: new article in ${obj.category}`);
           let scrapedValues = {
             redditid: obj.redditid,

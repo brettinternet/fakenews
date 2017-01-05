@@ -1,3 +1,29 @@
+
+<div class="card left" id="borderless-card">
+  <div class="earth" id="earth_div"></div>
+</div>
+
+<slick ng-if="model.slickOn && model.artbreak" class="card right-two slickcard" id="borderless-card" data="model.pics" settings="model.slickConfig">
+  <div ng-repeat="article in model.artbreak" class="news-container">
+    <table>
+      <tr>
+        <td><div class="img" style="background-image: url('{{article.img}}')"></div></td>
+        <td>
+          <div class="news-text">
+            <span class="breakingnews" id="slickbreak" ng-if="article.breakingnews">Breaking News</span>
+            <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title" id="slicktitle"></div>
+            <div ng-bind="article.headline" class="news-headline"></div></a>
+            <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
+            <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
+            <span ng-bind="article.location" class="news-location"></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</slick>
+
+
 <div class="card left">
   <span class="card-title">Now</span>
   <div ng-repeat="article in model.articles" class="news-container">

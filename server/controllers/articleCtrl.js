@@ -1,5 +1,7 @@
 const app = require('../index'),
       db = app.get('db'),
+      request = require('request'),
+      config = require('../config'),
       winston = require('../services/winston');
 
 module.exports = {
@@ -108,6 +110,35 @@ module.exports = {
         return response.status(500).send(err);
       }
       response.status(200).send(res);
+    });
+  },
+
+  getArticlesLoc: (req, response) => {
+    db.run("SELECT articles.*, categories.category FROM articles JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND articles.body != '' AND articles.headline != '' AND articles.city != '' ORDER BY articles.createdat DESC LIMIT 10", (err, res) => {
+      if (err) {
+        winston.error.error(err);
+        return response.status(500).send(err);
+      }
+      sendResponse = (arr) => {
+        response.status(200).send(arr);
+      }
+      res.forEach((article, i, arr) => {
+        str = article.city.split(' ').join('+');
+        request('https://maps.googleapis.com/maps/api/geocode/json?address=' +str+ '&key=' +config.googleApiKey, (err, res, raw) => {
+          if (!err && res.statusCode == 200) {
+            let body = JSON.parse(raw);
+            if (body.results[0]) {
+              article.lat = body.results[0].geometry.location.lat;
+              article.long = body.results[0].geometry.location.lng;
+            }
+            if (i === 9) {
+              sendResponse(arr);
+            }
+          } else {
+            winston.get.error(err);
+          }
+        });
+      });
     });
   },
 

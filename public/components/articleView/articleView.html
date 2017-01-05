@@ -9,7 +9,7 @@
       <div ng-hide="model.article.title === model.article.imgdesc" ng-bind="model.article.imgdesc" class="news-imgdesc"></div>
       <span class="author-date-line"><span ng-if="model.author.name"><span class="news-subtext">By: </span><span ng-bind="model.author.name" class="news-author"></span>
       <a href="mailto:{{model.author.email}}"><i class="material-icons email-icon">email</i></a></span><span ng-bind="model.article.createdat | date: 'fullDate'" class="news-createdat atime"></span></span>
-      <div class="news-headline-container"><span ng-bind="model.article.headline" class="news-headline"></span></div>
+      <div ng-if="model.article.headline" class="news-headline-container"><span ng-bind="model.article.headline" class="news-headline"></span></div>
       <div ng-bind-html="model.article.body" class="news-body"></div>
     </div>
   </div>
@@ -31,7 +31,7 @@
   </span>
 </div>
 
-<div class="card left-two">
+<div ng-if="model.author" class="card left-two" id="borderless-card">
   <span class="card-title">About the Author</span>
   <div class="news-container">
     <div class="news-text">

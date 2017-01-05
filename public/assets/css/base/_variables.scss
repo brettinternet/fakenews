@@ -14,9 +14,12 @@ $other: 'Roboto', sans-serif;
 $headline: 'Libre Franklin', sans-serif;
 $body: Georgia, serif;
 $gar: 'EB Garamond', serif;
+$thin: 'Julius Sans One', sans-serif;
 
 @include add-grid(4);
 @include add-gutter(1/24);
 @include sgs-change('output', 'float');
+
+
 // @include sgs-change('debug', true);
 // @include background-grid($color: blue);

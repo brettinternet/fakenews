@@ -20,6 +20,7 @@
     "angular": "^1.6.0",
     "angular-moment": "^1.0.1",
     "angular-sanitize": "^1.6.1",
+    "angular-slick-carousel": "^3.1.7",
     "angular-ui-router": "^0.3.2",
     "body-parser": "^1.15.2",
     "breakpoint-sass": "^2.7.1",
@@ -40,6 +41,7 @@
     "pos": "^0.4.2",
     "request": "^2.79.0",
     "singularitygs": "^1.7.1",
+    "slick-carousel": "^1.6.0",
     "unfluff": "^1.1.0",
     "watson-developer-cloud": "^2.14.3"
   },

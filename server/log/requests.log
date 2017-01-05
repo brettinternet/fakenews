@@ -39,3 +39,19 @@
 	{"message":"Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500","stack":"Error: Exceeded maxRedirects. Probably stuck in a redirect loop http://www.genengnews.com/500\n    at Redirect.onResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/lib/redirect.js:98:27)\n    at Request.onRequestResponse (/Users/Elk/Dropbox/Code/devmtn/projects/personal/nownewstoday/node_modules/request/request.js:917:22)\n    at emitOne (events.js:96:13)\n    at ClientRequest.emit (events.js:188:7)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:473:21)\n    at HTTPParser.parserOnHeadersComplete (_http_common.js:99:23)\n    at Socket.socketOnData (_http_client.js:362:20)\n    at emitOne (events.js:96:13)\n    at Socket.emit (events.js:188:7)\n    at readableAddChunk (_stream_readable.js:176:18)"}
 12:30:02 AM ERROR 
 12:40:02 AM ERROR 
+4:36:26 PM ERROR 
+5:10:03 PM ERROR 
+6:10:08 PM ERROR 
+10:05:08 PM ERROR 
+12:25:30 AM ERROR 
+	{"message":"getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443","stack":"Error: getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443\n    at errnoException (dns.js:28:10)\n    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)","code":"ENOTFOUND","errno":"ENOTFOUND","syscall":"getaddrinfo","hostname":"www.reddit.com","host":"www.reddit.com","port":443}
+12:25:30 AM ERROR 
+	{"message":"getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443","stack":"Error: getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443\n    at errnoException (dns.js:28:10)\n    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)","code":"ENOTFOUND","errno":"ENOTFOUND","syscall":"getaddrinfo","hostname":"www.reddit.com","host":"www.reddit.com","port":443}
+12:25:30 AM ERROR 
+	{"message":"getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443","stack":"Error: getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443\n    at errnoException (dns.js:28:10)\n    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)","code":"ENOTFOUND","errno":"ENOTFOUND","syscall":"getaddrinfo","hostname":"www.reddit.com","host":"www.reddit.com","port":443}
+12:25:30 AM ERROR 
+	{"message":"getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443","stack":"Error: getaddrinfo ENOTFOUND www.reddit.com www.reddit.com:443\n    at errnoException (dns.js:28:10)\n    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)","code":"ENOTFOUND","errno":"ENOTFOUND","syscall":"getaddrinfo","hostname":"www.reddit.com","host":"www.reddit.com","port":443}
+3:10:45 AM ERROR 
+	{"message":"getaddrinfo ENOTFOUND maps.googleapis.com maps.googleapis.com:443","stack":"Error: getaddrinfo ENOTFOUND maps.googleapis.com maps.googleapis.com:443\n    at errnoException (dns.js:28:10)\n    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)","code":"ENOTFOUND","errno":"ENOTFOUND","syscall":"getaddrinfo","hostname":"maps.googleapis.com","host":"maps.googleapis.com","port":443}
+3:20:31 AM ERROR 
+	{"message":"getaddrinfo ENOTFOUND maps.googleapis.com maps.googleapis.com:443","stack":"Error: getaddrinfo ENOTFOUND maps.googleapis.com maps.googleapis.com:443\n    at errnoException (dns.js:28:10)\n    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)","code":"ENOTFOUND","errno":"ENOTFOUND","syscall":"getaddrinfo","hostname":"maps.googleapis.com","host":"maps.googleapis.com","port":443}

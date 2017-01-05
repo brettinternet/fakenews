@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin:500|Merriweather:400,700|Roboto");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Julius+Sans+One|Libre+Franklin:500|Merriweather:400,700|Roboto");
 
 
 
@@ -484,7 +484,7 @@ ul {
   margin: auto;
   font-family: Georgia, serif; }
   .logo .now {
-    font-family: "Merriweather", serif; }
+    font-family: Georgia, serif; }
   .logo .news {
     font-family: "EB Garamond", serif; }
 
@@ -582,12 +582,17 @@ ul {
     text-transform: capitalize; }
   .card .news-container {
     margin-bottom: 10px;
-    position: relative; }
-    .card .news-container td .img {
-      height: 200px;
-      width: 300px;
-      background-position: center center;
-      background-repeat: no-repeat; }
+    position: relative;
+    outline: none; }
+    .card .news-container table {
+      padding: 0; }
+    .card .news-container td {
+      padding: 0; }
+      .card .news-container td .img {
+        height: 200px;
+        width: 300px;
+        background-position: center center;
+        background-repeat: no-repeat; }
     .card .news-container .category-title, .card .news-container .breakingnews {
       position: absolute;
       top: 0;
@@ -674,19 +679,24 @@ ul {
     .card .pics-container .pics-title {
       font-family: "Libre Franklin", sans-serif; }
 
-.cright {
-  clear: right; }
+.slickcard {
+  outline: none; }
 
-.cleft {
-  clear: left; }
+#slickbreak {
+  position: relative;
+  margin-bottom: 10px;
+  display: block; }
 
-.cboth {
-  clear: both; }
+#slicktitle {
+  font-size: 2em; }
 
 #borderless-card {
-  background-color: none;
+  background-color: #FEFEFE;
   border: none;
   border-radius: none; }
+
+.slick-prev:before, .slick-next:before {
+  color: #151515 !important; }
 
 .category-hashtag {
   color: #848C8E; }
@@ -703,5 +713,8 @@ ul {
 
 .add-bottom-pad {
   padding-bottom: 20px; }
+
+.earth {
+  height: 40vh; }
 
 
