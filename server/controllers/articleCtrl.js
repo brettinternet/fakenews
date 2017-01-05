@@ -123,21 +123,23 @@ module.exports = {
         response.status(200).send(arr);
       }
       res.forEach((article, i, arr) => {
-        str = article.city.split(' ').join('+');
-        request('https://maps.googleapis.com/maps/api/geocode/json?address=' +str+ '&key=' +config.googleApiKey, (err, res, raw) => {
-          if (!err && res.statusCode == 200) {
-            let body = JSON.parse(raw);
-            if (body.results[0]) {
-              article.lat = body.results[0].geometry.location.lat;
-              article.long = body.results[0].geometry.location.lng;
+        if (!article.lat) {
+          str = article.city.split(' ').join('+');
+          request('https://maps.googleapis.com/maps/api/geocode/json?address=' +str+ '&key=' +config.googleApiKey, (err, res, raw) => {
+            if (!err && res.statusCode == 200) {
+              let body = JSON.parse(raw);
+              if (body.results[0]) {
+                article.lat = body.results[0].geometry.location.lat;
+                article.long = body.results[0].geometry.location.lng;
+              }
+              if (i === 9) sendResponse(arr);
+            } else {
+              winston.get.error(err);
             }
-            if (i === 9) {
-              sendResponse(arr);
-            }
-          } else {
-            winston.get.error(err);
-          }
-        });
+          });
+        } else {
+          if (i === 9) sendResponse(arr);
+        }
       });
     });
   },

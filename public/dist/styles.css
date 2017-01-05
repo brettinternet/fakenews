@@ -361,6 +361,9 @@ br {
   padding: .2em .4em;
   color: #FEFEFE; }
 
+#comment-title {
+  background-color: #274690; }
+
 .comment {
   position: relative;
   margin: 10px 20px;
@@ -394,6 +397,68 @@ br {
   .comment .comment-body {
     font-size: 1em;
     font-family: "Roboto", sans-serif; }
+
+.edit-click {
+  cursor: pointer; }
+
+.edit-menu li {
+  background-color: #2A363B;
+  color: white; }
+
+.editor img {
+  width: 400px;
+  margin: 5px auto 20px auto;
+  display: block; }
+
+.editor table {
+  margin: 0 20px;
+  width: 100%; }
+  .editor table td .inside-table {
+    white-space: nowrap; }
+  .editor table .id {
+    background-color: #1B264F;
+    color: #FEFEFE;
+    font-size: .9em;
+    padding: .2em .4em;
+    text-transform: capitalize;
+    width: 30px; }
+  .editor table .value {
+    background-color: #274690;
+    color: #FEFEFE;
+    font-size: .9em;
+    padding: .2em .4em;
+    text-transform: capitalize;
+    display: inline-block; }
+  .editor table input, .editor table textarea {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    width: 100%;
+    resize: vertical; }
+    .editor table input:hover, .editor table input:focus, .editor table textarea:hover, .editor table textarea:focus {
+      background-color: #E7E7E7; }
+
+.editor .bt-time {
+  background-color: #AE9131; }
+
+.editor button {
+  background-color: #2A363B;
+  color: white;
+  border: none;
+  padding: .2em .4em;
+  text-transform: capitalize;
+  outline: none;
+  box-shadow: -1px 1px 2px #151515; }
+
+.editor .bt-submit {
+  background-color: #3C6E71; }
+
+.editor .bt-delete {
+  background-color: #E84A5F; }
+
+.editor .bt-right {
+  float: right;
+  margin: 5px 10px; }
 
 .footer-container {
   background-color: #151515;
@@ -509,12 +574,23 @@ ul {
     font-size: 1em;
     font-family: cursive; }
   .logo-container .weather {
-    text-align: right; }
+    text-align: right;
+    white-space: nowrap; }
+    .logo-container .weather form {
+      display: inline-block; }
+    .logo-container .weather input {
+      background-color: inherit;
+      border: none;
+      width: auto;
+      outline: none;
+      text-align: right; }
+    .logo-container .weather input:focus {
+      text-decoration: underline; }
     .logo-container .weather .numbers {
       font-family: Helvetica, sans-serif;
       font-weight: bold; }
       .logo-container .weather .numbers .high {
-        color: #AE9131; }
+        color: #E84A5F; }
       .logo-container .weather .numbers .low {
         color: #274690; }
 
@@ -683,9 +759,7 @@ ul {
   outline: none; }
 
 #slickbreak {
-  position: relative;
-  margin-bottom: 10px;
-  display: block; }
+  position: relative; }
 
 #slicktitle {
   font-size: 2em; }
@@ -694,6 +768,12 @@ ul {
   background-color: #FEFEFE;
   border: none;
   border-radius: none; }
+
+#map-card {
+  background-color: #FEFEFE;
+  border: none;
+  border-radius: none;
+  padding: 0; }
 
 .slick-prev:before, .slick-next:before {
   color: #151515 !important; }

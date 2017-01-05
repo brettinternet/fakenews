@@ -169,8 +169,6 @@
 
 #slickbreak {
   position: relative;
-  margin-bottom: 10px;
-  display: block;
 }
 
 #slicktitle {
@@ -181,6 +179,13 @@
   background-color: $whiteA;
   border: none;
   border-radius: none;
+}
+
+#map-card {
+  background-color: $whiteA;
+  border: none;
+  border-radius: none;
+  padding: 0;
 }
 
 .slick-prev:before, .slick-next:before {

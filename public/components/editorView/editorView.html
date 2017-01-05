@@ -1,74 +1,98 @@
-<span ng-repeat="i in model.categories">
-  <li class="menu-item" ng-bind="i" ng-click="model.setCategory(i)"></li>
-</span>
-<ul ng-repeat="article in model.articles">
-  <li ng-click="model.openArticle(article)">
-    <ul>
-      <li ng-bind="article.title"></li>
-      <li ng-bind="article.createdat | date: 'longDate'"></li>
-    </ul>
-  </li>
-</ul>
+<div class="menu edit-menu">
+  <ul>
+    <li ng-repeat="i in model.categories" class="menu-item edit-click">
+      <a ng-click="model.setCategory(i)"></a>
+      <span ng-bind="i"></span>
+    </li>
+  </ul>
+</div>
 
-<div class="editor-container">
+<div class="card add-bottom-pad editor left-two">
+  <span class="card-title">Article Editor</span>
+  <img ng-show="model.editArticle.img" ng-src="{{model.editArticle.img}}">
   <table>
     <tr>
-      <td>ID:</td>
-      <td><span ng-bind="model.editArticle.id"></span><br/></td>
+      <td class="id">ID</td>
+      <td ng-show="model.editArticle.id" class="value" ng-bind="model.editArticle.id"></td>
     </tr>
     <tr>
-      <td>Title:</td>
-      <td><input type="text" ng-model="model.editArticle.title" placeholder="title"></td>
+      <td class="id">Settings</td>
+      <td>
+        <table class="inside-table">
+          <tr>
+            <td class="id">Published</td>
+            <td><input type="checkbox" ng-model="model.editArticle.published"></td>
+            <td class="id">Breaking News</td>
+            <td><input type="checkbox" ng-model="model.editArticle.breakingnews"></td>
+            <td class="id">Picture Post</td>
+            <td><input type="checkbox" ng-model="model.editArticle.picpost"></td>
+          </tr>
+        </table>
+      </td>
     </tr>
     <tr>
-      <td>Author:</td>
-      <!-- <td><select ng-model="model.editArticle.author"></select></td> -->
+      <td class="id">Title</td>
+      <td><input type="text" ng-model="model.editArticle.title"></td>
     </tr>
     <tr>
-      <td>Time:</td>
-      <td><input type="text" ng-model="model.editArticle.createdat"></td>
+      <td class="id">Author</td>
+      <td ng-show="model.editArticle.author" class="value"><span ng-bind="model.editArticle.author"></span></td>
     </tr>
     <tr>
-      <td><span>Breaking News</span></td>
-      <td><input type="checkbox" ng-model="model.editArticle.breakingnews"></td>
+      <td class="id">Date</td>
+      <td ng-show="model.editArticle.createdat" class="value">
+        <span type="text" ng-bind="model.editArticle.createdat | date: 'medium'"></span>
+        <button class="bt-time" type="button" ng-click="model.updateTime()">Update</button>
+      </td>
     </tr>
     <tr>
-      <td>Category:</td>
+      <td class="id">Category</td>
       <!-- <td><select ng-options="i for model.editArticle.category in model.categories"></select></td> -->
     </tr>
     <tr>
-      <td>Tags:</td>
+      <td class="id">Tags</td>
       <td><input type="text" ng-model="model.editArticle.tags"></td>
     </tr>
     <tr>
-      <td>Location:</td>
-      <td><input type="text" ng-model="model.editArticle.location"></td>
+      <td class="id">Location</td>
+      <td>
+        <input type="text" ng-model="model.editArticle.city" placeholder="City">
+        <input type="text" placeholder="State" ng-model="model.editArticle.state">
+        <input type="text" placeholder="Country" ng-model="model.editArticle.country">
+      </td>
     </tr>
     <tr>
-      <td>RegionID:</td>
-      <td><input type="text" ng-model="model.editArticle.regionid"></td>
-    </tr>
-    <tr>
-      <td>Image Link:</td>
+      <td class="id">Img Link</td>
       <td><input type="link" ng-model="model.editArticle.img"></td>
     </tr>
     <tr>
-      <td>Image description:</td>
+      <td class="id">Img description</td>
       <td><input type="text" ng-model="model.editArticle.imgdesc"></td>
     </tr>
     <tr>
-      <td>Headline:</td>
-      <td><input type="text" ng-model="model.editArticle.headline"></td>
+      <td class="id">Headline</td>
+      <td><textarea type="text" rows="4" cols="80" ng-model="model.editArticle.headline"></textarea></td>
     </tr>
     <tr>
-      <td>Article:</td>
+      <td class="id">Body</td>
       <td><textarea ng-model="model.editArticle.body" rows="8" cols="80"></textarea></td>
     </tr>
     <tr>
-      <td><span>Published</span></td>
-      <td><input type="checkbox" ng-model="model.editArticle.published"></td>
+      <td></td>
+      <td>
+        <button class="bt-right bt-submit" type="button" ng-submit="model.submitArticle(model.editArticle)">Save</button>
+        <button class="bt-right bt-delete" type="button" ng-submit="model.deleteArticle(model.editArticle)">Delete</button>
+        <button class="bt-right" type="button" ng-click="model.editArticle = {};">Clear</button>
+      </td>
     </tr>
   </table>
 </div>
-<button type="button" ng-submit="model.submitArticle(model.editArticle)">Submit Changes</button>
-<button type="button" ng-submit="model.deleteArticle(model.editArticle)">Delete Article</button>
+
+<div class="card right" id="map-card">
+  <div ng-repeat="article in model.articles" class="news-container">
+    <div class="news-text">
+      <div ng-click="model.openArticle(article)" ng-bind="article.title" class="news-headline edit-click"></div>
+      <span am-time-ago="article.createdat" class="news-createdat"></span><span class="breakingnews" id="slickbreak" ng-if="article.breakingnews">Breaking News</span>
+    </div>
+  </div>
+</div>

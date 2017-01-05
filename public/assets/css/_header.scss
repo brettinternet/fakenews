@@ -50,13 +50,30 @@ $menuWide: 90%;
 
   .weather {
     text-align: right;
+    white-space: nowrap;
+
+    form {
+      display: inline-block;
+    }
+
+    input {
+      background-color: inherit;
+      border: none;
+      width: auto;
+      outline: none;
+      text-align: right;
+    }
+
+    input:focus {
+      text-decoration: underline;
+    }
 
     .numbers {
       font-family: $font;
       font-weight: bold;
 
       .high {
-        color: $yellow;
+        color: $red;
       }
 
       .low {

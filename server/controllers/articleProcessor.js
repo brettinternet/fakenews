@@ -226,23 +226,53 @@ processData = (obj, entities) => {
     obj.country = countries[0];
     winston.log.info('COUNTRY:', countries);
   }
+  if (!obj.imgnail) obj.imgnail = obj.img;
+  if (obj.city || obj.state || obj.country) {
+    getByLocation = (location) => {
+      str = location.split(' ').join('+');
+      request('https://maps.googleapis.com/maps/api/geocode/json?address=' +str+ '&key=' +config.googleApiKey, (err, res, raw) => {
+        if (!err && res.statusCode == 200) {
+          let body = JSON.parse(raw);
+          if (body.results[0]) {
+            obj.lat = body.results[0].geometry.location.lat;
+            obj.long = body.results[0].geometry.location.lng;
+            saveData(obj);
+          } else if (obj.country) {
+            getByLocation(obj.country);
+          } else if (obj.state) {
+            getByLocation(obj.state);
+          } else {
+            saveData(obj);
+          }
+        } else {
+          winston.get.error(err);
+        }
+      });
+    }
+    if (obj.city) {
+      getByLocation(obj.city);
+    } else if (obj.country) {
+      getByLocation(obj.country);
+    } else if (obj.state) {
+      getByLocation(obj.state);
+    } else {
+      saveData(obj);
+    }
+  } else saveData(obj);
+}
+
+saveData = (obj) => {
   if (obj.country) {
     var searchCountry = `%${obj.country}%`;
-    console.log('PROCESS: using country: ', obj.country);
   } else {
     var searchCountry = null;
-  }
-  if (!obj.imgnail) {
-    obj.imgnail = obj.img;
   }
   db.run("SELECT id FROM authors WHERE categoryid = (SELECT id FROM categories WHERE upper(category) = upper($1)) OFFSET floor(random()*(2)) LIMIT 1", [obj.category], (err, res) => {
     if (err) winston.process.error(err);
     let authorid = res[0].id;
     db.run("SELECT id FROM countries WHERE upper(name) like upper($1)", [searchCountry], (err, resC) => {
       if (err) winston.process.error(err);
-      if (resC) {
-        var countryid = res[0].id;
-      }
+      if (resC) var countryid = res[0].id;
       db.run("SELECT id FROM categories WHERE upper(category) = upper($1)", [obj.category], (err, res) => {
         if (err) winston.process.error(err);
         let categoryid = res[0].id;
@@ -265,7 +295,9 @@ processData = (obj, entities) => {
           categoryid: categoryid,
           breakingnews: obj.breakingnews,
           picpost: false,
-          origin: obj.url
+          origin: obj.url,
+          lat: obj.lat,
+          long: obj.long
         };
         if (obj.country) {
           articleValues.countryid = countryid;

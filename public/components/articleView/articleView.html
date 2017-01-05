@@ -1,11 +1,11 @@
 <div ng-bind="model.article.title" class="atitle"></div>
 <div class="card left-two">
   <span class="card-title" ng-bind="model.author.category"></span>
-  <span ng-if="model.article.breakingnews" class="breakingnews">Hot</span>
   <div class="news-container">
+    <img ng-src="{{model.article.img}}">
+    <span ng-if="model.article.breakingnews" class="breakingnews">Breaking News</span>
     <div class="news-text">
       <span ng-bind="model.article.location" class="news-location"></span>
-      <img ng-src="{{model.article.img}}">
       <div ng-hide="model.article.title === model.article.imgdesc" ng-bind="model.article.imgdesc" class="news-imgdesc"></div>
       <span class="author-date-line"><span ng-if="model.author.name"><span class="news-subtext">By: </span><span ng-bind="model.author.name" class="news-author"></span>
       <a href="mailto:{{model.author.email}}"><i class="material-icons email-icon">email</i></a></span><span ng-bind="model.article.createdat | date: 'fullDate'" class="news-createdat atime"></span></span>

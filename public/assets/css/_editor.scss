@@ -1,0 +1,89 @@
+.edit-click {
+  cursor: pointer;
+}
+
+.edit-menu {
+  li {
+    background-color: $grey;
+    color: white;
+  }
+}
+
+.editor {
+
+  img {
+    width: 400px;
+    margin: 5px auto 20px auto;
+    display: block;
+  }
+
+  table {
+    margin: 0 20px;
+    width: 100%;
+
+    td {
+      .inside-table {
+        white-space: nowrap;
+      }
+    }
+
+    .id {
+      background-color: $darkblue;
+      color: $whiteA;
+      font-size: .9em;
+      padding: .2em .4em;
+      text-transform: capitalize;
+      width: 30px;
+    }
+
+    .value {
+      background-color: $lightblue;
+      color: $whiteA;
+      font-size: .9em;
+      padding: .2em .4em;
+      text-transform: capitalize;
+      display: inline-block;
+    }
+
+    input, textarea {
+      outline: none;
+      border: none;
+      background-color: inherit;
+      width: 100%;
+      resize: vertical;
+
+      &:hover, &:focus {
+        background-color: $lightgrey;
+      }
+    }
+
+
+  }
+
+  .bt-time {
+    background-color: $yellow;
+  }
+
+  button {
+    background-color: $grey;
+    color: white;
+    border: none;
+    padding: .2em .4em;
+    text-transform: capitalize;
+    outline: none;
+    box-shadow: -1px 1px 2px $black;
+  }
+
+  .bt-submit {
+    background-color: #3C6E71;
+  }
+
+  .bt-delete {
+    background-color: $red;
+  }
+
+  .bt-right {
+    float: right;
+    margin: 5px 10px;
+  }
+}

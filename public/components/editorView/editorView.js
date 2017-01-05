@@ -44,6 +44,9 @@ function editorViewCtrl(articleService) {
         console.error(err);
       })
   }
+  model.updateTime = () => {
+    model.editArticle.createdat = new Date();
+  }
   model.openArticle = (article) => model.editArticle = article;
   var putArticle = function() {
     articleService.putArticle(article);

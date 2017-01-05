@@ -81,7 +81,9 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getWeather = (location) => {
-    return $http.get('http://localhost:3000/api/weather/' + location)
+    let urlLoc = location.split(' ').join('+');
+    let apikey = "c970da0bc976fde269081e7227bd0195";
+    return $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + urlLoc + '&APPID=' + apikey)
       .then(function(res) {
         return res.data;
       })

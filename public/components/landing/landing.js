@@ -38,7 +38,7 @@ function landingCtrl(articleService) {
 
     arr.forEach((i) => {
       var marker = WE.marker([i.lat,i.long]).addTo(earth);
-      marker.bindPopup("<a href='#/"+i.category+"/"+i.id+"'><b>"+i.title+"</b></a><br><span style='text-transform: capitalize;'>"+i.city+"</span>", {maxWidth: 150, closeButton: true}).openPopup();
+      marker.bindPopup("<a href='#/"+i.category+"/"+i.id+"'><b>"+i.title+"</b></a><br><span style='text-transform: capitalize;'>"+i.city+"</span>", {maxWidth: 150, closeButton: true});//.openPopup();
     });
 
     var before = null;
@@ -51,7 +51,7 @@ function landingCtrl(articleService) {
       });
 
     // earth.setView([arr[0].lat,arr[0].long], 4);
-    earth.setView([37.088985, -138.532992], 1.5);
+    earth.setView([37.089000, -138.533000], 1.5);
   }
 
   model.$onInit = function() {
