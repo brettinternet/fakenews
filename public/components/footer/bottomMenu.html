@@ -1,23 +1,35 @@
 <div class="footer-container">
-  <ul class="left">
-    <li><search-form></search-form></li>
-    <li><a ui-sref="editor">edit</a></li>
-    <li><a href="#">Help and Contact Us</a></li>
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms of Service</a></li>
-    <li><a href="#">Submissions Policy</a></li>
-    <li><a href="#">Ad Listings</a></li>
-    <li class="copyright">Copyright &#169; 2017 Now<em>News</em>Today All Rights Reserved.</li>
-  </ul>
-  <ul class="middle">
-    <li>Login</li>
-    <li>User Portal</li>
-    <li>Resources</li>
-  </ul>
-  <ul class="right">
-    <li ui-sref-active="footer-item-active"><a ui-sref="home">Front Page</a></li>
-    <li ng-repeat="item in model.categories" ui-sref-active="footer-item-active">
-      <a ui-sref="category({category: item})"><span ng-bind="item"></span></a>
-    </li>
-  </ul>
+  <div class="footer-card left-foot">
+    <ul class="inside-left">
+      <li ui-sref-active="footer-item-active">
+        <a ui-sref="home">Front Page</a>
+      </li>
+      <li ng-repeat="item in model.categories" ui-sref-active="footer-item-active">
+        <a ui-sref="category({category: item})"><span ng-bind="item"></span></a>
+      </li>
+    </ul>
+    <ul class="inside-right">
+      <li ng-repeat="item in model.categories2" ui-sref-active="footer-item-active">
+        <a ui-sref="category({category: item})"><span ng-bind="item"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer-card right-foot">
+    <ul class="inside-left">
+      <li>Login</li>
+      <li><a href="#">User Portal</a></li>
+      <li><a href="#">Press Room</a></li>
+      <li><a href="#">Submissions Policy</a></li>
+      <li class="copyright mobile-hide">Copyright &#169; 2017 Now<em>News</em>Today All Rights Reserved.</li>
+      <li class="copyright desktop-hide">&#169; Now<em>News</em>Today</li>
+    </ul>
+    <ul class="inside-right">
+      <li class="mobile-hide" id="bottom-cushion"><search-form style="color: white;"></search-form></li>
+      <li class="desktop-hide"><a ui-sref="search">Search</a></li>
+      <li><a ui-sref="editor">edit</a></li>
+      <li><a href="#">Help and Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+    </ul>
+  </div>
 </div>

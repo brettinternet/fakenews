@@ -27,18 +27,6 @@ angular.module('newsApp').config(function($stateProvider, $urlRouterProvider, $l
       template: '<article-view></article-view>'
     })
   $urlRouterProvider.otherwise('/');
-  // $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('');
+  // $locationProvider.html5Mode(true);
 })
-
-/*
-- Business
-- Economy
-- Politics
-- Tech
-- Sports
-- Lifestyle
-- Entertainment
-- World
-- Opinions
-*/

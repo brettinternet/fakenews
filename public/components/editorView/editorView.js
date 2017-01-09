@@ -35,7 +35,7 @@ function editorViewCtrl(articleService) {
   }
   model.articles = [];
   model.$onInit = function() {
-    articleService.getArticles(model.currentCat)
+    articleService.getAllPosts(model.currentCat)
       .then(function(resp) {
         model.articles = resp;
       })
@@ -47,12 +47,16 @@ function editorViewCtrl(articleService) {
   model.updateTime = () => {
     model.editArticle.createdat = new Date();
   }
-  model.openArticle = (article) => model.editArticle = article;
-  var putArticle = function() {
-    articleService.putArticle(article);
-    model.editArticle = '';
+  model.clearButton = () => {
+    model.editArticle = {};
+    model.confirm = '';
   }
-  var postArticle = function() {
+  model.openArticle = (article) => model.editArticle = article;
+  model.putArticle = function(article) {
+    articleService.putArticle(article);
+    model.confirm = 'Article saved';
+  }
+  model.postArticle = function(article) {
     articleService.postArticle(article);
     model.editArticle = '';
   }
@@ -61,13 +65,12 @@ function editorViewCtrl(articleService) {
     model.editArticle = '';
   }
   model.submitArticle = function(article) {
-    console.log(article);
-    if (article.id == null) {
-      console.log('no id');
-      postArticle(article);
+    if (!article.title) {
+      model.confirmErr = 'Missing title';
+    } else if (!article.id) {
+      model.postArticle(article);
     } else {
-      console.log('yes id');
-      putArticle(article);
+      model.putArticle(article);
     }
   }
 }
@@ -76,5 +79,5 @@ angular.module('newsApp').component('editorView', {
   templateUrl: './components/editorView/editorView.html',
   controllerAs: 'model',
   controller: ['articleService', editorViewCtrl],
-  require: 'ngModel'
+  // require: 'ngModel'
 });

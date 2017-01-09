@@ -1,13 +1,11 @@
-function bottomMenuCtrl() {
+function sideBarCtrl() {
   let model = this;
   model.categories = [
     'business',
     'tech',
     'economy',
     'politics',
-    'science'
-  ];
-  model.categories2 = [
+    'science',
     'health',
     'sports',
     'lifestyle',
@@ -15,10 +13,11 @@ function bottomMenuCtrl() {
     'world',
     'opinion'
   ];
+
 }
 
-angular.module('newsApp').component('bottomMenu', {
-  templateUrl: './components/footer/bottomMenu.html',
+angular.module('newsApp').component('sideBar', {
+  templateUrl: './components/sidebar/sideBar.html',
   controllerAs: 'model',
-  controller: bottomMenuCtrl
+  controller: sideBarCtrl
 });

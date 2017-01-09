@@ -1,4 +1,4 @@
-function landingCtrl(articleService) {
+function landingCtrl(articleService, $timeout) {
   let model = this;
   model.artbreak = [];
   let modifyResponse = (articles) => {
@@ -18,7 +18,7 @@ function landingCtrl(articleService) {
     arrows: false,
     draggable: true,
     infinite: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     dots: true,
     fade: true
   }
@@ -50,11 +50,11 @@ function landingCtrl(articleService) {
         requestAnimationFrame(animate);
       });
 
-    // earth.setView([arr[0].lat,arr[0].long], 4);
-    earth.setView([37.089000, -138.533000], 1.5);
+    earth.setView([arr[0].lat,arr[0].long], 1.5);
   }
 
   model.$onInit = function() {
+
     articleService.getArticlesLoc()
       .then(function(res) {
         let arr = res.filter((i) => {
@@ -78,16 +78,10 @@ function landingCtrl(articleService) {
       });
     articleService.getOtherArticles()
       .then(function(res) {
-        for (var i = 0; i < res.length; i++) {
-          if (res[i].breakingnews) {
-            let rem = res.splice(i, 1)[0];
-            model.artbreak.push(rem);
-          }
-        }
         model.slickOn = true;
         model.articlesOther = res;
-        model.articlesOtherMore = model.articlesOther.splice(4);
-        model.articlesOtherMore2 = model.articlesOtherMore.splice(4);
+        model.articlesOtherMore = model.articlesOther.splice(3);
+        model.articlesOtherMore2 = model.articlesOtherMore.splice(5);
       })
       .catch(function(err) {
         model.error = err;

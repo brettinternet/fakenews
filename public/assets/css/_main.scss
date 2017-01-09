@@ -1,11 +1,22 @@
 .card {
   background-color: white;
-  padding: 2em 1em 0 1em;
+  padding: 2em .7em 0 .7em;
   border: 1px solid $whiteB;
   border-radius: .1em;
   margin-bottom: .8em;
   position: relative;
   clear: none;
+
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   .card-title {
     position: absolute;
@@ -26,6 +37,21 @@
     table {
       padding: 0;
     }
+
+    .mobile-hide {
+      display: none;
+      @include breakpoint($med) {
+        display: inherit;
+      }
+    }
+
+    .desktop-hide {
+      display: inherit;
+      @include breakpoint($med) {
+        display: none;
+      }
+    }
+
     td {
       padding: 0;
       .img {
@@ -33,6 +59,10 @@
         width: 300px;
         background-position: center center;
         background-repeat: no-repeat;
+        display: none;
+        @include breakpoint($med) {
+          display: block;
+        }
       }
     }
 
@@ -62,7 +92,7 @@
     }
 
     .news-text {
-      padding: 5px 10px 10px 10px;
+      padding: 5px 5px 10px 5px;
       margin: 0;
 
       .news-title {
@@ -213,4 +243,50 @@
 
 .earth {
   height: 40vh;
+}
+
+.search-form {
+  height: 25px;
+  width: 140px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+
+  input {
+    background-color: inherit;
+    outline: none;
+    color: inherit;
+    border-width: 0 0 1px 0;
+    border-color: $whiteB;
+    border-style: solid;
+    width: 85%;
+    float: left;
+    height: 100%;
+    padding: .2em .3em 0 .3em;
+    text-align: left;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  }
+
+  .button {
+    background-color: inherit;
+    border: none;
+    height: 100%;
+    width: 15%;
+    float: right;
+    outline: none;
+    color: inherit;
+    opacity: 1;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .material-icons {
+      transform: translate(-23%, -10%);
+    }
+  }
+
+  .button-hide {
+    opacity: 0;
+  }
 }

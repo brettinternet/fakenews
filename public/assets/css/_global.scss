@@ -1,35 +1,215 @@
 .left {
-  @include float-span(2);
+  @include float-span(1);
+  @include breakpoint($sm) {
+    @include float-span(1);
+  }
+  @include breakpoint($med) {
+    @include float-span(1);
+  }
+  @include breakpoint($wide) {
+    @include float-span(2, 'last');
+  }
+  @include breakpoint($long) {
+    @include float-span(2);
+  }
 }
 
 .left-two {
-  @include float-span(3);
+  @include float-span(1);
+  @include breakpoint($sm) {
+    @include float-span(1);
+  }
+  @include breakpoint($med) {
+    @include float-span(2);
+  }
+  @include breakpoint($wide) {
+    @include float-span(2, 'first');
+  }
+  @include breakpoint($long) {
+    @include float-span(3);
+  }
+}
+
+.left-two-alt {
+  @include float-span(1);
+  @include breakpoint($sm) {
+    @include float-span(1);
+  }
+  @include breakpoint($med) {
+    @include float-span(2);
+  }
+  @include breakpoint($wide) {
+    @include float-span(2, 'last');
+  }
+  @include breakpoint($long) {
+    @include float-span(3);
+  }
 }
 
 .middle {
   @include float-span(1);
+  @include breakpoint($sm) {
+    @include float-span(1);
+  }
+  @include breakpoint($med) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($wide) {
+    @include float-span(1, 'first');
+  }
+  @include breakpoint($long) {
+    @include float-span(1);
+  }
+}
+
+.earth-middle {
+  @include float-span(1);
+  @include breakpoint($sm) {
+    @include float-span(1);
+  }
+  @include breakpoint($med) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($wide) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($long) {
+    @include float-span(1);
+  }
 }
 
 .right {
   @include float-span(1, 'last');
+  @include breakpoint($sm) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($med) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($wide) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($long) {
+    @include float-span(1, 'last');
+  }
 }
 
 .right-two {
-  @include float-span(2, 'last');
+  @include float-span(1, 'last');
+  @include breakpoint($sm) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($med) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($wide) {
+    @include float-span(1, 'first');
+  }
+  @include breakpoint($long) {
+    @include float-span(2, 'last');
+  }
 }
 
-.right-two-alt {
-  @include float-span(2);
+.left-foot {
+  @include float-span(1);
+  @include breakpoint($sm) {
+    @include float-span(1);
+  }
+  @include breakpoint($med) {
+    @include float-span(1);
+  }
+  @include breakpoint($wide) {
+    @include float-span(1);
+  }
+  @include breakpoint($long) {
+    @include float-span(2);
+  }
 }
 
+.right-foot {
+  @include float-span(1, 'last');
+  @include breakpoint($sm) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($med) {
+    @include float-span(1, 'last');
+  }
+  @include breakpoint($wide) {
+    @include float-span(2, 'last');
+  }
+  @include breakpoint($long) {
+    @include float-span(2, 'last');
+  }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 
 body {
   background-color: $whiteA;
 }
 
 .body-container {
-  margin: 0 auto;
-  padding: 0 20px;
+  position: relative;
+}
+
+.view-container {
+  margin: 0 auto 0 auto;
+  padding: 60px 5px 0 5px;
+  @include breakpoint($min) {
+    padding: 70px 5px 0 5px;
+  }
+  @include breakpoint($med) {
+    padding: 80px 20px 0 20px;
+  }
+  @include breakpoint($wide) {
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition:all .3s ease-in-out;
+  -moz-transition:all .3s ease-in-out;
+  -o-transition:all .3s ease-in-out;
+  transition:all .3s ease-in-out;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform:scale3d(0.5, 0.5, 0.5);
+  -moz-transform:scale3d(0.5, 0.5, 0.5);
+  transform:scale3d(0.5, 0.5, 0.5);
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform:scale3d(1, 1, 1);
+  -moz-transform:scale3d(1, 1, 1);
+  transform:scale3d(1, 1, 1);
+}
+
+[ui-view].ng-leave {
+  opacity: 1;
+  -webkit-transform:translate3d(0, 0, 0);
+  -moz-transform:translate3d(0, 0, 0);
+  transform:translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+  -webkit-transform:translate3d(100px, 0, 0);
+  -moz-transform:translate3d(100px, 0, 0);
+  transform:translate3d(100px, 0, 0);
+}
+
+#loading-bar-spinner {
+  top: 50%;
+  left: 50%;
 }
 
 a:link, a:visited {
@@ -43,4 +223,12 @@ a:hover, a:active {
 
 ul {
   padding: 0;
+}
+
+.unselect {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  -o-user-select: none;
+  user-select: none;
 }

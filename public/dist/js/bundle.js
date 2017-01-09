@@ -1,5 +1,12 @@
 'use strict';
 
+angular.module('newsApp', ['ui.router', 'slickCarousel', 'angularMoment', 'ngSanitize', 'ngAnimate', 'ngTouch', 'angular-loading-bar']);
+
+angular.module('newsApp').config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+  cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
+}]);
+'use strict';
+
 angular.module('newsApp').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider.state('home', {
     url: '/',
@@ -23,27 +30,23 @@ angular.module('newsApp').config(function ($stateProvider, $urlRouterProvider, $
     template: '<article-view></article-view>'
   });
   $urlRouterProvider.otherwise('/');
-  // $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('');
+  // $locationProvider.html5Mode(true);
 });
-
-/*
-- Business
-- Economy
-- Politics
-- Tech
-- Sports
-- Lifestyle
-- Entertainment
-- World
-- Opinions
-*/
 'use strict';
 
 angular.module('newsApp').service('articleService', function ($http) {
   // get articles by category
   this.getArticles = function (category) {
     return $http.get('http://localhost:3000/api/category/' + category).then(function (res) {
+      return res.data;
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
+
+  this.getAllPosts = function (category) {
+    return $http.get('http://localhost:3000/api/allcategory/' + category).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -117,24 +120,27 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   // verify authentication before peforming these actions!!
-  // this.putArticle = function(article) {
-  //   $http.put('sampleData.json', newArticle);
-  // }
-  // this.postArticle = function() {
-  //   $http.post('sampleData.json', newArticle);
-  // }
-  // this.deleteArticle = function(id) {
-  //   $http.delete('sampleData.json');
-  // }
+  this.putArticle = function (article) {
+    $http.put('http://localhost:3000/api/article/' + article.id, article);
+  };
+
+  this.postArticle = function (article) {
+    $http.post('http://localhost:3000/api/article', article);
+  };
+
+  this.deleteArticle = function (id) {
+    $http.delete('http://localhost:3000/api/article/' + id);
+  };
 });
 "use strict";
 
 function articleViewCtrl(articleService, $stateParams) {
   var model = this;
+  model.category = $stateParams.category;
   var modifyResponse = function modifyResponse(article, author) {
     author.name = author.firstname + ' ' + author.lastname;
     var artArr = article.body.match(/[^\.!\?]+[\.!\?]+/g);
-    if (artArr[2].charAt(0) === " ") {
+    if (artArr && artArr[2].charAt(0) === " ") {
       artArr[2] = "<br/>" + artArr[2].slice(1);
     }
     model.article.body = artArr.join(' ');
@@ -205,6 +211,91 @@ angular.module('newsApp').component('categoryNews', {
   templateUrl: './components/categoryNews/categoryNews.html',
   controllerAs: 'model',
   controller: ['$stateParams', 'articleService', categoryNewsCtrl]
+});
+'use strict';
+
+function editorViewCtrl(articleService) {
+  var model = this;
+  model.$onInit = function () {
+    ngModel.$viewChangeListeners.push(onChange);
+    ngModel.$render = onChange;
+  };
+  function onChange() {
+    model.modelValue = model.ngModel.$modelValue;
+  }
+  model.categories = ['front', 'business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
+  model.currentCat = 'front';
+  model.setCategory = function (category) {
+    model.currentCat = category;
+    articleService.getArticles(model.currentCat).then(function (resp) {
+      model.articles = resp;
+    }).catch(function (err) {
+      $scope.error = err;
+      console.error(err);
+    });
+  };
+  model.articles = [];
+  model.$onInit = function () {
+    articleService.getAllPosts(model.currentCat).then(function (resp) {
+      model.articles = resp;
+    }).catch(function (err) {
+      $scope.error = err;
+      console.error(err);
+    });
+  };
+  model.updateTime = function () {
+    model.editArticle.createdat = new Date();
+  };
+  model.clearButton = function () {
+    model.editArticle = {};
+    model.confirm = '';
+  };
+  model.openArticle = function (article) {
+    return model.editArticle = article;
+  };
+  model.putArticle = function (article) {
+    articleService.putArticle(article);
+    model.confirm = 'Article saved';
+  };
+  model.postArticle = function (article) {
+    articleService.postArticle(article);
+    model.editArticle = '';
+  };
+  model.deleteArticle = function (article) {
+    articleService.deleteArticle(article.id);
+    model.editArticle = '';
+  };
+  model.submitArticle = function (article) {
+    if (!article.title) {
+      model.confirmErr = 'Missing title';
+    } else if (!article.id) {
+      model.postArticle(article);
+    } else {
+      model.putArticle(article);
+    }
+  };
+}
+
+angular.module('newsApp').component('editorView', {
+  templateUrl: './components/editorView/editorView.html',
+  controllerAs: 'model',
+  controller: ['articleService', editorViewCtrl]
+});
+'use strict';
+
+function errorDisplayCtrl() {
+  var model = this;
+}
+
+angular.module('newsApp').component('errorDisplay', {
+  templateUrl: './components/errorDisplay/errorDisplay.html',
+  controllerAs: 'model',
+  controller: errorDisplayCtrl,
+  bindings: {
+    error: '<',
+    softerr: '<'
+  },
+  require: '^searchViewCtrl'
 });
 'use strict';
 
@@ -298,142 +389,7 @@ angular.module('newsApp').component('comments', {
 });
 'use strict';
 
-function editorViewCtrl(articleService) {
-  var model = this;
-  model.$onInit = function () {
-    ngModel.$viewChangeListeners.push(onChange);
-    ngModel.$render = onChange;
-  };
-  function onChange() {
-    model.modelValue = model.ngModel.$modelValue;
-  }
-  model.categories = ['front', 'business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
-  model.currentCat = 'front';
-  model.setCategory = function (category) {
-    model.currentCat = category;
-    articleService.getArticles(model.currentCat).then(function (resp) {
-      model.articles = resp;
-    }).catch(function (err) {
-      $scope.error = err;
-      console.error(err);
-    });
-  };
-  model.articles = [];
-  model.$onInit = function () {
-    articleService.getArticles(model.currentCat).then(function (resp) {
-      model.articles = resp;
-    }).catch(function (err) {
-      $scope.error = err;
-      console.error(err);
-    });
-  };
-  model.updateTime = function () {
-    model.editArticle.createdat = new Date();
-  };
-  model.openArticle = function (article) {
-    return model.editArticle = article;
-  };
-  var putArticle = function putArticle() {
-    articleService.putArticle(article);
-    model.editArticle = '';
-  };
-  var postArticle = function postArticle() {
-    articleService.postArticle(article);
-    model.editArticle = '';
-  };
-  model.deleteArticle = function (article) {
-    articleService.deleteArticle(article.id);
-    model.editArticle = '';
-  };
-  model.submitArticle = function (article) {
-    console.log(article);
-    if (article.id == null) {
-      console.log('no id');
-      postArticle(article);
-    } else {
-      console.log('yes id');
-      putArticle(article);
-    }
-  };
-}
-
-angular.module('newsApp').component('editorView', {
-  templateUrl: './components/editorView/editorView.html',
-  controllerAs: 'model',
-  controller: ['articleService', editorViewCtrl],
-  require: 'ngModel'
-});
-'use strict';
-
-function errorDisplayCtrl() {
-  var model = this;
-}
-
-angular.module('newsApp').component('errorDisplay', {
-  templateUrl: './components/errorDisplay/errorDisplay.html',
-  controllerAs: 'model',
-  controller: errorDisplayCtrl,
-  bindings: {
-    error: '<',
-    softerr: '<'
-  },
-  require: '^searchViewCtrl'
-});
-'use strict';
-
-function bottomMenuCtrl() {
-  var model = this;
-  model.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
-}
-
-angular.module('newsApp').component('bottomMenu', {
-  templateUrl: './components/footer/bottomMenu.html',
-  controllerAs: 'model',
-  controller: bottomMenuCtrl
-});
-'use strict';
-
-function topMenuCtrl(articleService) {
-  var model = this;
-  model.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
-  model.cityWeather = 'Los Angeles';
-  model.getWeather = function (city) {
-    if (city == '') city = 'Los Angeles';
-    articleService.getWeather(city).then(function (res) {
-      model.weatherObj = {
-        max: Math.floor((res.main.temp_max - 273) * (9 / 5) + 32),
-        min: Math.floor((res.main.temp_min - 273) * (9 / 5) + 32)
-      };
-      model.cityWeather = res.name;
-    }).catch(function (err) {
-      model.error = err;
-      console.error(err);
-    });
-  };
-
-  model.$onInit = function () {
-    model.getWeather(model.cityWeather);
-  };
-
-  model.timeNow = new Date();
-  model.searchShow = false;
-  model.showSearch = function () {
-    model.searchShow = !model.searchShow;
-  };
-  model.editShow = false;
-  model.showEdit = function () {
-    model.editShow = !model.editShow;
-  };
-}
-
-angular.module('newsApp').component('topMenu', {
-  templateUrl: './components/header/header.html',
-  controllerAs: 'model',
-  controller: ['articleService', topMenuCtrl]
-});
-'use strict';
-
-function landingCtrl(articleService) {
+function landingCtrl(articleService, $timeout) {
   var model = this;
   model.artbreak = [];
   var modifyResponse = function modifyResponse(articles) {
@@ -453,7 +409,7 @@ function landingCtrl(articleService) {
     arrows: false,
     draggable: true,
     infinite: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     dots: true,
     fade: true
   };
@@ -484,11 +440,11 @@ function landingCtrl(articleService) {
       requestAnimationFrame(animate);
     });
 
-    // earth.setView([arr[0].lat,arr[0].long], 4);
-    earth.setView([37.089000, -138.533000], 1.5);
+    earth.setView([arr[0].lat, arr[0].long], 1.5);
   };
 
   model.$onInit = function () {
+
     articleService.getArticlesLoc().then(function (res) {
       var arr = res.filter(function (i) {
         return i.lat && i.long;
@@ -507,16 +463,10 @@ function landingCtrl(articleService) {
       console.error(err);
     });
     articleService.getOtherArticles().then(function (res) {
-      for (var i = 0; i < res.length; i++) {
-        if (res[i].breakingnews) {
-          var rem = res.splice(i, 1)[0];
-          model.artbreak.push(rem);
-        }
-      }
       model.slickOn = true;
       model.articlesOther = res;
-      model.articlesOtherMore = model.articlesOther.splice(4);
-      model.articlesOtherMore2 = model.articlesOtherMore.splice(4);
+      model.articlesOtherMore = model.articlesOther.splice(3);
+      model.articlesOtherMore2 = model.articlesOtherMore.splice(5);
     }).catch(function (err) {
       model.error = err;
       console.error(err);
@@ -545,6 +495,75 @@ angular.module('newsApp').component('landing', {
 });
 'use strict';
 
+function dropDownCtrl(articleService) {
+  var model = this;
+}
+
+angular.module('newsApp').component('dropDown', {
+  templateUrl: './components/header/dropDown.html',
+  controllerAs: 'model',
+  controller: ['articleService', dropDownCtrl]
+});
+'use strict';
+
+function topMenuCtrl(articleService) {
+  var model = this;
+  model.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
+  model.cityWeather = 'Los Angeles';
+  model.getWeather = function (city) {
+    if (city == '') city = 'Los Angeles';
+    articleService.getWeather(city).then(function (res) {
+      model.weatherObj = {
+        max: Math.floor((res.main.temp_max - 273) * (9 / 5) + 32),
+        min: Math.floor((res.main.temp_min - 273) * (9 / 5) + 32)
+      };
+      model.cityWeather = res.name;
+    }).catch(function (err) {
+      model.error = err;
+      console.error(err);
+    });
+  };
+
+  model.hideSidebar = true;
+  model.sidebarToggle = function () {
+    model.hideSidebar = !model.hideSidebar;
+  };
+
+  model.$onInit = function () {
+    model.getWeather(model.cityWeather);
+  };
+
+  model.timeNow = new Date();
+  model.searchShow = false;
+  model.showSearch = function () {
+    model.searchShow = !model.searchShow;
+  };
+  model.editShow = false;
+  model.showEdit = function () {
+    model.editShow = !model.editShow;
+  };
+}
+
+angular.module('newsApp').component('topMenu', {
+  templateUrl: './components/header/header.html',
+  controllerAs: 'model',
+  controller: ['articleService', topMenuCtrl]
+});
+'use strict';
+
+function bottomMenuCtrl() {
+  var model = this;
+  model.categories = ['business', 'tech', 'economy', 'politics', 'science'];
+  model.categories2 = ['health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
+}
+
+angular.module('newsApp').component('bottomMenu', {
+  templateUrl: './components/footer/bottomMenu.html',
+  controllerAs: 'model',
+  controller: bottomMenuCtrl
+});
+'use strict';
+
 function searchViewCtrl($state, articleService) {
   var model = this;
   var modifyResponse = function modifyResponse(articles) {
@@ -566,6 +585,9 @@ function searchViewCtrl($state, articleService) {
       });
     };
   };
+  model.showButton = function () {
+    model.buttonShow = !model.buttonShow;
+  };
 }
 
 angular.module('newsApp').component('searchView', {
@@ -581,17 +603,25 @@ angular.module('newsApp').component('searchForm', {
 });
 'use strict';
 
+function sideBarCtrl() {
+  var model = this;
+  model.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
+}
+
+angular.module('newsApp').component('sideBar', {
+  templateUrl: './components/sidebar/sideBar.html',
+  controllerAs: 'model',
+  controller: sideBarCtrl
+});
+'use strict';
+
 function worldMapCtrl(articleService) {
   var model = this;
 
   model.setupMap = function (arr) {
-    console.log(arr);
     var map = new L.map('flat_earth_div');
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap'
-      // maxZoom: 18,
-      // id: '',
-      // accessToken: 'pk.eyJ1IjoiYnJldHRpbnRlcm5ldCIsImEiOiJjaXhrcXl2bDUwMDRrMnducWQxYnE2cGJ6In0.EnmG2JKxi_5aTOhMzTCozw'
     }).addTo(map);
 
     arr.forEach(function (i) {

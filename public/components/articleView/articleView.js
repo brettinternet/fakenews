@@ -1,9 +1,10 @@
 function articleViewCtrl(articleService, $stateParams) {
   let model = this;
+  model.category = $stateParams.category;
   let modifyResponse = function(article, author) {
     author.name = author.firstname + ' ' + author.lastname;
     let artArr = article.body.match(/[^\.!\?]+[\.!\?]+/g);
-    if (artArr[2].charAt(0) === " ") {
+    if (artArr && artArr[2].charAt(0) === " ") {
       artArr[2] = "<br/>" + artArr[2].slice(1);
     }
     model.article.body = artArr.join(' ');

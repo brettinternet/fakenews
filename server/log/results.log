@@ -723,3 +723,872 @@
 {"0":"Chicago","1":"Streamwood","2":"Covington","3":"Aurora","4":"Barrington","5":"Lexington","6":"Schaumburg","level":"info","message":"CITY:","timestamp":"4:01:12 PM"}
 {"0":"Cook County","level":"info","message":"STATE:","timestamp":"4:01:12 PM"}
 {"0":"Atlanta","level":"info","message":"CITY:","timestamp":"4:25:06 PM"}
+{"0":"Concord","level":"info","message":"CITY:","timestamp":"4:40:10 PM"}
+{"0":"New Hampshire","level":"info","message":"STATE:","timestamp":"4:40:10 PM"}
+{"0":"South Korea","1":"U.S.","2":"China","level":"info","message":"COUNTRY:","timestamp":"4:50:06 PM"}
+{"0":"Quants","level":"info","message":"CITY:","timestamp":"5:05:13 PM"}
+{"0":"US","1":"United States.","level":"info","message":"COUNTRY:","timestamp":"5:05:13 PM"}
+{"0":"Japan","level":"info","message":"COUNTRY:","timestamp":"5:10:14 PM"}
+{"0":"Bondi","1":"New York","level":"info","message":"CITY:","timestamp":"5:20:12 PM"}
+{"0":"Paris","1":"Amiens","level":"info","message":"CITY:","timestamp":"5:30:19 PM"}
+{"0":"France","1":"Venezuela","2":"Canada","level":"info","message":"COUNTRY:","timestamp":"5:30:19 PM"}
+{"0":"Concord","level":"info","message":"CITY:","timestamp":"5:40:14 PM"}
+{"0":"New Hampshire","level":"info","message":"STATE:","timestamp":"5:40:14 PM"}
+{"0":"Calabasas","level":"info","message":"CITY:","timestamp":"5:45:21 PM"}
+{"0":"Calif.","level":"info","message":"STATE:","timestamp":"5:45:21 PM"}
+{"0":"Mukilteo","1":"Freeland","2":"Bakersfield","level":"info","message":"CITY:","timestamp":"5:55:12 PM"}
+{"0":"Washington","1":"California","level":"info","message":"STATE:","timestamp":"5:55:12 PM"}
+{"0":"Austin","level":"info","message":"CITY:","timestamp":"6:01:13 PM"}
+{"0":"Hong Kong","level":"info","message":"CITY:","timestamp":"6:05:10 PM"}
+{"0":"US","1":"China","level":"info","message":"COUNTRY:","timestamp":"6:05:10 PM"}
+{"0":"Westworld","1":"Quantico","2":"Westerosi","level":"info","message":"CITY:","timestamp":"6:10:07 PM"}
+{"0":"U.S.","1":"England","level":"info","message":"COUNTRY:","timestamp":"6:10:07 PM"}
+{"0":"San Diego","1":"Madison","2":"UC-San Diego","level":"info","message":"CITY:","timestamp":"6:25:11 PM"}
+{"0":"Greenland","1":"Michigan","level":"info","message":"STATE:","timestamp":"6:25:11 PM"}
+{"0":"Greenland","1":"Brazil","2":"Americas","3":"United Kingdom","4":"Iceland","level":"info","message":"COUNTRY:","timestamp":"6:25:11 PM"}
+{"0":"York","level":"info","message":"CITY:","timestamp":"6:30:06 PM"}
+{"0":"US","1":"England","2":"India","3":"Europe","level":"info","message":"COUNTRY:","timestamp":"6:30:06 PM"}
+{"0":"Portland","1":"Memphis","2":"Milwaukee","3":"midsentence","level":"info","message":"CITY:","timestamp":"6:35:11 PM"}
+{"0":"Georgia","level":"info","message":"STATE:","timestamp":"6:40:11 PM"}
+{"0":"Las Vegas","1":"616,000","2":"Berlin","level":"info","message":"CITY:","timestamp":"6:45:09 PM"}
+{"0":"South Korea","1":"Cuba","level":"info","message":"COUNTRY:","timestamp":"6:45:09 PM"}
+{"0":"South Korea","1":"U.S.","2":"China","level":"info","message":"COUNTRY:","timestamp":"6:50:10 PM"}
+{"0":"JFK","1":"New York","2":"La Guardia","3":"Tappan Zee","level":"info","message":"CITY:","timestamp":"6:55:12 PM"}
+{"0":"Jamaica","level":"info","message":"COUNTRY:","timestamp":"6:55:12 PM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"7:01:12 PM"}
+{"0":"Seattle","1":"Sunnyvale","2":"Mountain View","level":"info","message":"CITY:","timestamp":"7:15:07 PM"}
+{"0":"California","1":"Arizona","2":"Oregon","3":"Maine","4":"Massachusetts","5":"Washington","level":"info","message":"STATE:","timestamp":"7:15:07 PM"}
+{"0":"New Hampshire","level":"info","message":"STATE:","timestamp":"7:40:06 PM"}
+{"0":"Izar","level":"info","message":"CITY:","timestamp":"7:45:04 PM"}
+{"0":"Veracruz","level":"info","message":"CITY:","timestamp":"7:50:05 PM"}
+{"0":"Mexico","level":"info","message":"COUNTRY:","timestamp":"7:50:05 PM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"7:55:21 PM"}
+{"0":"Ouarzazate","level":"info","message":"CITY:","timestamp":"8:10:06 PM"}
+{"0":"Morocco","level":"info","message":"COUNTRY:","timestamp":"8:10:06 PM"}
+{"0":"North Carolina","1":"New Jersey","2":"NC","3":"Indiana","4":"Ohio","level":"info","message":"STATE:","timestamp":"8:20:10 PM"}
+{"0":"Hopkins","1":"Baltimore","level":"info","message":"CITY:","timestamp":"8:30:07 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"8:30:07 PM"}
+{"0":"Chonburi","1":"Bangkok","level":"info","message":"CITY:","timestamp":"8:40:06 PM"}
+{"0":"Thailand","1":"UK","2":"Australia","3":"US","level":"info","message":"COUNTRY:","timestamp":"8:40:06 PM"}
+{"0":"Cleveland","level":"info","message":"CITY:","timestamp":"9:15:12 PM"}
+{"0":"U.S.","1":"U.K.","level":"info","message":"COUNTRY:","timestamp":"9:15:12 PM"}
+{"0":"Alaska","1":"Maine","level":"info","message":"STATE:","timestamp":"9:20:06 PM"}
+{"0":"Scotland","level":"info","message":"COUNTRY:","timestamp":"9:30:08 PM"}
+{"0":"Orlando","level":"info","message":"CITY:","timestamp":"9:40:08 PM"}
+{"0":"VOLUSIA COUNTY","1":"Fla.","level":"info","message":"STATE:","timestamp":"9:40:08 PM"}
+{"0":"Philadelphia","level":"info","message":"CITY:","timestamp":"9:45:08 PM"}
+{"0":"London","level":"info","message":"CITY:","timestamp":"9:50:11 PM"}
+{"0":"UK","1":"Britain","level":"info","message":"COUNTRY:","timestamp":"9:50:11 PM"}
+{"0":"Los Angeles","1":"New York","2":"Montreal","level":"info","message":"CITY:","timestamp":"10:05:13 PM"}
+{"0":"California","1":"Michigan","2":"North Carolina","3":"Georgia","level":"info","message":"STATE:","timestamp":"10:05:13 PM"}
+{"0":"United States","1":"Mexico","level":"info","message":"COUNTRY:","timestamp":"10:05:13 PM"}
+{"0":"China","level":"info","message":"COUNTRY:","timestamp":"10:10:11 PM"}
+{"0":"Louisiana","level":"info","message":"STATE:","timestamp":"10:20:11 PM"}
+{"0":"Mexico","1":"US","level":"info","message":"COUNTRY:","timestamp":"10:20:11 PM"}
+{"0":"Israel","1":"UK","level":"info","message":"COUNTRY:","timestamp":"10:30:05 PM"}
+{"0":"Montreal","1":"Buffalo","2":"New York","level":"info","message":"CITY:","timestamp":"10:35:12 PM"}
+{"0":"Canada","1":"Russia","level":"info","message":"COUNTRY:","timestamp":"10:35:12 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"10:40:06 PM"}
+{"0":"Los Angeles","level":"info","message":"CITY:","timestamp":"10:45:10 PM"}
+{"0":"U.S.","1":"Israel","level":"info","message":"COUNTRY:","timestamp":"10:50:09 PM"}
+{"0":"Indio","1":"LA","level":"info","message":"CITY:","timestamp":"10:55:09 PM"}
+{"0":"California","1":"Colorado","level":"info","message":"STATE:","timestamp":"10:55:09 PM"}
+{"0":"Concord","1":"Cainan","2":"Hopkinton","3":"Pittsfield","4":"Portsmouth","level":"info","message":"CITY:","timestamp":"11:01:10 PM"}
+{"0":"New Hampshire","level":"info","message":"STATE:","timestamp":"11:01:10 PM"}
+{"0":"HONG KONG","1":"Beijing","2":"Singapore","3":"London","level":"info","message":"CITY:","timestamp":"11:05:11 PM"}
+{"0":"U.S.","1":"Japan","2":"Mexico","3":"South Korea","4":"Australia","level":"info","message":"COUNTRY:","timestamp":"11:05:11 PM"}
+{"0":"U.S","level":"info","message":"COUNTRY:","timestamp":"11:15:04 PM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"11:20:08 PM"}
+{"0":"US","1":"Russia","level":"info","message":"COUNTRY:","timestamp":"11:20:08 PM"}
+{"0":"Virginia","level":"info","message":"STATE:","timestamp":"11:25:04 PM"}
+{"0":"Hungary","1":"France","2":"New Zealand","level":"info","message":"COUNTRY:","timestamp":"11:25:04 PM"}
+{"0":"St. Ives","1":"Redberg","2":"Orlando","3":"Manchester","4":"Washington","level":"info","message":"CITY:","timestamp":"11:30:06 PM"}
+{"0":"Nebraska","1":"Virginia","2":"Pennsylvania","level":"info","message":"STATE:","timestamp":"11:30:06 PM"}
+{"0":"U.K.","level":"info","message":"COUNTRY:","timestamp":"11:30:06 PM"}
+{"0":"Los Angeles","level":"info","message":"CITY:","timestamp":"11:45:08 PM"}
+{"0":"Seoul","1":"Hong Kong","level":"info","message":"CITY:","timestamp":"11:50:04 PM"}
+{"0":"South Korea","1":"North Korea","2":"Pyongyang","level":"info","message":"COUNTRY:","timestamp":"11:50:04 PM"}
+{"0":"St. Ives","1":"Redberg","2":"Orlando","3":"Manchester","4":"Washington","level":"info","message":"CITY:","timestamp":"11:55:06 PM"}
+{"0":"Nebraska","1":"Virginia","2":"Pennsylvania","level":"info","message":"STATE:","timestamp":"11:55:06 PM"}
+{"0":"U.K.","level":"info","message":"COUNTRY:","timestamp":"11:55:06 PM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:11:47 AM"}
+{"0":"Washington","1":"Wichita","level":"info","message":"CITY:","timestamp":"9:11:47 AM"}
+{"0":"U.S.","1":"China","2":"Japan","3":"China","4":"Greece","level":"info","message":"COUNTRY:","timestamp":"9:11:47 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:11:48 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:11:48 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:48 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:48 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:48 AM"}
+{"0":"Washington","1":"Wichita","level":"info","message":"CITY:","timestamp":"9:11:49 AM"}
+{"0":"U.S.","1":"China","2":"Japan","3":"China","4":"Greece","level":"info","message":"COUNTRY:","timestamp":"9:11:49 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:50 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:50 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:50 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:50 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:50 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:50 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:50 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:11:50 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:11:51 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:11:51 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:11:51 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:11:52 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:11:52 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:52 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:52 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:52 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:52 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:52 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:11:53 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:11:53 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:53 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:53 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:53 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:53 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:53 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:53 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:53 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:53 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:54 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:54 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:54 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:11:55 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:55 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:55 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:55 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:11:56 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:11:56 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:11:57 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:57 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:57 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:57 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:57 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:57 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:11:57 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:57 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:11:57 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:11:57 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:57 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:57 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:11:57 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:11:58 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:11:58 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:58 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:58 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:11:59 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:59 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:59 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:59 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:59 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:59 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:59 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:59 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:59 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:11:59 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:11:59 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:11:59 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:11:59 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:11:59 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:12:00 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:12:00 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:12:00 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:01 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:01 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:04 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:04 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:12 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:12 AM"}
+{"0":"Washington","1":"Wichita","level":"info","message":"CITY:","timestamp":"9:12:14 AM"}
+{"0":"U.S.","1":"China","2":"Japan","3":"China","4":"Greece","level":"info","message":"COUNTRY:","timestamp":"9:12:14 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:14 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:14 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:14 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:14 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:14 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:14 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:14 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:14 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:15 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:15 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:15 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:15 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Washington","1":"Wichita","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","1":"China","2":"Japan","3":"China","4":"Greece","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:16 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:16 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:16 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:17 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"Washington","1":"Wichita","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"U.S.","1":"China","2":"Japan","3":"China","4":"Greece","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"LA","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:17 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:17 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:17 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:17 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:18 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:18 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:18 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:18 AM"}
+{"0":"London","1":"Brixton","2":"Lambeth","3":"Chelsea","4":"Paris","5":"London.","6":"Mexico City","7":"Madrid","8":"Athens","level":"info","message":"CITY:","timestamp":"9:12:18 AM"}
+{"0":"UK","1":"Italy","level":"info","message":"COUNTRY:","timestamp":"9:12:18 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:18 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:18 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:18 AM"}
+{"0":"Leicester city","1":"Genk","level":"info","message":"CITY:","timestamp":"9:12:18 AM"}
+{"0":"Nigeria","level":"info","message":"COUNTRY:","timestamp":"9:12:18 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:18 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:18 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:19 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:19 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:19 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:19 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:19 AM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:12:19 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:19 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:19 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:19 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:20 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:20 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:20 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:20 AM"}
+{"0":"Chicago","level":"info","message":"CITY:","timestamp":"9:12:20 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"9:12:20 AM"}
+{"0":"Tikrit","level":"info","message":"CITY:","timestamp":"9:12:20 AM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"9:12:20 AM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"9:12:20 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:20 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:20 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:20 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:20 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:20 AM"}
+{"0":"Lancaster","1":"Santa Monica","2":"La Jolla","3":"Brigantine","level":"info","message":"CITY:","timestamp":"9:12:21 AM"}
+{"0":"California","1":"New Jersey","2":"Maryland","3":"Pennsylvania","4":"Md.","level":"info","message":"STATE:","timestamp":"9:12:21 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:12:21 AM"}
+{"0":"Washington","1":"Wichita","level":"info","message":"CITY:","timestamp":"9:12:21 AM"}
+{"0":"U.S.","1":"China","2":"Japan","3":"China","4":"Greece","level":"info","message":"COUNTRY:","timestamp":"9:12:21 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:21 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:22 AM"}
+{"0":"Washington","1":"Wichita","level":"info","message":"CITY:","timestamp":"9:12:22 AM"}
+{"0":"U.S.","1":"China","2":"Japan","3":"China","4":"Greece","level":"info","message":"COUNTRY:","timestamp":"9:12:22 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:22 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:23 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:23 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:24 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:24 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:25 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:25 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:25 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:26 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:26 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:27 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:27 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:27 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:28 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:28 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:28 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:29 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:29 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:29 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:29 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:29 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:29 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:29 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:29 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:29 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:29 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:29 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:30 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:30 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:30 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:30 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:30 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:30 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:30 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:30 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:31 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:31 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:31 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:31 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:31 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:31 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:31 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:31 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:31 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:31 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:32 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:32 AM"}
+{"0":"Cleveland","1":"New York City","2":"Lorain","3":"Baltimore","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"Ohio","1":"Cuyahoga County","2":"Berkeley","3":"California","level":"info","message":"STATE:","timestamp":"9:12:32 AM"}
+{"0":"United States","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"9:12:32 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:32 AM"}
+{"0":"New York City","level":"info","message":"CITY:","timestamp":"9:12:33 AM"}
+{"0":"Obamacare","level":"info","message":"COUNTRY:","timestamp":"9:12:33 AM"}
+{"0":"Dounreay","level":"info","message":"CITY:","timestamp":"12:11:56 PM"}
+{"0":"UK","1":"Scotland","level":"info","message":"COUNTRY:","timestamp":"12:11:56 PM"}
+{"0":"Dounreay","level":"info","message":"CITY:","timestamp":"12:12:02 PM"}
+{"0":"UK","1":"Scotland","level":"info","message":"COUNTRY:","timestamp":"12:12:02 PM"}
+{"0":"Dounreay","level":"info","message":"CITY:","timestamp":"12:12:06 PM"}
+{"0":"UK","1":"Scotland","level":"info","message":"COUNTRY:","timestamp":"12:12:06 PM"}
+{"0":"Dounreay","level":"info","message":"CITY:","timestamp":"12:12:09 PM"}
+{"0":"UK","1":"Scotland","level":"info","message":"COUNTRY:","timestamp":"12:12:09 PM"}
+{"0":"Dounreay","level":"info","message":"CITY:","timestamp":"12:12:09 PM"}
+{"0":"UK","1":"Scotland","level":"info","message":"COUNTRY:","timestamp":"12:12:09 PM"}
+{"0":"Dounreay","level":"info","message":"CITY:","timestamp":"12:12:23 PM"}
+{"0":"UK","1":"Scotland","level":"info","message":"COUNTRY:","timestamp":"12:12:23 PM"}
+{"0":"Aberdeen","1":"Cheltenham","2":"Exeter","3":"Richmond","4":"Notting Hill","5":"Clapham Junction","6":"Brighton","7":"Recipease","level":"info","message":"CITY:","timestamp":"12:12:27 PM"}
+{"0":"UK","1":"Australia","level":"info","message":"COUNTRY:","timestamp":"12:12:27 PM"}
+{"0":"Aberdeen","1":"Cheltenham","2":"Exeter","3":"Richmond","4":"Notting Hill","5":"Clapham Junction","6":"Brighton","7":"Recipease","level":"info","message":"CITY:","timestamp":"12:12:33 PM"}
+{"0":"UK","1":"Australia","level":"info","message":"COUNTRY:","timestamp":"12:12:33 PM"}
+{"0":"Baja","1":"Detroit","level":"info","message":"CITY:","timestamp":"12:12:44 PM"}
+{"0":"Ontario","1":"Mississippi","level":"info","message":"STATE:","timestamp":"12:12:44 PM"}
+{"0":"US","1":"Mexico","2":"Canada","level":"info","message":"COUNTRY:","timestamp":"12:12:44 PM"}
+{"0":"HONG KONG","1":"Beijing","2":"Singapore","3":"London","level":"info","message":"CITY:","timestamp":"12:13:08 PM"}
+{"0":"U.S.","1":"Japan","2":"Mexico","3":"South Korea","4":"Australia","level":"info","message":"COUNTRY:","timestamp":"12:13:08 PM"}
+{"0":"HONG KONG","1":"Beijing","2":"Singapore","3":"London","level":"info","message":"CITY:","timestamp":"12:13:49 PM"}
+{"0":"U.S.","1":"Japan","2":"Mexico","3":"South Korea","4":"Australia","level":"info","message":"COUNTRY:","timestamp":"12:13:49 PM"}
+{"0":"HONG KONG","1":"Beijing","2":"Singapore","3":"London","level":"info","message":"CITY:","timestamp":"12:13:52 PM"}
+{"0":"U.S.","1":"Japan","2":"Mexico","3":"South Korea","4":"Australia","level":"info","message":"COUNTRY:","timestamp":"12:13:52 PM"}
+{"0":"New York","level":"info","message":"CITY:","timestamp":"12:16:20 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"12:16:20 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"12:16:20 PM"}
+{"0":"New York","level":"info","message":"CITY:","timestamp":"12:20:03 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"12:20:03 PM"}
+{"0":"Wendake","level":"info","message":"CITY:","timestamp":"12:40:08 PM"}
+{"0":"Quebec","level":"info","message":"STATE:","timestamp":"12:40:08 PM"}
+{"0":"California","level":"info","message":"STATE:","timestamp":"12:45:07 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"12:45:07 PM"}
+{"0":"Baghdad","1":"Mosul","level":"info","message":"CITY:","timestamp":"12:50:03 PM"}
+{"0":"Iraq","1":"US","2":"Sweden","level":"info","message":"COUNTRY:","timestamp":"12:50:03 PM"}
+{"0":"Camden","1":"Marble Hill","level":"info","message":"CITY:","timestamp":"12:55:06 PM"}
+{"0":"Missouri","level":"info","message":"STATE:","timestamp":"12:55:06 PM"}
+{"0":"Broward County","1":"FLA.","level":"info","message":"STATE:","timestamp":"1:01:12 PM"}
+{"0":"Gigafactory","1":"Fremont","2":"Buffalo","3":"New York","level":"info","message":"CITY:","timestamp":"1:10:09 PM"}
+{"0":"Nevada","1":"California","level":"info","message":"STATE:","timestamp":"1:10:09 PM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"1:10:09 PM"}
+{"0":"New York","1":"Jamaica","level":"info","message":"CITY:","timestamp":"1:15:10 PM"}
+{"0":"California","level":"info","message":"STATE:","timestamp":"1:15:10 PM"}
+{"0":"American Samoa","1":"U.S.","2":"Puerto Ricans","3":"Puerto Rico","4":"France","5":"Bahamas","level":"info","message":"COUNTRY:","timestamp":"1:15:10 PM"}
+{"0":"PHILADELPHIA","1":"Irvine","level":"info","message":"CITY:","timestamp":"1:25:12 PM"}
+{"0":"MD","level":"info","message":"STATE:","timestamp":"1:25:12 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"1:25:12 PM"}
+{"0":"Indiana","level":"info","message":"STATE:","timestamp":"1:30:09 PM"}
+{"0":"Hollywood","1":"Mumbai","level":"info","message":"CITY:","timestamp":"1:45:11 PM"}
+{"0":"India","1":"UK","2":"Haryana","level":"info","message":"COUNTRY:","timestamp":"1:45:11 PM"}
+{"0":"CHARLESTON","1":"Clarksburg","2":"Fairmont","3":"Reading","level":"info","message":"CITY:","timestamp":"2:01:14 PM"}
+{"0":"W.Va.","1":"Pennsylvania","level":"info","message":"STATE:","timestamp":"2:01:14 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"2:01:14 PM"}
+{"0":"Jeju","1":"Seoul","2":"Bangkok","3":"Hubud","4":"suit-clad","5":"Kakao","6":"chaebols","7":"Gangnam","level":"info","message":"CITY:","timestamp":"2:05:15 PM"}
+{"0":"South Korea","1":"North Korea","2":"Singapore","level":"info","message":"COUNTRY:","timestamp":"2:05:15 PM"}
+{"0":"San Francisco","level":"info","message":"CITY:","timestamp":"2:10:10 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"2:10:10 PM"}
+{"0":"Nevada","level":"info","message":"STATE:","timestamp":"2:15:10 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"2:15:10 PM"}
+{"0":"New York","level":"info","message":"CITY:","timestamp":"2:20:11 PM"}
+{"0":"Ohio","1":"California","2":"Florida","3":"Texas","level":"info","message":"STATE:","timestamp":"2:20:11 PM"}
+{"0":"Physalis","level":"info","message":"CITY:","timestamp":"2:25:08 PM"}
+{"0":"Patagonia","1":"South America","2":"Australia","3":"Antarctica","level":"info","message":"COUNTRY:","timestamp":"2:25:08 PM"}
+{"0":"Barcelona","level":"info","message":"CITY:","timestamp":"2:30:13 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"2:30:13 PM"}
+{"0":"New York","1":"London","level":"info","message":"CITY:","timestamp":"2:45:08 PM"}
+{"0":"New York","1":"Kupers","2":"Syracuse","3":"Philadelphia","4":"Marion","5":"New York City","6":"Baltimore","level":"info","message":"CITY:","timestamp":"2:55:16 PM"}
+{"0":"Onondaga County","1":"Pennsylvania","2":"Illinois","3":"Ohio","4":"Alabama","5":"Mississippi","level":"info","message":"STATE:","timestamp":"2:55:16 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"3:01:28 PM"}
+{"0":"Washington","1":"California","2":"Colorado","3":"Oregon","4":"Massachusetts","5":"Arkansas","6":"North Dakota","7":"Nevada","8":"Montana","9":"Maine","10":"Florida","level":"info","message":"STATE:","timestamp":"3:01:28 PM"}
+{"0":"United States","1":"Mexico","level":"info","message":"COUNTRY:","timestamp":"3:01:28 PM"}
+{"0":"San Francisco","1":"Spadafino","2":"London","3":"Jamaica","4":"Washington D.C.","5":"Kingston","6":"D.C.","7":"New York","8":"Boston","level":"info","message":"CITY:","timestamp":"3:05:14 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"3:05:14 PM"}
+{"0":"Jamaica","1":"U.K.","level":"info","message":"COUNTRY:","timestamp":"3:05:14 PM"}
+{"0":"Las Vegas","level":"info","message":"CITY:","timestamp":"3:10:31 PM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"3:10:31 PM"}
+{"0":"UK","level":"info","message":"COUNTRY:","timestamp":"3:30:14 PM"}
+{"0":"Austria","1":"France","2":"Belgium","3":"Germany","level":"info","message":"COUNTRY:","timestamp":"3:40:08 PM"}
+{"0":"Paris","level":"info","message":"CITY:","timestamp":"3:50:08 PM"}
+{"0":"US","1":"Antarctica","level":"info","message":"COUNTRY:","timestamp":"3:50:08 PM"}
+{"0":"London","level":"info","message":"CITY:","timestamp":"4:05:15 PM"}
+{"0":"England","level":"info","message":"STATE:","timestamp":"4:05:15 PM"}
+{"0":"UK","1":"Spain","2":"Britain","level":"info","message":"COUNTRY:","timestamp":"4:05:15 PM"}
+{"0":"Polychain","1":"Coinbase","level":"info","message":"CITY:","timestamp":"4:10:03 PM"}
+{"0":"US","1":"China","level":"info","message":"COUNTRY:","timestamp":"4:10:03 PM"}
+{"0":"London","1":"Brexit","2":"macro-economics","level":"info","message":"CITY:","timestamp":"4:15:06 PM"}
+{"0":"UK","1":"Britain","2":"England","3":"Albania","4":"US","level":"info","message":"COUNTRY:","timestamp":"4:15:06 PM"}
+{"0":"Moscow","1":"Washington","2":"New York","level":"info","message":"CITY:","timestamp":"4:20:11 PM"}
+{"0":"Russia","1":"United States","level":"info","message":"COUNTRY:","timestamp":"4:20:11 PM"}
+{"0":"Toronto","level":"info","message":"CITY:","timestamp":"4:25:12 PM"}
+{"0":"Ontario","level":"info","message":"STATE:","timestamp":"4:25:12 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"4:25:12 PM"}
+{"0":"Pella","level":"info","message":"CITY:","timestamp":"4:40:09 PM"}
+{"0":"Arapahoe County","1":"Colorado","level":"info","message":"STATE:","timestamp":"4:40:09 PM"}
+{"0":"San Antonio","1":"San Diego","2":"Orlando","3":"Victoria","level":"info","message":"CITY:","timestamp":"4:45:07 PM"}
+{"0":"Florida","1":"Texas","2":"California","3":"British Columbia","level":"info","message":"STATE:","timestamp":"4:45:07 PM"}
+{"0":"SeaWorld","1":"Iceland","level":"info","message":"COUNTRY:","timestamp":"4:45:07 PM"}
+{"0":"Cypress","1":"Collinsworth","2":"Winnfield","3":"Baton Rouge","4":"4,600","5":"Stanford","level":"info","message":"CITY:","timestamp":"4:55:49 PM"}
+{"0":"Louisiana","1":"California","2":"Oklahoma","level":"info","message":"STATE:","timestamp":"4:55:49 PM"}
+{"0":"Puerto Ricans","level":"info","message":"COUNTRY:","timestamp":"4:55:49 PM"}
+{"0":"ORLANDO","1":"Tillikum","level":"info","message":"CITY:","timestamp":"5:01:11 PM"}
+{"0":"Fla.","level":"info","message":"STATE:","timestamp":"5:01:11 PM"}
+{"0":"Sealand","1":"Canada","2":"Iceland","level":"info","message":"COUNTRY:","timestamp":"5:01:11 PM"}
+{"0":"Japan","1":"U.S.","level":"info","message":"COUNTRY:","timestamp":"5:10:07 PM"}
+{"0":"Cadomin","1":"Toronto","2":"Paris","level":"info","message":"CITY:","timestamp":"5:15:11 PM"}
+{"0":"Alberta","level":"info","message":"STATE:","timestamp":"5:15:11 PM"}
+{"0":"Canada","1":"Saskatchewan","level":"info","message":"COUNTRY:","timestamp":"5:15:11 PM"}
+{"0":"Northwestern","level":"info","message":"CITY:","timestamp":"5:25:05 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"5:30:07 PM"}
+{"0":"La Salle","1":"Greeley","level":"info","message":"CITY:","timestamp":"5:40:03 PM"}
+{"0":"United States","1":"Australia","level":"info","message":"COUNTRY:","timestamp":"5:55:03 PM"}
+{"0":"Alaska","level":"info","message":"STATE:","timestamp":"6:10:06 PM"}
+{"0":"England","1":"Kenya","2":"U.S.","level":"info","message":"COUNTRY:","timestamp":"6:10:06 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"6:15:07 PM"}
+{"0":"decarceration —","level":"info","message":"CITY:","timestamp":"6:20:03 PM"}
+{"0":"Alabama","level":"info","message":"STATE:","timestamp":"6:20:03 PM"}
+{"0":"US","1":"Seychelles","level":"info","message":"COUNTRY:","timestamp":"6:20:03 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"6:25:06 PM"}
+{"0":"New Zealand","1":"Australia","level":"info","message":"COUNTRY:","timestamp":"6:30:08 PM"}
+{"0":"Marivan","1":"Tehran","2":"Tabriz","level":"info","message":"CITY:","timestamp":"6:40:06 PM"}
+{"0":"Iran","level":"info","message":"COUNTRY:","timestamp":"6:40:06 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"6:45:05 PM"}
+{"0":"Moscow","1":"New York","level":"info","message":"CITY:","timestamp":"7:50:05 PM"}
+{"0":"US","1":"Russia","2":"China","level":"info","message":"COUNTRY:","timestamp":"7:50:05 PM"}
+{"0":"Beverly Hills","level":"info","message":"CITY:","timestamp":"7:55:05 PM"}
+{"0":"CHICAGO","1":"Carpentersville","level":"info","message":"CITY:","timestamp":"8:01:12 PM"}
+{"0":"Cook County","level":"info","message":"STATE:","timestamp":"8:01:12 PM"}
+{"0":"Albuquerque","1":"New York City","2":"Philadelphia","3":"Sydney","level":"info","message":"CITY:","timestamp":"8:05:13 PM"}
+{"0":"New Mexico","1":"Colorado","level":"info","message":"STATE:","timestamp":"8:05:13 PM"}
+{"0":"New York","1":"Mairone","level":"info","message":"CITY:","timestamp":"8:15:08 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"8:15:08 PM"}
+{"0":"Moscow","level":"info","message":"CITY:","timestamp":"8:20:04 PM"}
+{"0":"California","level":"info","message":"STATE:","timestamp":"8:20:04 PM"}
+{"0":"Russia","1":"Russia","2":"Russia","3":"Ukraine","4":"U.S.","5":"Puerto Rico","6":"Syria","7":"Iraq","level":"info","message":"COUNTRY:","timestamp":"8:20:04 PM"}
+{"0":"Egypt","level":"info","message":"COUNTRY:","timestamp":"8:30:08 PM"}
+{"0":"LAS VEGAS","level":"info","message":"CITY:","timestamp":"8:35:09 PM"}
+{"0":"Saskatoon","1":"Calgary","level":"info","message":"CITY:","timestamp":"8:40:09 PM"}
+{"0":"Berlin","1":"Salafist","level":"info","message":"CITY:","timestamp":"8:50:04 PM"}
+{"0":"Germany","1":"Syria","level":"info","message":"COUNTRY:","timestamp":"8:50:04 PM"}
+{"0":"PALMYRA","1":"New York","level":"info","message":"CITY:","timestamp":"8:55:03 PM"}
+{"0":"Wayne County","1":"N.Y.","level":"info","message":"STATE:","timestamp":"8:55:03 PM"}
+{"0":"Arizona","1":"Colorado","level":"info","message":"STATE:","timestamp":"9:01:11 PM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"9:01:11 PM"}
+{"0":"United Kingdom","level":"info","message":"COUNTRY:","timestamp":"9:05:06 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"9:10:03 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:10:03 PM"}
+{"0":"Calgary","1":"Edmonton","level":"info","message":"CITY:","timestamp":"9:15:03 PM"}
+{"0":"Alberta","level":"info","message":"STATE:","timestamp":"9:15:03 PM"}
+{"0":"fields18","level":"info","message":"CITY:","timestamp":"9:25:05 PM"}
+{"0":"Ga","level":"info","message":"STATE:","timestamp":"9:25:05 PM"}
+{"0":"NY","level":"info","message":"STATE:","timestamp":"3:05:08 AM"}
+{"0":"PISA","1":"Hong Kong","2":"Costa Rica","level":"info","message":"CITY:","timestamp":"3:10:04 AM"}
+{"0":"Germany","1":"Japan","2":"Turkey","3":"Chile","4":"Switzerland","5":"Mexico","6":"Netherlands","level":"info","message":"COUNTRY:","timestamp":"3:10:04 AM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"3:20:02 AM"}
+{"0":"Washington","level":"info","message":"STATE:","timestamp":"3:20:02 AM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"3:20:02 AM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"3:30:02 AM"}
+{"0":"Bangkok","level":"info","message":"CITY:","timestamp":"3:40:03 AM"}
+{"0":"Thailand","level":"info","message":"COUNTRY:","timestamp":"3:40:03 AM"}
+{"0":"Halfon","1":"London","level":"info","message":"CITY:","timestamp":"3:50:02 AM"}
+{"0":"Gaza","1":"West Bank","level":"info","message":"STATE:","timestamp":"3:50:02 AM"}
+{"0":"Israel","1":"United Kingdom","2":"UK","level":"info","message":"COUNTRY:","timestamp":"3:50:02 AM"}
+{"0":"Japan","1":"Australia","level":"info","message":"COUNTRY:","timestamp":"3:55:04 AM"}
+{"0":"AUSTIN","level":"info","message":"CITY:","timestamp":"4:01:10 AM"}
+{"0":"Texas","level":"info","message":"STATE:","timestamp":"4:01:10 AM"}
+{"0":"Hollywood","level":"info","message":"CITY:","timestamp":"4:05:06 AM"}
+{"0":"Pixabay","1":"Seattle","level":"info","message":"CITY:","timestamp":"4:10:03 AM"}
+{"0":"Amazons","level":"info","message":"COUNTRY:","timestamp":"4:10:03 AM"}
+{"0":"PROVIDENCE","1":"Tethya aurantia","level":"info","message":"CITY:","timestamp":"4:25:04 AM"}
+{"0":"R.I.","level":"info","message":"STATE:","timestamp":"4:25:04 AM"}
+{"0":"Troy","level":"info","message":"CITY:","timestamp":"4:30:02 AM"}
+{"0":"Saskatoon","1":"Calgary","level":"info","message":"CITY:","timestamp":"12:40:03 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"2:37:26 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"2:37:26 PM"}
+{"0":"Atlanta","level":"info","message":"CITY:","timestamp":"2:37:28 PM"}
+{"0":"MD","1":"Ga","level":"info","message":"STATE:","timestamp":"2:37:28 PM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"2:37:28 PM"}
+{"0":"United States","1":"WW2","level":"info","message":"COUNTRY:","timestamp":"2:37:28 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"2:37:28 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"2:37:28 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"2:37:28 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"2:37:28 PM"}
+{"0":"Ohio","1":"Williams County","level":"info","message":"STATE:","timestamp":"2:37:28 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"2:37:31 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"2:37:31 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"2:37:31 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"2:37:31 PM"}
+{"0":"United States","1":"WW2","level":"info","message":"COUNTRY:","timestamp":"2:37:31 PM"}
+{"0":"United States","1":"WW2","level":"info","message":"COUNTRY:","timestamp":"2:37:31 PM"}
+{"0":"United States","1":"WW2","level":"info","message":"COUNTRY:","timestamp":"2:37:31 PM"}
+{"0":"Jerusalem","1":"Jabel Mukaber","2":"Old City","3":"West Bank","4":"Berlin","level":"info","message":"CITY:","timestamp":"2:37:31 PM"}
+{"0":"West Bank","level":"info","message":"STATE:","timestamp":"2:37:31 PM"}
+{"0":"US","1":"Israel","2":"Germany","3":"France","level":"info","message":"COUNTRY:","timestamp":"2:37:31 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"2:37:31 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"2:37:31 PM"}
+{"0":"China","level":"info","message":"COUNTRY:","timestamp":"2:37:31 PM"}
+{"0":"United States","1":"WW2","level":"info","message":"COUNTRY:","timestamp":"2:37:32 PM"}
+{"0":"United States","1":"WW2","level":"info","message":"COUNTRY:","timestamp":"2:37:32 PM"}
+{"0":"Jerusalem","1":"Jabel Mukaber","2":"Old City","3":"West Bank","4":"Berlin","level":"info","message":"CITY:","timestamp":"2:37:32 PM"}
+{"0":"West Bank","level":"info","message":"STATE:","timestamp":"2:37:32 PM"}
+{"0":"US","1":"Israel","2":"Germany","3":"France","level":"info","message":"COUNTRY:","timestamp":"2:37:32 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Hoffman Estates","1":"Seritage","2":"Miami","3":"Hillsboro","4":"New York City","5":"Chicago","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Illinois","1":"Florida","2":"Ohio","3":"Connecticut","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Hoffman Estates","1":"Seritage","2":"Miami","3":"Hillsboro","4":"New York City","5":"Chicago","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Illinois","1":"Florida","2":"Ohio","3":"Connecticut","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Jerusalem","1":"Jabel Mukaber","2":"Old City","3":"West Bank","4":"Berlin","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"West Bank","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"US","1":"Israel","2":"Germany","3":"France","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Jerusalem","1":"Jabel Mukaber","2":"Old City","3":"West Bank","4":"Berlin","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"West Bank","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"US","1":"Israel","2":"Germany","3":"France","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Fort Lauderdale","1":"Penuelas","level":"info","message":"CITY:","timestamp":"2:37:34 PM"}
+{"0":"Florida","1":"Fla","2":"Alaska.","level":"info","message":"STATE:","timestamp":"2:37:34 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"2:37:34 PM"}
+{"0":"Maple Grove","1":"Minneapolis","level":"info","message":"CITY:","timestamp":"2:37:35 PM"}
+{"0":"Wisconsin","level":"info","message":"STATE:","timestamp":"2:37:35 PM"}
+{"0":"China","level":"info","message":"COUNTRY:","timestamp":"2:37:35 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"2:37:35 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"2:37:35 PM"}
+{"0":"Seattle","level":"info","message":"CITY:","timestamp":"2:40:03 PM"}
+{"0":"Jerusalem","1":"Jabel Mukaber","2":"Old City","3":"West Bank","4":"Berlin","level":"info","message":"CITY:","timestamp":"2:50:03 PM"}
+{"0":"West Bank","level":"info","message":"STATE:","timestamp":"2:50:03 PM"}
+{"0":"US","1":"Israel","2":"Germany","3":"France","level":"info","message":"COUNTRY:","timestamp":"2:50:03 PM"}
+{"0":"Tampa","level":"info","message":"CITY:","timestamp":"3:01:10 PM"}
+{"0":"Florida","level":"info","message":"STATE:","timestamp":"3:01:10 PM"}
+{"0":"Milnut","level":"info","message":"CITY:","timestamp":"3:05:06 PM"}
+{"0":"Vermont","level":"info","message":"STATE:","timestamp":"3:05:06 PM"}
+{"0":"USDA","level":"info","message":"COUNTRY:","timestamp":"3:05:06 PM"}
+{"0":"China","level":"info","message":"COUNTRY:","timestamp":"3:10:03 PM"}
+{"0":"United States","1":"WW2","level":"info","message":"COUNTRY:","timestamp":"3:15:02 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"3:20:06 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"3:20:06 PM"}
+{"0":"Phoenix","1":"Zika","level":"info","message":"CITY:","timestamp":"3:30:06 PM"}
+{"0":"Arizona","1":"Ontario","2":"Texas","level":"info","message":"STATE:","timestamp":"3:30:06 PM"}
+{"0":"US","1":"Canada","level":"info","message":"COUNTRY:","timestamp":"3:30:06 PM"}
+{"0":"Pittsburgh","1":"Jerusalem","2":"West","level":"info","message":"CITY:","timestamp":"3:40:09 PM"}
+{"0":"Colorado","level":"info","message":"STATE:","timestamp":"3:40:09 PM"}
+{"0":"U.S","1":"Syria","2":"Afghanistan","level":"info","message":"COUNTRY:","timestamp":"3:40:09 PM"}
+{"0":"UK","level":"info","message":"COUNTRY:","timestamp":"4:01:13 PM"}
+{"0":"looe","level":"info","message":"STATE:","timestamp":"4:15:10 PM"}
+{"0":"China","level":"info","message":"COUNTRY:","timestamp":"4:15:10 PM"}
+{"0":"Massachusetts","level":"info","message":"STATE:","timestamp":"4:20:02 PM"}
+{"0":"Tsimane","level":"info","message":"CITY:","timestamp":"4:25:06 PM"}
+{"0":"United States","1":"Bolivia","level":"info","message":"COUNTRY:","timestamp":"4:25:06 PM"}
+{"0":"Clippit","level":"info","message":"CITY:","timestamp":"4:35:04 PM"}
+{"0":"New Mexico","1":"Nevada","level":"info","message":"STATE:","timestamp":"4:35:04 PM"}
+{"0":"Packer’s Abington Township","1":"Abington Township","2":"Quakertown","3":"Horsham","4":"Abington","5":"Bear Creek Township","6":"Newtown","level":"info","message":"CITY:","timestamp":"4:55:03 PM"}
+{"0":"Bucks County","1":"Pennsylvania","2":"North Carolina","3":"Luzerne County","level":"info","message":"STATE:","timestamp":"4:55:03 PM"}
+{"0":"Las Vegas","1":"Gigafactory","level":"info","message":"CITY:","timestamp":"5:00:04 PM"}
+{"0":"Nevada","level":"info","message":"STATE:","timestamp":"5:00:04 PM"}
+{"0":"Faline","1":"Dodge City","level":"info","message":"CITY:","timestamp":"5:01:10 PM"}
+{"0":"Kansas","level":"info","message":"STATE:","timestamp":"5:01:10 PM"}
+{"0":"Milnut","level":"info","message":"CITY:","timestamp":"5:05:03 PM"}
+{"0":"Vermont","level":"info","message":"STATE:","timestamp":"5:05:03 PM"}
+{"0":"USDA","level":"info","message":"COUNTRY:","timestamp":"5:05:03 PM"}
+{"0":"MEXICO CITY","level":"info","message":"CITY:","timestamp":"5:15:04 PM"}
+{"0":"Mexico","1":"U.S.","level":"info","message":"COUNTRY:","timestamp":"5:15:04 PM"}
+{"0":"Michigan","1":"Wisconsin","2":"Pennsylvania","level":"info","message":"STATE:","timestamp":"5:20:11 PM"}
+{"0":"United States","1":"Russia","level":"info","message":"COUNTRY:","timestamp":"5:20:11 PM"}
+{"0":"Slovenia","1":"Finland","2":"Albania","3":"Croatia","4":"Mongolia","5":"Russia","6":"Turkey","7":"Mexico","8":"Bulgaria","9":"Greece","10":"US","11":"China","level":"info","message":"COUNTRY:","timestamp":"5:25:10 PM"}
+{"0":"AUSTIN","level":"info","message":"CITY:","timestamp":"5:30:10 PM"}
+{"0":"Texas","level":"info","message":"STATE:","timestamp":"5:30:10 PM"}
+{"0":"Austin","1":"San Diego","level":"info","message":"CITY:","timestamp":"5:40:11 PM"}
+{"0":"Russia","1":"U.S.","level":"info","message":"COUNTRY:","timestamp":"5:45:11 PM"}
+{"0":"Yemenis","1":"Taiz","2":"Sanaa","level":"info","message":"CITY:","timestamp":"5:50:10 PM"}
+{"0":"Yemen","1":"Saudi Arabia","2":"UK","level":"info","message":"COUNTRY:","timestamp":"5:50:10 PM"}
+{"0":"Packer’s Abington Township","1":"Abington Township","2":"Quakertown","3":"Horsham","4":"Abington","5":"Bear Creek Township","6":"Newtown","level":"info","message":"CITY:","timestamp":"5:55:10 PM"}
+{"0":"Bucks County","1":"Pennsylvania","2":"North Carolina","3":"Luzerne County","level":"info","message":"STATE:","timestamp":"5:55:10 PM"}
+{"0":"Milnut","level":"info","message":"CITY:","timestamp":"6:05:12 PM"}
+{"0":"Vermont","level":"info","message":"STATE:","timestamp":"6:05:12 PM"}
+{"0":"USDA","level":"info","message":"COUNTRY:","timestamp":"6:05:12 PM"}
+{"0":"Brussels","1":"Boston","2":"New York","level":"info","message":"CITY:","timestamp":"6:10:10 PM"}
+{"0":"Michigan","1":"Wisconsin","2":"Pennsylvania","level":"info","message":"STATE:","timestamp":"6:20:23 PM"}
+{"0":"United States","1":"Russia","level":"info","message":"COUNTRY:","timestamp":"6:20:23 PM"}
+{"0":"Wilmot","level":"info","message":"CITY:","timestamp":"6:25:15 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"6:25:15 PM"}
+{"0":"Cape Town","level":"info","message":"CITY:","timestamp":"6:30:23 PM"}
+{"0":"Alabama","level":"info","message":"STATE:","timestamp":"6:30:23 PM"}
+{"0":"U.S.","1":"Afghanistan","2":"United Kingdom","3":"Iraq","4":"South Africa","5":"China","level":"info","message":"COUNTRY:","timestamp":"6:30:23 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"6:45:22 PM"}
+{"0":"United States","1":"China","level":"info","message":"COUNTRY:","timestamp":"6:45:22 PM"}
+{"0":"New York","level":"info","message":"CITY:","timestamp":"6:50:12 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"6:50:12 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"6:55:12 PM"}
+{"0":"U.S.","level":"info","message":"COUNTRY:","timestamp":"6:55:12 PM"}
+{"0":"Virginia","level":"info","message":"STATE:","timestamp":"7:01:11 PM"}
+{"0":"Milnut","level":"info","message":"CITY:","timestamp":"7:05:12 PM"}
+{"0":"Vermont","level":"info","message":"STATE:","timestamp":"7:05:12 PM"}
+{"0":"USDA","level":"info","message":"COUNTRY:","timestamp":"7:05:12 PM"}
+{"0":"Detroit","1":"Mountain View","2":"Phoenix","level":"info","message":"CITY:","timestamp":"7:10:12 PM"}
+{"0":"Arizona","1":"California","level":"info","message":"STATE:","timestamp":"7:10:12 PM"}
+{"0":"Michigan","1":"Wisconsin","2":"Pennsylvania","level":"info","message":"STATE:","timestamp":"7:20:14 PM"}
+{"0":"United States","1":"Russia","level":"info","message":"COUNTRY:","timestamp":"7:20:14 PM"}
+{"0":"Cape Town","level":"info","message":"CITY:","timestamp":"7:30:13 PM"}
+{"0":"Alabama","level":"info","message":"STATE:","timestamp":"7:30:13 PM"}
+{"0":"U.S.","1":"Afghanistan","2":"United Kingdom","3":"Iraq","4":"South Africa","5":"China","level":"info","message":"COUNTRY:","timestamp":"7:30:13 PM"}
+{"0":"Amsterdam","level":"info","message":"CITY:","timestamp":"7:40:09 PM"}
+{"0":"the Netherlands","1":"Netherland","2":"Finland","3":"Belgium","level":"info","message":"COUNTRY:","timestamp":"7:40:09 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"7:45:11 PM"}
+{"0":"United States","1":"China","level":"info","message":"COUNTRY:","timestamp":"7:45:11 PM"}
+{"0":"New York","level":"info","message":"CITY:","timestamp":"7:50:11 PM"}
+{"0":"United States","level":"info","message":"COUNTRY:","timestamp":"7:50:11 PM"}
+{"0":"Packer’s Abington Township","1":"Abington Township","2":"Quakertown","3":"Horsham","4":"Abington","5":"Bear Creek Township","6":"Newtown","level":"info","message":"CITY:","timestamp":"7:55:13 PM"}
+{"0":"Bucks County","1":"Pennsylvania","2":"North Carolina","3":"Luzerne County","level":"info","message":"STATE:","timestamp":"7:55:13 PM"}
+{"0":"Milnut","level":"info","message":"CITY:","timestamp":"8:05:11 PM"}
+{"0":"Vermont","level":"info","message":"STATE:","timestamp":"8:05:11 PM"}
+{"0":"USDA","level":"info","message":"COUNTRY:","timestamp":"8:05:11 PM"}
+{"0":"Detroit","1":"Mountain View","2":"Phoenix","level":"info","message":"CITY:","timestamp":"8:10:11 PM"}
+{"0":"Arizona","1":"California","level":"info","message":"STATE:","timestamp":"8:10:11 PM"}
+{"0":"Potemkin","1":"Baja","level":"info","message":"CITY:","timestamp":"8:15:10 PM"}
+{"0":"Ohio","level":"info","message":"STATE:","timestamp":"8:15:10 PM"}
+{"0":"United States","1":"Mexico","level":"info","message":"COUNTRY:","timestamp":"8:15:10 PM"}
+{"0":"Beringia","1":"Eastern Beringia","2":"Central Beringia","3":"Western Beringia","4":"Siberia","5":"Old Crow","6":"Dyuktai","7":"Zooarchaeology","8":"Beringian","9":"U. de Montréal","10":"Ursids","11":"Canids","level":"info","message":"CITY:","timestamp":"8:25:13 PM"}
+{"0":"Alaska","level":"info","message":"STATE:","timestamp":"8:25:13 PM"}
+{"0":"Siberia","1":"South America","level":"info","message":"COUNTRY:","timestamp":"8:25:13 PM"}
+{"0":"Ontario","level":"info","message":"STATE:","timestamp":"8:35:11 PM"}
+{"0":"Atlanta","level":"info","message":"CITY:","timestamp":"8:40:11 PM"}
+{"0":"MD","1":"Ga","level":"info","message":"STATE:","timestamp":"8:40:11 PM"}
+{"0":"US","level":"info","message":"COUNTRY:","timestamp":"8:40:11 PM"}
+{"0":"Washington","level":"info","message":"CITY:","timestamp":"8:45:12 PM"}
+{"0":"Iraq","level":"info","message":"COUNTRY:","timestamp":"8:45:12 PM"}
+{"0":"Greece","level":"info","message":"COUNTRY:","timestamp":"8:50:12 PM"}
+{"0":"Packer’s Abington Township","1":"Abington Township","2":"Quakertown","3":"Horsham","4":"Abington","5":"Bear Creek Township","6":"Newtown","7":"Glenside","level":"info","message":"CITY:","timestamp":"8:55:12 PM"}
+{"0":"Bucks County","1":"Pennsylvania","2":"North Carolina","3":"Luzerne County","level":"info","message":"STATE:","timestamp":"8:55:12 PM"}
+{"0":"Toledo","1":"Grand Wagoneers","level":"info","message":"CITY:","timestamp":"9:01:11 PM"}
+{"0":"Michigan","1":"Ohio","level":"info","message":"STATE:","timestamp":"9:01:11 PM"}
+{"0":"United States","1":"Mexico","level":"info","message":"COUNTRY:","timestamp":"9:01:11 PM"}
+{"0":"Milnut","level":"info","message":"CITY:","timestamp":"9:05:10 PM"}
+{"0":"Vermont","level":"info","message":"STATE:","timestamp":"9:05:10 PM"}
+{"0":"USDA","level":"info","message":"COUNTRY:","timestamp":"9:05:10 PM"}
+{"0":"Oxford","1":"Cambridge","level":"info","message":"CITY:","timestamp":"9:10:10 PM"}
+{"0":"England","level":"info","message":"COUNTRY:","timestamp":"9:10:10 PM"}
+{"0":"Potemkin","1":"Baja","level":"info","message":"CITY:","timestamp":"9:15:08 PM"}
+{"0":"Ohio","level":"info","message":"STATE:","timestamp":"9:15:08 PM"}
+{"0":"United States","1":"Mexico","level":"info","message":"COUNTRY:","timestamp":"9:15:08 PM"}
+{"0":"Russia","1":"U.S.","level":"info","message":"COUNTRY:","timestamp":"9:20:12 PM"}

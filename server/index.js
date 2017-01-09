@@ -34,9 +34,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//////////////
-// DATABASE //
-//////////////
 const massiveInstance = massive.connectSync({
   connectionString: config.connectionString
 })
@@ -52,6 +49,7 @@ const articleCtrl = require('./controllers/articleCtrl'),
 app.get('/api/search/:title', articleCtrl.searchTitle);
 app.get('/api/other/all', articleCtrl.getOtherArticles);
 app.get('/api/category/:category', articleCtrl.getCat);
+app.get('/api/allcategory/:category', articleCtrl.getAllCat);
 app.get('/api/location/', articleCtrl.getArticlesLoc);
 app.get('/api/pics/:category', articleCtrl.getPics);
 app.get('/api/tags/:category', articleCtrl.getCatTags);

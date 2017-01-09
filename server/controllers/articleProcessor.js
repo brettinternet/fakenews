@@ -16,7 +16,7 @@ const getWatson = watson.alchemy_language({
 
 // TODO: Use embed.ly for sports / vids
 
-skipArticle = () => {
+skipArticle = (obj) => {
   let scrapedValues = {
     redditid: obj.redditid,
     domain: obj.domain,
@@ -45,6 +45,7 @@ module.exports = {
         reddit = 0,
         otherImg = 0,
         banned = 0,
+        mp4 = 0,
         newsArr = [],
         picsArr = [],
         uniquePost = [];
@@ -65,6 +66,8 @@ module.exports = {
       } else if (website.search('reddit.com') > -1) {
         reddit += 1;
         picsArr.push(post);
+      } else if (url.substr(url.length-3) == 'mp4') {
+        mp4 += 1;
       } else if (url.substr(url.length-3) == 'gif' || url.substr(url.length-4) == 'gifv' || url.substr(url.length-3) == 'jpg' || url.substr(url.length-3) == 'png') {
         otherImg += 1;
         picsArr.push(post);
@@ -166,18 +169,7 @@ getSummary = (obj) => {
       getEntities(obj);
     });
   } else {
-    let scrapedValues = {
-      redditid: obj.redditid,
-      domain: obj.domain,
-      score: obj.score,
-      redditurl: obj.redditurl,
-      reddittitle: obj.reddittitle,
-      fulltext: obj.url,
-      mediatype: 'error'
-    }
-    db.scraped.insert(scrapedValues, (err, res) => {
-      if (err) winston.process.error(err);
-    });
+    skipArticle(obj);
   }
 }
 
@@ -185,6 +177,9 @@ processData = (obj, entities) => {
   obj.breakingnews = false;
   if (obj.score > 20000) {
     obj.breakingnews = true;
+  }
+  if (obj.domain) {
+
   }
   let cities = [],
       states = [],
@@ -307,30 +302,31 @@ saveData = (obj) => {
             winston.process.error(err, articleValues);
             obj.error = 'ERROR: could not save article';
             skipArticle(obj);
-          }
-          console.log(`DATABASE: new article in ${obj.category}`);
-          let scrapedValues = {
-            redditid: obj.redditid,
-            domain: obj.domain,
-            articleid: article.id,
-            score: obj.score,
-            redditurl: obj.redditurl,
-            reddittitle: obj.reddittitle,
-            fulltext: obj.fulltext
-          }
-          if (obj.type) {
-            scrapedValues.mediatype = obj.type;
-          }
-          db.scraped.insert(scrapedValues, (err, res) => {
-            if (err) winston.process.error(err);
-          });
-          for (let i = 0; i < obj.tags.length; i++) {
-            let tagsObj = {};
-            tagsObj.tag = obj.tags[i].toLowerCase();
-            tagsObj.articleid = article.id;
-            db.tags.insert(tagsObj, (err, res) => {
+          } else {
+            console.log(`DATABASE: new article in ${obj.category}`);
+            let scrapedValues = {
+              redditid: obj.redditid,
+              domain: obj.domain,
+              articleid: article.id,
+              score: obj.score,
+              redditurl: obj.redditurl,
+              reddittitle: obj.reddittitle,
+              fulltext: obj.fulltext
+            }
+            if (obj.type) {
+              scrapedValues.mediatype = obj.type;
+            }
+            db.scraped.insert(scrapedValues, (err, res) => {
               if (err) winston.process.error(err);
             });
+            for (let i = 0; i < obj.tags.length; i++) {
+              let tagsObj = {};
+              tagsObj.tag = obj.tags[i].toLowerCase();
+              tagsObj.articleid = article.id;
+              db.tags.insert(tagsObj, (err, res) => {
+                if (err) winston.process.error(err);
+              });
+            };
           };
         });
       });

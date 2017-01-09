@@ -1,7 +1,7 @@
 function categoryCtrl($stateParams) {
   var model = this;
   model.currentCat = $stateParams.category;
-
+  
 
 }
 

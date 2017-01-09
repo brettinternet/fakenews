@@ -13,7 +13,7 @@
 
   img {
     width: 400px;
-    margin: 5px auto 20px auto;
+    margin: 20px auto 20px auto;
     display: block;
   }
 
@@ -43,6 +43,11 @@
       padding: .2em .4em;
       text-transform: capitalize;
       display: inline-block;
+    }
+
+    #setting-option {
+      background-color: $whiteB;
+      color: black;
     }
 
     input, textarea {
@@ -85,5 +90,12 @@
   .bt-right {
     float: right;
     margin: 5px 10px;
+  }
+
+  .confirm-text {
+    background-color: #3C6E71;
+    float: right;
+    padding: .2em .4em;
+    color: white;
   }
 }

@@ -107,6 +107,7 @@ getTags = (obj) => {
     },
     (err) => {
       winston.process.error('CLARIFAI ERROR');
+      processPic(obj, '');
     });
   }
 }

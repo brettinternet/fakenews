@@ -5,6 +5,7 @@ module.exports = {
     'nextbigfuture',
     'streamable.com',
     'gifycat.com',
+    'akamaihd.net',
   ]
 }
 

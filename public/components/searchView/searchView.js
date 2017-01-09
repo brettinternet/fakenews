@@ -21,6 +21,9 @@ function searchViewCtrl($state, articleService) {
         })
     }
   }
+  model.showButton = () => {
+    model.buttonShow = !model.buttonShow;
+  }
 }
 
 angular.module('newsApp').component('searchView', {

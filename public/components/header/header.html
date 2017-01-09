@@ -1,19 +1,35 @@
-<div class="logo"><a ui-sref="home"><span class="now">Now</span><em class="news">News</em><strong>Today</strong></a></div>
-<div class="logo-container">
-  <ul>
-    <li ng-bind="model.timeNow | amDateFormat:'dddd, MMMM Do, YYYY'" class="date"></li>
-    <li class="logo-subtext">America's Truest News Source</li>
-    <li class="weather"><form ng-submit="model.getWeather(model.cityWeather)"><input ng-model="model.cityWeather" type="text"></form> • <span class="numbers"><span class="high" ng-bind="model.weatherObj.max"></span> | <span class="low" ng-bind="model.weatherObj.min"></span></span></li>
-  </ul>
-</div>
-<div class="menu">
-  <ul>
-    <li class="menu-item icon" id="home" ui-sref-active="menu-item-active"><a ui-sref="home"></a><i class="material-icons nav-icon">home</i></li>
-    <li ng-repeat="item in model.categories" class="menu-item" ui-sref-active="menu-item-active">
-      <a ui-sref="category({category: item})"></a>
-      <span ng-bind="item"></span>
-    </li>
-    <li class="menu-item icon"><i class="material-icons nav-icon" ng-click="model.showSearch()">search</i><search-form ng-show="model.searchShow"></search-form></li>
-    <li class="menu-item icon"><i ng-click="model.showEdit()" class="material-icons nav-icon">person</i><a ng-show="model.editShow" ui-sref="editor">edit</a></li>
-  </ul>
-</div>
+<side-bar ng-if="!model.hideSidebar" class="side-bar"></side-bar>
+
+<header>
+  <div class="logo mobile-hide"><a ui-sref="home"><span class="now">Now</span><em class="news">News</em><strong>Today</strong></a></div>
+  <div class="logo-container fixed">
+    <ul class="unselect">
+      <li ng-bind="model.timeNow | amDateFormat:'dddd, MMMM Do, YYYY'" class="date mobile-hide"></li>
+      <li class="logo-subtext mobile-hide">Informing the Populace</li>
+      <li class="desktop-hide no-wrap">
+        <span ng-click="model.sidebarToggle()"><i class="material-icons menu-icon">menu</i></span>
+        <span class="logo">
+          <a ui-sref="home"><span class="now">Now</span><em class="news">News</em><strong>Today</strong></a></span></li>
+      <li class="weather">
+        <div ng-bind="model.timeNow | amDateFormat:'ddd, MMM d'" class="desktop-hide"></div>
+        <form ng-submit="model.getWeather(model.cityWeather)"><input ng-model="model.cityWeather" type="text"></form> •
+        <span class="numbers">
+          <span class="high" ng-bind="model.weatherObj.max"></span><span class="high">&uarr;</span>
+          <span class="low" ng-bind="model.weatherObj.min"></span><span class="low">&darr;</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="menu">
+    <ul>
+      <li class="menu-item icon" id="home" ui-sref-active="menu-item-active"><a ui-sref="home"></a><i class="material-icons nav-icon">home</i></li>
+      <li ng-repeat="item in model.categories" class="menu-item" ui-sref-active="menu-item-active">
+        <a ui-sref="category({category: item})"></a>
+        <span ng-bind="item"></span>
+      </li>
+      <li class="menu-item icon"><i class="material-icons nav-icon" ng-click="model.showSearch()">search</i><search-form ng-show="model.searchShow"></search-form></li>
+      <!-- <li class="menu-item icon"><i ng-click="model.showEdit()" class="material-icons nav-icon">person</i><a ng-show="model.editShow" ui-sref="editor">edit</a></li> -->
+    </ul>
+  </div>
+</header>

@@ -1,11 +1,12 @@
-window.$ = window.jQuery = require('jquery');
-
+var jquery = require('jquery');
+global.$ = global.jQuery = jquery;
 var angular = require('angular'),
-    uiRouter = require('angular-ui-router');
-require('moment');
-var ngMoment = require('angular-moment'),
-    ngSanitize = require('angular-sanitize');
-require('slick-carousel');
-require('angular-slick-carousel');
-
-angular.module('newsApp', [uiRouter, ngMoment, ngSanitize, 'slickCarousel']);
+    uiRouter = require('angular-ui-router'),
+    moment = require('moment'),
+    slick = require('slick-carousel'),
+    ngSlick = require('angular-slick-carousel'),
+    ngMoment = require('angular-moment'),
+    ngSanitize = require('angular-sanitize'),
+    ngAnimate = require('angular-animate'),
+    ngTouch = require('angular-touch'),
+    ngLoad = require('angular-loading-bar');

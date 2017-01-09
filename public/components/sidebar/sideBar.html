@@ -1,0 +1,15 @@
+<!-- ng-click not talking to header component to close sidebarToggle -->
+
+<div>
+  <ul>
+    <li class="menu-item" ui-sref-active="menu-item-active">
+      <a ui-sref="home" ng-click="model.sidebarToggle()"></a>
+      <span class="menu-text"><i class="material-icons icon">home</i>Front Page</span>
+    </li>
+    <li ng-repeat="item in model.categories" class="menu-item" ui-sref-active="menu-item-active">
+      <a ui-sref="category({category: item})" ng-click="model.sidebarToggle()"></a>
+      <span class="menu-text" ng-bind="item"></span>
+    </li>
+    <li class="menu-item icon"><search-form style="color: black;" class="menu-text"></search-form></li>
+  </ul>
+</div>

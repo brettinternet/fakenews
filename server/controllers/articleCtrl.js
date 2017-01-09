@@ -33,7 +33,7 @@ module.exports = {
             createdat: inc.createdat,
             categoryid: categoryid,
             breakingnews: inc.breakingnews,
-            flag: inc.flag
+            picpost: inc.picpost
           };
           db.articles.insert(values, (err, article) => {
             if (err) {
@@ -113,8 +113,18 @@ module.exports = {
     });
   },
 
+  getAllCat: function(req, response) {
+    db.run("SELECT articles.*, categories.category, authors.firstname::text || ' ' || authors.lastname::text AS author, array_agg(tags.tag) AS tags FROM articles JOIN categories ON categories.id = articles.categoryid LEFT JOIN authors ON authors.id = articles.authorid LEFT JOIN tags ON tags.articleid = tags.id WHERE upper(categories.category) = upper($1) GROUP BY articles.id, categories.category, author ORDER BY articles.createdat DESC LIMIT 20", [req.params.category], (err, res) => {
+      if (err) {
+        winston.error.error(err);
+        return response.status(500).send(err);
+      }
+      response.status(200).send(res);
+    });
+  },
+
   getArticlesLoc: (req, response) => {
-    db.run("SELECT articles.*, categories.category FROM articles JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND articles.body != '' AND articles.headline != '' AND articles.city != '' ORDER BY articles.createdat DESC LIMIT 10", (err, res) => {
+    db.run("SELECT articles.*, categories.category FROM articles JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND articles.body != '' AND articles.headline != '' AND articles.city != '' ORDER BY articles.createdat DESC LIMIT 20", (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -131,14 +141,22 @@ module.exports = {
               if (body.results[0]) {
                 article.lat = body.results[0].geometry.location.lat;
                 article.long = body.results[0].geometry.location.lng;
+                let values = {
+                  id: article.id,
+                  lat: article.lat,
+                  long: article.long
+                };
+                db.articles.update(values, (err, res) => {
+                  if (err) winston.error.error(err);
+                });
               }
-              if (i === 9) sendResponse(arr);
+              if (i === 19) sendResponse(arr);
             } else {
               winston.get.error(err);
             }
           });
         } else {
-          if (i === 9) sendResponse(arr);
+          if (i === 19) sendResponse(arr);
         }
       });
     });
@@ -155,7 +173,7 @@ module.exports = {
   },
 
   getCatTags: function(req, response) {
-    db.run("SELECT tags.tag, categories.category, count(tags.id) AS count FROM tags JOIN articles ON articles.id = tags.articleid JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND lower(categories.category) = lower($1) GROUP BY tags.tag, categories.category, articles.id ORDER BY articles.id desc LIMIT 50", [req.params.category], (err, res) => {
+    db.run("SELECT tags.tag, categories.category, count(tags.id) AS count FROM tags JOIN articles ON articles.id = tags.articleid JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND articles.id in (SELECT articles.id FROM articles JOIN categories ON articles.categoryid = categories.id WHERE lower(categories.category) = lower($1) ORDER BY articles.id DESC LIMIT 50) AND lower(categories.category) = lower($1) GROUP BY tags.tag, categories.category", [req.params.category], (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);
@@ -208,7 +226,7 @@ module.exports = {
       let authorid = res[0].id;
       db.run("SELECT	id FROM countries WHERE upper(twoletter) = upper($1)", [inc.country], (err, res) => {
         if (err) winston.error.error(err);
-        let countryid = res[0].id;
+        if (res[0]) var countryid = res[0].id;
         db.run("SELECT id FROM categories WHERE upper(category) = upper($1)", [inc.category], (err, res) => {
           if (err) winston.error.error(err);
           let categoryid = res[0].id;
@@ -228,7 +246,7 @@ module.exports = {
             createdat: inc.createdat,
             categoryid: categoryid,
             breakingnews: inc.breakingnews,
-            flag: inc.flag
+            picpost: inc.picpost
           };
           db.articles.update(values, (err, article) => {
             if (err) {
@@ -237,14 +255,16 @@ module.exports = {
             }
             db.tags.destroy({articleid: articleId}, (err, res) => {
               if (err) winston.error.error(err);
-              for (let i = 0; i < inc.tags.length; i++) {
-                let tagsObj = {};
-                tagsObj.tag = inc.tags[i];
-                tagsObj.articleid = articleId;
-                db.tags.insert(tagsObj, (err, res) => {
-                  if (err) return response.status(500).send(err);
-                });
-              };
+              if (inc.tags && inc.tags[0] != null) {
+                for (let i = 0; i < inc.tags.length; i++) {
+                  let tagsObj = {};
+                  tagsObj.tag = inc.tags[i];
+                  tagsObj.articleid = articleId;
+                  db.tags.insert(tagsObj, (err, res) => {
+                    if (err) winston.error.error(err);
+                  });
+                };
+              }
               response.status(204).send();
             });
           });
@@ -255,12 +275,21 @@ module.exports = {
 
   delete: function(req, response) {
     let articleId = req.params.articleId;
-    db.articles.destroy({id: articleId}, (err, res) => {
-      if (err) {
-        winston.error.error(err);
-        return response.status(500).send(err);
-      }
-      response.status(204).send();
+    db.scraped.destroy({articleid: articleId}, (err, res) => {
+      if (err) winston.error.error(err);
+      db.comments.destroy({articleid: articleId}, (err, res) => {
+        if (err) winston.error.error(err);
+        db.tags.destroy({articleid: articleId}, (err, res) => {
+          if (err) winston.error.error(err);
+          db.articles.destroy({id: articleId}, (err, res) => {
+            if (err) {
+              winston.error.error(err);
+              return response.status(500).send(err);
+            }
+            response.status(204).send();
+          });
+        });
+      });
     });
   }
 

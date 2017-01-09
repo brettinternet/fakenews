@@ -1,3 +1,6 @@
+<div class="view-container">
+
+
 <div class="card left">
   <span class="card-title" ng-bind="model.category"></span>
   <div ng-repeat="article in model.articles" class="news-container">
@@ -52,7 +55,7 @@
   </div>
 </div>
 
-<div ng-if="model.picsMore2" class="card middle">
+<div ng-if="model.picsMore2" class="card middle" id="borderless-card">
   <span class="card-title"><span ng-bind="model.category"></span><span> Pics</span></span>
   <div ng-repeat="pic in model.picsMore2" class="pics-container">
     <a ui-sref="article({category: pic.category, articleId: pic.id})"><span ng-bind="pic.title" class="pics-title"></span>
@@ -62,3 +65,6 @@
 </div>
 
 <error-display></error-display>
+</div>
+
+<bottom-menu></bottom-menu>

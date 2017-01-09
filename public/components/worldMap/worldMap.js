@@ -2,13 +2,9 @@ function worldMapCtrl(articleService) {
   let model = this;
 
   model.setupMap = (arr) => {
-    console.log(arr);
     var map = new L.map('flat_earth_div');
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
-        // maxZoom: 18,
-        // id: '',
-        // accessToken: 'pk.eyJ1IjoiYnJldHRpbnRlcm5ldCIsImEiOiJjaXhrcXl2bDUwMDRrMnducWQxYnE2cGJ6In0.EnmG2JKxi_5aTOhMzTCozw'
       }).addTo(map);
 
     arr.forEach((i) => {

@@ -10,6 +10,16 @@ angular.module('newsApp').service('articleService', function($http) {
       });
   }
 
+  this.getAllPosts = (category) => {
+    return $http.get('http://localhost:3000/api/allcategory/' + category)
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(err) {
+        console.error(err)
+      });
+  }
+
   this.getArticlesLoc = () => {
     return $http.get('http://localhost:3000/api/location/')
       .then(function(res) {
@@ -92,15 +102,16 @@ angular.module('newsApp').service('articleService', function($http) {
       });
   }
 
-
   // verify authentication before peforming these actions!!
-  // this.putArticle = function(article) {
-  //   $http.put('sampleData.json', newArticle);
-  // }
-  // this.postArticle = function() {
-  //   $http.post('sampleData.json', newArticle);
-  // }
-  // this.deleteArticle = function(id) {
-  //   $http.delete('sampleData.json');
-  // }
+  this.putArticle = function(article) {
+    $http.put('http://localhost:3000/api/article/' + article.id, article);
+  }
+
+  this.postArticle = function(article) {
+    $http.post('http://localhost:3000/api/article', article);
+  }
+
+  this.deleteArticle = function(id) {
+    $http.delete('http://localhost:3000/api/article/' + id);
+  }
 })

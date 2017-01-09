@@ -1,12 +1,45 @@
 $menuWide: 90%;
 
+header {
+  margin-bottom: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 2px $grey;
+  position: fixed;
+  z-index: 2000;
+  width: 100%;
+  padding-bottom: 5px;
+  @include breakpoint($med) {
+    margin-bottom: 0;
+  }
+  @include breakpoint($wide) {
+    box-shadow: none;
+    position: static;
+    background-color: $whiteA;
+  }
+}
+
+.mobile-hide {
+  display: none;
+  @include breakpoint($wide) {
+    display: block;
+  }
+}
+
 .logo {
-  text-align: center;
+  text-align: left;
   font-family: serif;
-  font-size: 2.8em;
+  font-size: 1.5em;
   color: $black;
-  margin: auto;
+  margin: 10px auto 0 auto;
   font-family: $body;
+  @include breakpoint($sm) {
+    font-size: 2em;
+  }
+  @include breakpoint($med) {
+    font-size: 2.8em;
+    margin: auto;
+    text-align: center;
+  }
 
   .now {
     font-family: $body;
@@ -19,8 +52,29 @@ $menuWide: 90%;
 
 .logo-container {
   display: table;
-  width: $menuWide;
+  width: 95%;
   margin: auto;
+  @include breakpoint($wide) {
+    width: $menuWide;
+  }
+
+  .menu-icon {
+    margin: 10px 10px 0 10px;
+    font-size: 1.8em;
+    cursor: pointer;
+    transform: translateY(6px);
+    @include breakpoint($sm) {
+      font-size: 2.5em;
+      transform: translateY(8px);
+    }
+    @include breakpoint($med) {
+      margin: 10px 10px 0 0;
+    }
+  }
+
+  .no-wrap {
+    white-space: nowrap;
+  }
 
   ul {
     display: table-row;
@@ -30,12 +84,30 @@ $menuWide: 90%;
     list-style: none;
     display: table-cell;
     vertical-align: bottom;
-    width: calc(90%/3);
+    width: 50%;
+    @include breakpoint($med) {
+      width: calc(90%/3);
+    }
+
+    .desktop-hide {
+      display: block;
+      @include breakpoint($wide) {
+        display: none;
+      }
+    }
   }
 
   .date, .weather {
     font-size: .8em;
     font-family: $title;
+    display: none;
+    @include breakpoint($med) {
+      display: table-cell;
+    }
+  }
+
+  .weather {
+    cursor: pointer;
   }
 
   .date {
@@ -48,24 +120,40 @@ $menuWide: 90%;
     font-family: cursive;
   }
 
+  .mobile-hide {
+    display: none;
+    @include breakpoint($wide) {
+      display: table-cell;
+    }
+  }
+
+  .desktop-hide {
+    display: table-cell;
+    @include breakpoint($wide) {
+      display: none;
+    }
+  }
+
   .weather {
     text-align: right;
     white-space: nowrap;
 
     form {
       display: inline-block;
+      width: auto;
+      position: relative;
     }
 
     input {
       background-color: inherit;
       border: none;
-      width: auto;
       outline: none;
       text-align: right;
-    }
+      width: 70%;
 
-    input:focus {
-      text-decoration: underline;
+      &:focus, &:hover {
+        text-decoration: underline;
+      }
     }
 
     .numbers {
@@ -85,7 +173,7 @@ $menuWide: 90%;
 
 .menu {
   background-color: white;
-  display: table;
+  display: none;
   color: $black;
   height: 4vh;
   width: $menuWide;
@@ -96,6 +184,9 @@ $menuWide: 90%;
   border-radius: .1em;
   overflow: hidden;
   box-shadow: -1px 1px 2px $black;
+  @include breakpoint($wide) {
+    display: table;
+  }
 
   ul {
     display: table-row;

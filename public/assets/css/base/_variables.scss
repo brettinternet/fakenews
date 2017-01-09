@@ -16,7 +16,18 @@ $body: Georgia, serif;
 $gar: 'EB Garamond', serif;
 $thin: 'Julius Sans One', sans-serif;
 
-@include add-grid(4);
+$long: 1100px;
+$wide: 900px;
+$med: 700px;
+$min: 500px;
+$sm: 400px;
+
+// $mobile-first: false;
+@include add-grid(1);
+@include add-grid(1 at $sm)
+@include add-grid(2 at $med);
+@include add-grid(3 at $wide);
+@include add-grid(4 at $long);
 @include add-gutter(1/24);
 @include sgs-change('output', 'float');
 

@@ -1,0 +1,138 @@
+.side-bar.ng-enter, .side-bar.ng-leave.ng-leave-active {
+  left: -100%;
+}
+.side-bar.ng-enter, .side-bar.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.side-bar.ng-leave, .side-bar.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+// TODO: FIX z-index/sidebar height
+.side-bar {
+  background-color: white;
+  display: block;
+  color: $black;
+  margin: 0 auto;
+  font-family: $font;
+  font-size: 1.2em;
+  overflow: scroll;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  // left: 0;
+  z-index: 1000;
+  height: 100%;
+  padding-top: 10%;
+  @include breakpoint($med) {
+    width: 40%;
+    box-shadow: 2px 2px 3px $grey;
+    padding-top: 7%;
+  }
+
+  @include breakpoint($wide) {
+    display: none;
+  }
+
+  ul {
+
+    li {
+      list-style: none;
+      height: 40px;
+      position: relative;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: $whiteB;
+      }
+
+
+      a {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+      }
+    }
+
+    .menu-item {
+      display: block;
+      white-space: nowrap;
+      padding: 0 5px;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .menu-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .menu-item-active {
+      background-color: $lightblue;
+      color: $whiteA;
+    }
+
+    .icon {
+      transform: translateY(4px);
+      margin-right: 7px;
+    }
+  }
+
+  .search-form {
+    height: 25px;
+    width: 140px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+
+    input {
+      background-color: inherit;
+      outline: none;
+      color: inherit;
+      border-width: 0 0 1px 0;
+      border-color: $whiteB;
+      border-style: solid;
+      width: 85%;
+      float: left;
+      height: 100%;
+      padding: .2em .3em 0 .3em;
+      text-align: center;
+      margin-left: 10%;
+      transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    }
+
+    .button {
+      background-color: inherit;
+      border: none;
+      height: 100%;
+      width: 15%;
+      float: right;
+      outline: none;
+      color: inherit;
+      opacity: 1;
+      transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      .material-icons {
+        transform: translate(-23%, -10%);
+      }
+    }
+
+    .button-hide {
+      opacity: 0;
+    }
+
+    .input {
+      margin: 0;
+      text-align: left;
+    }
+  }
+}

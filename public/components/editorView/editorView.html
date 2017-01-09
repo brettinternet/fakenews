@@ -9,7 +9,6 @@
 
 <div class="card add-bottom-pad editor left-two">
   <span class="card-title">Article Editor</span>
-  <img ng-show="model.editArticle.img" ng-src="{{model.editArticle.img}}">
   <table>
     <tr>
       <td class="id">ID</td>
@@ -20,11 +19,11 @@
       <td>
         <table class="inside-table">
           <tr>
-            <td class="id">Published</td>
+            <td class="id" id="setting-option">Published</td>
             <td><input type="checkbox" ng-model="model.editArticle.published"></td>
-            <td class="id">Breaking News</td>
+            <td class="id" id="setting-option">Breaking News</td>
             <td><input type="checkbox" ng-model="model.editArticle.breakingnews"></td>
-            <td class="id">Picture Post</td>
+            <td class="id" id="setting-option">Picture Post</td>
             <td><input type="checkbox" ng-model="model.editArticle.picpost"></td>
           </tr>
         </table>
@@ -51,7 +50,7 @@
     </tr>
     <tr>
       <td class="id">Tags</td>
-      <td><input type="text" ng-model="model.editArticle.tags"></td>
+      <td><span type="text" ng-model="model.editArticle.tags"></span></td>
     </tr>
     <tr>
       <td class="id">Location</td>
@@ -66,7 +65,7 @@
       <td><input type="link" ng-model="model.editArticle.img"></td>
     </tr>
     <tr>
-      <td class="id">Img description</td>
+      <td class="id">Description</td>
       <td><input type="text" ng-model="model.editArticle.imgdesc"></td>
     </tr>
     <tr>
@@ -75,17 +74,19 @@
     </tr>
     <tr>
       <td class="id">Body</td>
-      <td><textarea ng-model="model.editArticle.body" rows="8" cols="80"></textarea></td>
+      <td><textarea ng-model="model.editArticle.body" rows="12" cols="80"></textarea></td>
     </tr>
     <tr>
       <td></td>
       <td>
-        <button class="bt-right bt-submit" type="button" ng-submit="model.submitArticle(model.editArticle)">Save</button>
-        <button class="bt-right bt-delete" type="button" ng-submit="model.deleteArticle(model.editArticle)">Delete</button>
-        <button class="bt-right" type="button" ng-click="model.editArticle = {};">Clear</button>
+        <button class="bt-right bt-submit" type="button" ng-click="model.submitArticle(model.editArticle)">Save</button>
+        <button class="bt-right bt-delete" type="button" ng-click="model.deleteArticle(model.editArticle)">Delete</button>
+        <button class="bt-right" type="button" ng-click="model.clearButton()">Clear</button>
       </td>
     </tr>
   </table>
+  <span ng-show="model.confirm" class="confirm-text" ng-bind="model.confirm"></span><span ng-show="model.confirm" class="error-text" ng-bind="model.confirmErr"></span>
+  <img ng-show="model.editArticle.img" ng-src="{{model.editArticle.img}}">
 </div>
 
 <div class="card right" id="map-card">

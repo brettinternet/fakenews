@@ -30,6 +30,11 @@ function topMenuCtrl(articleService) {
       });
   }
 
+  model.hideSidebar = true;
+  model.sidebarToggle = () => {
+    model.hideSidebar = !model.hideSidebar;
+  }
+
   model.$onInit = () => {
     model.getWeather(model.cityWeather);
   }

@@ -1,5 +1,9 @@
 $menuWide: 90%;
 
+.footer-card {
+  margin: 0 auto;
+}
+
 .footer-container {
   background-color: $black;
   color: $whiteA;
@@ -10,9 +14,25 @@ $menuWide: 90%;
   font-size: 1em;
   float: left;
   text-align: left;
+  padding: 0 5px;
+
+  @include breakpoint($sm) {
+    padding: 0 5%;
+  }
+  @include breakpoint($wide) {
+    padding: 0 10%;
+  }
+
+  .inside-left {
+    @include grid-span(1, 1, 2, 1/12);
+  }
+
+  .inside-right {
+    @include grid-span(1, 2, 2, 1/12);
+  }
 
   ul {
-    padding: 10px 5%;
+    padding: 10px 4%;
     margin: 0;
     margin: 10px 0;
   }
@@ -30,5 +50,28 @@ $menuWide: 90%;
   .copyright {
     height: auto;
     font-family: $body;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: $whiteA;
+    padding: 10px 5px;
+    font-size: .8em;
+  }
+
+  .mobile-hide {
+    display: none;
+    @include breakpoint($wide) {
+      display: block;
+    }
+  }
+
+  .desktop-hide {
+    display: block;
+    @include breakpoint($wide) {
+      display: none;
+    }
+  }
+
+  #bottom-cushion {
+    margin-bottom: .6em;
   }
 }
