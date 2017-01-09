@@ -132,18 +132,20 @@ angular.module('newsApp').service('articleService', function ($http) {
     $http.delete('http://localhost:3000/api/article/' + id);
   };
 });
-"use strict";
+'use strict';
 
 function articleViewCtrl(articleService, $stateParams) {
   var model = this;
   model.category = $stateParams.category;
   var modifyResponse = function modifyResponse(article, author) {
     author.name = author.firstname + ' ' + author.lastname;
-    var artArr = article.body.match(/[^\.!\?]+[\.!\?]+/g);
-    if (artArr && artArr[2].charAt(0) === " ") {
-      artArr[2] = "<br/>" + artArr[2].slice(1);
+    if (model.category != 'front') {
+      var artArr = article.body.match(/[^\.!\?]+[\.!\?]+/g);
+      if (artArr && artArr[2].charAt(0) === " ") {
+        artArr[2] = "<br/>" + artArr[2].slice(1);
+      }
+      model.article.body = artArr.join(' ');
     }
-    model.article.body = artArr.join(' ');
   };
   model.$onInit = function () {
     articleService.getArticleById($stateParams.articleId).then(function (res) {
@@ -169,6 +171,67 @@ angular.module('newsApp').component('articleView', {
   templateUrl: './components/articleView/articleView.html',
   controllerAs: 'model',
   controller: ['articleService', '$stateParams', articleViewCtrl]
+});
+'use strict';
+
+function categoryCtrl($stateParams) {
+  var model = this;
+  model.currentCat = $stateParams.category;
+}
+
+angular.module('newsApp').component('categoryBusiness', {
+  templateUrl: './components/category/business.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryTech', {
+  templateUrl: './components/category/tech.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryEconomy', {
+  templateUrl: './components/category/economy.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryPolitics', {
+  templateUrl: './components/category/politics.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryScience', {
+  templateUrl: './components/category/science.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryHealth', {
+  templateUrl: './components/category/health.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categorySports', {
+  templateUrl: './components/category/sports.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryLifestyle', {
+  templateUrl: './components/category/lifestyle.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryEntertainment', {
+  templateUrl: './components/category/entertainment.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryWorld', {
+  templateUrl: './components/category/world.html',
+  controller: categoryCtrl
+});
+
+angular.module('newsApp').component('categoryOpinion', {
+  templateUrl: './components/category/opinion.html',
+  controller: categoryCtrl
 });
 'use strict';
 
@@ -283,109 +346,72 @@ angular.module('newsApp').component('editorView', {
 });
 'use strict';
 
-function errorDisplayCtrl() {
+function bottomMenuCtrl() {
   var model = this;
+  model.categories = ['business', 'tech', 'economy', 'politics', 'science'];
+  model.categories2 = ['health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
 }
 
-angular.module('newsApp').component('errorDisplay', {
-  templateUrl: './components/errorDisplay/errorDisplay.html',
+angular.module('newsApp').component('bottomMenu', {
+  templateUrl: './components/footer/bottomMenu.html',
   controllerAs: 'model',
-  controller: errorDisplayCtrl,
-  bindings: {
-    error: '<',
-    softerr: '<'
-  },
-  require: '^searchViewCtrl'
+  controller: bottomMenuCtrl
 });
 'use strict';
 
-function categoryCtrl($stateParams) {
+function dropDownCtrl(articleService) {
   var model = this;
-  model.currentCat = $stateParams.category;
 }
 
-angular.module('newsApp').component('categoryBusiness', {
-  templateUrl: './components/category/business.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryTech', {
-  templateUrl: './components/category/tech.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryEconomy', {
-  templateUrl: './components/category/economy.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryPolitics', {
-  templateUrl: './components/category/politics.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryScience', {
-  templateUrl: './components/category/science.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryHealth', {
-  templateUrl: './components/category/health.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categorySports', {
-  templateUrl: './components/category/sports.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryLifestyle', {
-  templateUrl: './components/category/lifestyle.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryEntertainment', {
-  templateUrl: './components/category/entertainment.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryWorld', {
-  templateUrl: './components/category/world.html',
-  controller: categoryCtrl
-});
-
-angular.module('newsApp').component('categoryOpinion', {
-  templateUrl: './components/category/opinion.html',
-  controller: categoryCtrl
+angular.module('newsApp').component('dropDown', {
+  templateUrl: './components/header/dropDown.html',
+  controllerAs: 'model',
+  controller: ['articleService', dropDownCtrl]
 });
 'use strict';
 
-function comments(articleService, $stateParams) {
+function topMenuCtrl(articleService) {
   var model = this;
-  var modifyResponse = function modifyResponse(comments) {
-    for (var i = 0; i < comments.length; i++) {
-      if (comments[i].country !== 'US') {
-        comments[i].locCountry = comments[i].country;
-      } else {
-        comments[i].locState = comments[i].state;
-      }
-    }
-  };
-  model.$onInit = function () {
-    articleService.getComments($stateParams.articleId).then(function (res) {
-      model.comments = res;
-      modifyResponse(model.comments);
+  model.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
+  model.cityWeather = 'Los Angeles';
+  model.getWeather = function (city) {
+    if (city == '') city = 'Los Angeles';
+    articleService.getWeather(city).then(function (res) {
+      model.weatherObj = {
+        max: Math.floor((res.main.temp_max - 273) * (9 / 5) + 32),
+        min: Math.floor((res.main.temp_min - 273) * (9 / 5) + 32)
+      };
+      model.cityWeather = res.name;
     }).catch(function (err) {
-      $scope.error = err;
+      model.error = err;
       console.error(err);
     });
   };
+
+  model.hideSidebar = true;
+  model.sidebarToggle = function () {
+    model.hideSidebar = !model.hideSidebar;
+  };
+
+  model.$onInit = function () {
+    model.getWeather(model.cityWeather);
+  };
+
+  model.timeNow = new Date();
+  model.searchShow = false;
+  model.showSearch = function () {
+    model.searchShow = !model.searchShow;
+  };
+  model.editShow = false;
+  model.showEdit = function () {
+    model.editShow = !model.editShow;
+  };
 }
 
-angular.module('newsApp').component('comments', {
-  templateUrl: './components/comments/comments.html',
+angular.module('newsApp').component('topMenu', {
+  templateUrl: './components/header/header.html',
   controllerAs: 'model',
-  controller: ['articleService', '$stateParams', comments]
+  controller: ['articleService', topMenuCtrl]
 });
 'use strict';
 
@@ -495,75 +521,6 @@ angular.module('newsApp').component('landing', {
 });
 'use strict';
 
-function dropDownCtrl(articleService) {
-  var model = this;
-}
-
-angular.module('newsApp').component('dropDown', {
-  templateUrl: './components/header/dropDown.html',
-  controllerAs: 'model',
-  controller: ['articleService', dropDownCtrl]
-});
-'use strict';
-
-function topMenuCtrl(articleService) {
-  var model = this;
-  model.categories = ['business', 'tech', 'economy', 'politics', 'science', 'health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
-  model.cityWeather = 'Los Angeles';
-  model.getWeather = function (city) {
-    if (city == '') city = 'Los Angeles';
-    articleService.getWeather(city).then(function (res) {
-      model.weatherObj = {
-        max: Math.floor((res.main.temp_max - 273) * (9 / 5) + 32),
-        min: Math.floor((res.main.temp_min - 273) * (9 / 5) + 32)
-      };
-      model.cityWeather = res.name;
-    }).catch(function (err) {
-      model.error = err;
-      console.error(err);
-    });
-  };
-
-  model.hideSidebar = true;
-  model.sidebarToggle = function () {
-    model.hideSidebar = !model.hideSidebar;
-  };
-
-  model.$onInit = function () {
-    model.getWeather(model.cityWeather);
-  };
-
-  model.timeNow = new Date();
-  model.searchShow = false;
-  model.showSearch = function () {
-    model.searchShow = !model.searchShow;
-  };
-  model.editShow = false;
-  model.showEdit = function () {
-    model.editShow = !model.editShow;
-  };
-}
-
-angular.module('newsApp').component('topMenu', {
-  templateUrl: './components/header/header.html',
-  controllerAs: 'model',
-  controller: ['articleService', topMenuCtrl]
-});
-'use strict';
-
-function bottomMenuCtrl() {
-  var model = this;
-  model.categories = ['business', 'tech', 'economy', 'politics', 'science'];
-  model.categories2 = ['health', 'sports', 'lifestyle', 'entertainment', 'world', 'opinion'];
-}
-
-angular.module('newsApp').component('bottomMenu', {
-  templateUrl: './components/footer/bottomMenu.html',
-  controllerAs: 'model',
-  controller: bottomMenuCtrl
-});
-'use strict';
-
 function searchViewCtrl($state, articleService) {
   var model = this;
   var modifyResponse = function modifyResponse(articles) {
@@ -649,6 +606,51 @@ angular.module('newsApp').component('worldMap', {
   templateUrl: './components/worldMap/worldMap.html',
   controllerAs: 'model',
   controller: ['articleService', worldMapCtrl]
+});
+'use strict';
+
+function errorDisplayCtrl() {
+  var model = this;
+}
+
+angular.module('newsApp').component('errorDisplay', {
+  templateUrl: './components/errorDisplay/errorDisplay.html',
+  controllerAs: 'model',
+  controller: errorDisplayCtrl,
+  bindings: {
+    error: '<',
+    softerr: '<'
+  },
+  require: '^searchViewCtrl'
+});
+'use strict';
+
+function comments(articleService, $stateParams) {
+  var model = this;
+  var modifyResponse = function modifyResponse(comments) {
+    for (var i = 0; i < comments.length; i++) {
+      if (comments[i].country !== 'US') {
+        comments[i].locCountry = comments[i].country;
+      } else {
+        comments[i].locState = comments[i].state;
+      }
+    }
+  };
+  model.$onInit = function () {
+    articleService.getComments($stateParams.articleId).then(function (res) {
+      model.comments = res;
+      modifyResponse(model.comments);
+    }).catch(function (err) {
+      $scope.error = err;
+      console.error(err);
+    });
+  };
+}
+
+angular.module('newsApp').component('comments', {
+  templateUrl: './components/comments/comments.html',
+  controllerAs: 'model',
+  controller: ['articleService', '$stateParams', comments]
 });
 'use strict';
 

@@ -45,7 +45,6 @@ const articleCtrl = require('./controllers/articleCtrl'),
       redditCtrl = require('./controllers/redditCtrl'),
       commentCtrl = require('./controllers/commentCtrl');
 
-
 app.get('/api/search/:title', articleCtrl.searchTitle);
 app.get('/api/other/all', articleCtrl.getOtherArticles);
 app.get('/api/category/:category', articleCtrl.getCat);
@@ -60,12 +59,6 @@ app.get('/api/comments/:articleId', articleCtrl.getComments);
 app.put('/api/article/:articleId', articleCtrl.update);
 app.post('/api/article', articleCtrl.create);
 app.delete('/api/article/:articleId', articleCtrl.delete);
-
-
-
-
-
-
 
 app.listen(3000, function() {
   console.log('Connected on 3000')

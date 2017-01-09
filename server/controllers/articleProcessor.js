@@ -7,6 +7,7 @@ const app = require('../index'),
       pos = require('pos'),
       request = require('request').defaults({maxRedirects:15}),
       bannedDomains = require('../services/bannedDomains'),
+      verbSrv = require('../services/verbSrv'),
       picProcessor = require('./picProcessor'),
       extractor = require('unfluff');
 
@@ -154,15 +155,47 @@ processUrl = (obj) => {
 getSummary = (obj) => {
   let getEntities = (obj) => {
     console.log(`PROCESS: getting entities`);
-    getWatson.entities({url: obj.url}, (err, res) => {
-      if (err) winston.process.error(err);
+    let getOptions = {
+      extract: 'entities',
+      // sentiment: 1,
+      url: obj.url
+    };
+    getWatson.entities(getOptions, (err, res) => {
+      if (err) {
+        console.log('error');
+        skipArticle(obj);
+        winston.process.error(err);
+      }
       let entities = [];
-      if (res) entities = res.entities;
-      processData(obj, entities);
+      if (res && res.entities) entities = res.entities;
+      getSentiment(obj, entities);
     });
   }
-  if (obj.fulltext) {
-    console.log(`PROCESS: summarizing text`);
+  if (obj.category === 'front') {
+    console.log(`PROCESS: smmry summarizing text`);
+    request('http://api.smmry.com?SM_API_KEY=' + config.smmryApi + '&SM_WITH_BREAK' + '&SM_URL=' + obj.url, (err, res, raw) => {
+      if (!err && res.statusCode == 200) {
+        let body = JSON.parse(raw);
+        if (body.sm_api_message) winston.process.warn(body.sm_api_message);
+        if (body.sm_api_error) winston.process.error(body.sm_api_error);
+        obj.body = body.sm_api_content.replace(/\[BREAK\]/g, '<br/>');
+        if (body.sm_api_keyword_array) obj.tags.push(body.sm_api_keyword_array);
+        getEntities(obj);
+      } else if (obj.fulltext) {
+        winston.get.error(err);
+        console.log(`PROCESS: smmry failure, lexrank summarizing text`);
+        let topLines = lexrank.summarize(obj.fulltext, 6, function (err, topLines, text) {
+          if (err) {
+            winston.process.error(err);
+            skipArticle(obj);
+          }
+          obj.body = text;
+          getEntities(obj);
+        });
+      }
+    });
+  } else if (obj.fulltext) {
+    console.log(`PROCESS: lexrank summarizing text`);
     let topLines = lexrank.summarize(obj.fulltext, 6, function (err, topLines, text) {
       if (err) winston.process.error(err);
       obj.body = text;
@@ -178,9 +211,9 @@ processData = (obj, entities) => {
   if (obj.score > 20000) {
     obj.breakingnews = true;
   }
-  if (obj.domain) {
-
-  }
+  // if (obj.domain) {
+  //
+  // }
   let cities = [],
       states = [],
       countries = [],
@@ -195,15 +228,15 @@ processData = (obj, entities) => {
     }
     if (entities[i].type == 'City') {
       cities.push(entities[i].text);
-      winston.log2.info('CITY:', cities);
+      // winston.log2.info('CITY:', cities);
     }
     if (entities[i].type == 'StateOrCounty') {
       states.push(entities[i].text);
-      winston.log2.info('CITY:', cities);
+      // winston.log2.info('CITY:', cities);
     }
     if (entities[i].type == 'Country') {
       countries.push(entities[i].text);
-      winston.log2.info('CITY:', cities);
+      // winston.log2.info('CITY:', cities);
     }
   }
   if (tempTags && !obj.tags) {
@@ -211,18 +244,19 @@ processData = (obj, entities) => {
   }
   if (cities.length > 0) {
     obj.city = cities[0].toLowerCase();
-    winston.log.info('CITY:', cities);
+    // winston.log.info('CITY:', cities);
   }
   if (states.length > 0) {
     obj.state = states[0].toLowerCase();
-    winston.log.info('STATE:', states);
+    // winston.log.info('STATE:', states);
   }
   if (countries.length > 0) {
     obj.country = countries[0];
-    winston.log.info('COUNTRY:', countries);
+    // winston.log.info('COUNTRY:', countries);
   }
   if (!obj.imgnail) obj.imgnail = obj.img;
   if (obj.city || obj.state || obj.country) {
+    console.log('PROCESS: getting location');
     getByLocation = (location) => {
       str = location.split(' ').join('+');
       request('https://maps.googleapis.com/maps/api/geocode/json?address=' +str+ '&key=' +config.googleApiKey, (err, res, raw) => {
@@ -241,6 +275,7 @@ processData = (obj, entities) => {
           }
         } else {
           winston.get.error(err);
+          saveData(obj);
         }
       });
     }
@@ -257,6 +292,7 @@ processData = (obj, entities) => {
 }
 
 saveData = (obj) => {
+  console.log('PROCESS: saving data');
   if (obj.country) {
     var searchCountry = `%${obj.country}%`;
   } else {
@@ -336,46 +372,118 @@ saveData = (obj) => {
 
 
 // ######################################################
+// WARNING: EVIL CODE :)
 // ######################################################
 
-// TODO: MAKE THE NEWS FAKE! :)
 // TODO: imgthumbnails https://www.npmjs.com/package/gm
 
-// IDEA: make into happy news by replacing verbs with positive ones!
+getSentiment = (obj, entities) => {
+  console.log('PROCESS: getting sentiment');
+  let getOptions = {
+    extract: 'doc-sentiment',
+    url: obj.url
+  };
+  getWatson.sentiment(getOptions, (err, res) => {
+    if (err) winston.process.error(err);
+    let docSentiment = {};
+    if (res && res.docSentiment) docSentiment = res.docSentiment;
+    processText(obj, entities, docSentiment);
+  });
+}
 
-// get grammar
-// getWatson.relations({text: obj.body}, (err, res) => {
-//   if (err) winston.process.error(err);
-//   let parsedRes = JSON.stringify(res, null, 2);
-//   console.log('relations', parsedRes);
-//   console.log(obj.body);
-// });
-// also sentiment, then use sentiment results to make article more extreme;
-// http://www.ibm.com/watson/developercloud/alchemy-language/api/v1/#entities
-// http://www.ibm.com/watson/developercloud/alchemy-language/api/v1/?node#targeted_sentiment
-
-// skipping for now
-processText = (text) => {
-  let words = new pos.Lexer().lex(text),
-      tagger = new pos.Tagger(),
-      taggedWords = tagger.tag(words),
-      arr = [];
-  for (i in taggedWords) {
-    let taggedWord = taggedWords[i],
-        obj = {};
-    obj.word = taggedWord[0];
-    obj.tag = taggedWord[1];
-    arr.push(obj);
+processText = (obj, entities, docSentiment) => {
+  console.log('PROCESS: transforming text');
+  transformText = (text) => {
+    let words = new pos.Lexer().lex(text),
+        tagger = new pos.Tagger(),
+        taggedWords = tagger.tag(words),
+        arr = [];
+    for (i in taggedWords) {
+      let taggedWord = taggedWords[i],
+          wordObj = {};
+      wordObj.word = taggedWord[0];
+      wordObj.tag = taggedWord[1];
+      arr.push(wordObj);
+    }
+    console.log('PROCESS: parts of speech');
+    let isIgnore = (ignoreArr, word) => {
+      return ignoreArr.indexOf(word.toLowerCase()) > -1;
+    }
+    if (docSentiment.type === 'negative') {
+      arr.forEach((word, i, array) => {
+        let len = array.length;
+        if (!isIgnore(verbSrv.ignoreVerbs, array[(i+len-1)%len].word) && !isIgnore(verbSrv.ignoreVerbs, word.word) && !isIgnore(verbSrv.ignoreFirstVerb, arr[(i+1)%len].tag)) {
+          if (word.tag === 'VB') word.word = verbSrv.positive.VB();
+          if (word.tag === 'VBD') word.word = verbSrv.positive.VBD();
+          if (word.tag === 'VBG') word.word = verbSrv.positive.VBG();
+          if (word.tag === 'VBN') word.word = verbSrv.positive.VBN();
+          if (word.tag === 'VBP') word.word = verbSrv.positive.VBP();
+          if (word.tag === 'VBZ') word.word = verbSrv.positive.VBZ();
+        }
+      });
+    } else {
+      arr.forEach((word, i, array) => {
+        let len = array.length;
+        if (!isIgnore(verbSrv.ignoreVerbs, array[(i+len-1)%len].word) && !isIgnore(verbSrv.ignoreVerbs, word.word) && !isIgnore(verbSrv.ignoreFirstVerb, arr[(i+1)%len].tag)) {
+          if (word.tag === 'VB') word.word = verbSrv.negative.VB();
+          if (word.tag === 'VBD') word.word = verbSrv.negative.VBD();
+          if (word.tag === 'VBG') word.word = verbSrv.negative.VBG();
+          if (word.tag === 'VBN') word.word = verbSrv.negative.VBN();
+          if (word.tag === 'VBP') word.word = verbSrv.negative.VBP();
+          if (word.tag === 'VBZ') word.word = verbSrv.negative.VBZ();
+        }
+      });
+    }
+    let newText = '';
+    arr.forEach((word) => {
+      if (word.tag.search(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g) > -1) {
+        newText += (word.word);
+      } else {
+        newText += (' ' + word.word);
+      }
+    });
+    if (newText.substr(newText.length-7) === '[BREAK]') {
+      newText = newText.slice(0, (newText.length-7));
+      console.log('had to cut last [break]');
+    }
+    if (!newText.charAt(newText.length-1).match(/[!.?"”']/g) && !newText.charAt(newText.length-2).match(/[!.?"”']/g)) {
+      let puncArr = ['?', '!'];
+      let punc = puncArr[Math.floor(Math.random() * puncArr.length)];
+      newText += punc;
+    }
+    return newText;
   }
-  lies(arr);
+  if (obj.headline) obj.headline = transformText(obj.headline);
+  obj.title = transformText(obj.title);
+  obj.body = transformText(obj.body);
+  processData(obj, entities);
+  // winston.log2.info(obj.headline);
+  // winston.log2.info(obj.body);
+  // console.log('done');
 }
 
-lies = (arr) => {
-  // for (var i = 0; i < arr.length; i++) { // https://github.com/dariusk/pos-js
-  //   if (arr[i].tag === 'PDT') {
-  //     arr[i].word = 'none'
-  //     }
-  //   }
-  // }
-  console.log('done');
-}
+// && !isIgnore(verbSrv.ignoreFirstVerb, arr[(i+1)%len].tag)
+
+// arr = [
+//     ['be', 'not be'],
+//     ['is','is not'],
+//   ];
+//
+// text = ['i', 'be'];
+// text.forEach(function(word) = {
+//   testing = () => {
+//     arr.some(function(el) = {
+//       return el.indexOf(word.toLowerCase() > -1)
+//     })
+//   }
+//     if (testing()) {
+//       console.log('hurray');
+//     }
+//    }
+// });
+//
+// console.log(arr);
+
+
+
+//

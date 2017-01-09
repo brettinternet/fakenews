@@ -3,11 +3,13 @@ function articleViewCtrl(articleService, $stateParams) {
   model.category = $stateParams.category;
   let modifyResponse = function(article, author) {
     author.name = author.firstname + ' ' + author.lastname;
-    let artArr = article.body.match(/[^\.!\?]+[\.!\?]+/g);
-    if (artArr && artArr[2].charAt(0) === " ") {
-      artArr[2] = "<br/>" + artArr[2].slice(1);
+    if (model.category != 'front') {
+      let artArr = article.body.match(/[^\.!\?]+[\.!\?]+/g);
+      if (artArr && artArr[2].charAt(0) === " ") {
+        artArr[2] = "<br/>" + artArr[2].slice(1);
+      }
+      model.article.body = artArr.join(' ');
     }
-    model.article.body = artArr.join(' ');
   }
   model.$onInit = function() {
     articleService.getArticleById($stateParams.articleId)
