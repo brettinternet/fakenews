@@ -8,7 +8,7 @@
     <img ng-src="{{article.img}}"></img>
     <div class="news-text">
       <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-      <div ng-bind-html="article.headline" class="news-headline"></div></a>
+      <div ng-bind-html="article.headline  | cut:true:240:'...'" class="news-headline"></div></a>
       <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
       <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
@@ -23,7 +23,7 @@
     <img ng-src="{{article.img}}"></img>
     <div class="news-text">
       <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-      <div ng-bind-html="article.headline" class="news-headline"></div></a>
+      <div ng-bind-html="article.headline  | cut:true:240:'...'" class="news-headline"></div></a>
       <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
       <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>

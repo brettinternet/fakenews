@@ -156,12 +156,12 @@ body {
 
 .view-container {
   margin: 0 auto 0 auto;
-  padding: 60px 5px 0 5px;
+  padding: 70px 5px 0 5px;
   @include breakpoint($min) {
-    padding: 70px 5px 0 5px;
+    padding: 80px 5px 0 5px;
   }
   @include breakpoint($med) {
-    padding: 80px 20px 0 20px;
+    padding: 90px 20px 0 20px;
   }
   @include breakpoint($wide) {
     margin: 0 auto;

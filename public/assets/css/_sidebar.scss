@@ -24,11 +24,11 @@
   // left: 0;
   z-index: 1000;
   height: 100%;
-  padding-top: 10%;
+  padding-top: 12%;
   @include breakpoint($med) {
     width: 40%;
     box-shadow: 2px 2px 3px $grey;
-    padding-top: 7%;
+    padding-top: 9%;
   }
 
   @include breakpoint($wide) {

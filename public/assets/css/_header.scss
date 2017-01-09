@@ -31,7 +31,7 @@ header {
   font-size: 1.5em;
   color: $black;
   margin: 10px auto 0 auto;
-  font-family: $body;
+  font-family: $logo;
   @include breakpoint($sm) {
     font-size: 2em;
   }
@@ -41,12 +41,12 @@ header {
     text-align: center;
   }
 
-  .now {
-    font-family: $body;
-  }
+  // .now {
+  //   font-family: $body;
+  // }
 
   .news {
-    font-family: $gar;
+    font-family: $logo2;
   }
 }
 
@@ -99,7 +99,7 @@ header {
 
   .date, .weather {
     font-size: .8em;
-    font-family: $title;
+    font-family: $other;
     display: none;
     @include breakpoint($med) {
       display: table-cell;
@@ -117,7 +117,7 @@ header {
   .logo-subtext {
     text-align: center;
     font-size: 1em;
-    font-family: cursive;
+    font-family: $logo2;
   }
 
   .mobile-hide {

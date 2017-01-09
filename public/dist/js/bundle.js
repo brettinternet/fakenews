@@ -36,9 +36,12 @@ angular.module('newsApp').config(function ($stateProvider, $urlRouterProvider, $
 'use strict';
 
 angular.module('newsApp').service('articleService', function ($http) {
-  // get articles by category
+
+  var server = 'http://news.brettgardiner.me',
+      port = '';
+
   this.getArticles = function (category) {
-    return $http.get('http://localhost:3000/api/category/' + category).then(function (res) {
+    return $http.get(server + port + '/api/category/' + category).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -46,7 +49,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.getAllPosts = function (category) {
-    return $http.get('http://localhost:3000/api/allcategory/' + category).then(function (res) {
+    return $http.get(server + port + '/api/allcategory/' + category).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -54,7 +57,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.getArticlesLoc = function () {
-    return $http.get('http://localhost:3000/api/location/').then(function (res) {
+    return $http.get(server + port + '/api/location/').then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -62,7 +65,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.getPics = function (category) {
-    return $http.get('http://localhost:3000/api/pics/' + category).then(function (res) {
+    return $http.get(server + port + '/api/pics/' + category).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -70,7 +73,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.getArticleById = function (id) {
-    return $http.get('http://localhost:3000/api/article/' + id).then(function (res) {
+    return $http.get(server + port + '/api/article/' + id).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -78,7 +81,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.searchTitles = function (query) {
-    return $http.get('http://localhost:3000/api/search/' + query).then(function (res) {
+    return $http.get(server + port + '/api/search/' + query).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -86,7 +89,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.getComments = function (id) {
-    return $http.get('http://localhost:3000/api/comments/' + id).then(function (res) {
+    return $http.get(server + port + '/api/comments/' + id).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -94,7 +97,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.getOtherArticles = function () {
-    return $http.get('http://localhost:3000/api/other/all/').then(function (res) {
+    return $http.get(server + port + '/api/other/all/').then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -102,7 +105,7 @@ angular.module('newsApp').service('articleService', function ($http) {
   };
 
   this.getTagList = function (category) {
-    return $http.get('/api/tags/' + category).then(function (res) {
+    return $http.get(server + port + '/api/tags/' + category).then(function (res) {
       return res.data;
     }).catch(function (err) {
       console.error(err);
@@ -121,15 +124,15 @@ angular.module('newsApp').service('articleService', function ($http) {
 
   // verify authentication before peforming these actions!!
   this.putArticle = function (article) {
-    $http.put('http://localhost:3000/api/article/' + article.id, article);
+    $http.put(server + port + '/api/article/' + article.id, article);
   };
 
   this.postArticle = function (article) {
-    $http.post('http://localhost:3000/api/article', article);
+    $http.post(server + port + '/api/article', article);
   };
 
   this.deleteArticle = function (id) {
-    $http.delete('http://localhost:3000/api/article/' + id);
+    $http.delete(server + port + '/api/article/' + id);
   };
 });
 'use strict';
@@ -171,6 +174,48 @@ angular.module('newsApp').component('articleView', {
   templateUrl: './components/articleView/articleView.html',
   controllerAs: 'model',
   controller: ['articleService', '$stateParams', articleViewCtrl]
+});
+'use strict';
+
+function categoryNewsCtrl($stateParams, articleService) {
+  var model = this;
+  model.$onInit = function () {
+    model.category = $stateParams.category;
+    articleService.getArticles(model.category).then(function (res) {
+      model.articles = res;
+      model.articlesMore = model.articles.splice(5);
+    }).catch(function (err) {
+      model.error = err;
+      console.error(err);
+    });
+    articleService.getTagList(model.category).then(function (res) {
+      model.catTags = res;
+    }).catch(function (err) {
+      model.error = err;
+      console.error(err);
+    });
+    articleService.getPics(model.category).then(function (res) {
+      if (res.length > 6) {
+        model.pics = res;
+        model.picsMore = model.pics.splice(4);
+        model.picsMore2 = model.picsMore.splice(3);
+      } else if (6 >= res.length > 3) {
+        model.pics = res;
+        model.picsMore = model.pics.splice(3);
+      } else {
+        model.pics = res;
+      }
+    }).catch(function (err) {
+      model.error = err;
+      console.error(err);
+    });
+  };
+}
+
+angular.module('newsApp').component('categoryNews', {
+  templateUrl: './components/categoryNews/categoryNews.html',
+  controllerAs: 'model',
+  controller: ['$stateParams', 'articleService', categoryNewsCtrl]
 });
 'use strict';
 
@@ -235,45 +280,32 @@ angular.module('newsApp').component('categoryOpinion', {
 });
 'use strict';
 
-function categoryNewsCtrl($stateParams, articleService) {
+function comments(articleService, $stateParams) {
   var model = this;
-  model.$onInit = function () {
-    model.category = $stateParams.category;
-    articleService.getArticles(model.category).then(function (res) {
-      model.articles = res;
-      model.articlesMore = model.articles.splice(5);
-    }).catch(function (err) {
-      model.error = err;
-      console.error(err);
-    });
-    articleService.getTagList(model.category).then(function (res) {
-      model.catTags = res;
-    }).catch(function (err) {
-      model.error = err;
-      console.error(err);
-    });
-    articleService.getPics(model.category).then(function (res) {
-      if (res.length > 6) {
-        model.pics = res;
-        model.picsMore = model.pics.splice(4);
-        model.picsMore2 = model.picsMore.splice(3);
-      } else if (6 >= res.length > 3) {
-        model.pics = res;
-        model.picsMore = model.pics.splice(3);
+  var modifyResponse = function modifyResponse(comments) {
+    for (var i = 0; i < comments.length; i++) {
+      if (comments[i].country !== 'US') {
+        comments[i].locCountry = comments[i].country;
       } else {
-        model.pics = res;
+        comments[i].locState = comments[i].state;
       }
+    }
+  };
+  model.$onInit = function () {
+    articleService.getComments($stateParams.articleId).then(function (res) {
+      model.comments = res;
+      modifyResponse(model.comments);
     }).catch(function (err) {
-      model.error = err;
+      $scope.error = err;
       console.error(err);
     });
   };
 }
 
-angular.module('newsApp').component('categoryNews', {
-  templateUrl: './components/categoryNews/categoryNews.html',
+angular.module('newsApp').component('comments', {
+  templateUrl: './components/comments/comments.html',
   controllerAs: 'model',
-  controller: ['$stateParams', 'articleService', categoryNewsCtrl]
+  controller: ['articleService', '$stateParams', comments]
 });
 'use strict';
 
@@ -343,6 +375,22 @@ angular.module('newsApp').component('editorView', {
   templateUrl: './components/editorView/editorView.html',
   controllerAs: 'model',
   controller: ['articleService', editorViewCtrl]
+});
+'use strict';
+
+function errorDisplayCtrl() {
+  var model = this;
+}
+
+angular.module('newsApp').component('errorDisplay', {
+  templateUrl: './components/errorDisplay/errorDisplay.html',
+  controllerAs: 'model',
+  controller: errorDisplayCtrl,
+  bindings: {
+    error: '<',
+    softerr: '<'
+  },
+  require: '^searchViewCtrl'
 });
 'use strict';
 
@@ -458,13 +506,29 @@ function landingCtrl(articleService, $timeout) {
     });
 
     var before = null;
+    var id;
     requestAnimationFrame(function animate(now) {
       var c = earth.getPosition();
       var elapsed = before ? now - before : 0;
       before = now;
       earth.setCenter([c[0], c[1] + 0.1 * (elapsed / 30)]);
-      requestAnimationFrame(animate);
+      id = requestAnimationFrame(animate);
     });
+
+    model.earthFocus = function () {
+      cancelAnimationFrame(id);
+    };
+
+    model.earthRestart = function () {
+      var before = null;
+      requestAnimationFrame(function animate(now) {
+        var c = earth.getPosition();
+        var elapsed = before ? now - before : 0;
+        before = now;
+        earth.setCenter([c[0], c[1] + 0.1 * (elapsed / 30)]);
+        id = requestAnimationFrame(animate);
+      });
+    };
 
     earth.setView([arr[0].lat, arr[0].long], 1.5);
   };
@@ -472,10 +536,12 @@ function landingCtrl(articleService, $timeout) {
   model.$onInit = function () {
 
     articleService.getArticlesLoc().then(function (res) {
-      var arr = res.filter(function (i) {
-        return i.lat && i.long;
-      });
-      model.setupMap(arr);
+      if (res) {
+        var arr = res.filter(function (i) {
+          return i.lat && i.long;
+        });
+        model.setupMap(arr);
+      }
     }).catch(function (err) {
       model.error = err;
       console.error(err);
@@ -606,51 +672,6 @@ angular.module('newsApp').component('worldMap', {
   templateUrl: './components/worldMap/worldMap.html',
   controllerAs: 'model',
   controller: ['articleService', worldMapCtrl]
-});
-'use strict';
-
-function errorDisplayCtrl() {
-  var model = this;
-}
-
-angular.module('newsApp').component('errorDisplay', {
-  templateUrl: './components/errorDisplay/errorDisplay.html',
-  controllerAs: 'model',
-  controller: errorDisplayCtrl,
-  bindings: {
-    error: '<',
-    softerr: '<'
-  },
-  require: '^searchViewCtrl'
-});
-'use strict';
-
-function comments(articleService, $stateParams) {
-  var model = this;
-  var modifyResponse = function modifyResponse(comments) {
-    for (var i = 0; i < comments.length; i++) {
-      if (comments[i].country !== 'US') {
-        comments[i].locCountry = comments[i].country;
-      } else {
-        comments[i].locState = comments[i].state;
-      }
-    }
-  };
-  model.$onInit = function () {
-    articleService.getComments($stateParams.articleId).then(function (res) {
-      model.comments = res;
-      modifyResponse(model.comments);
-    }).catch(function (err) {
-      $scope.error = err;
-      console.error(err);
-    });
-  };
-}
-
-angular.module('newsApp').component('comments', {
-  templateUrl: './components/comments/comments.html',
-  controllerAs: 'model',
-  controller: ['articleService', '$stateParams', comments]
 });
 'use strict';
 

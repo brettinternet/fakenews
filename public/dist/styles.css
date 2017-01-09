@@ -1,5 +1,4 @@
-
-@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Julius+Sans+One|Libre+Franklin:500|Merriweather:400,700|Roboto");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Julius+Sans+One|Libre+Franklin:500|Merriweather:400,700|Roboto|Bevan|Special+Elite");
 
 
 
@@ -827,13 +826,13 @@ body {
 
 .view-container {
   margin: 0 auto 0 auto;
-  padding: 60px 5px 0 5px; }
+  padding: 70px 5px 0 5px; }
   @media (min-width: 500px) {
     .view-container {
-      padding: 70px 5px 0 5px; } }
+      padding: 80px 5px 0 5px; } }
   @media (min-width: 700px) {
     .view-container {
-      padding: 80px 20px 0 20px; } }
+      padding: 90px 20px 0 20px; } }
   @media (min-width: 900px) {
     .view-container {
       margin: 0 auto;
@@ -925,7 +924,7 @@ header {
   font-size: 1.5em;
   color: #151515;
   margin: 10px auto 0 auto;
-  font-family: Georgia, serif; }
+  font-family: "Bevan", serif; }
   @media (min-width: 400px) {
     .logo {
       font-size: 2em; } }
@@ -934,10 +933,8 @@ header {
       font-size: 2.8em;
       margin: auto;
       text-align: center; } }
-  .logo .now {
-    font-family: Georgia, serif; }
   .logo .news {
-    font-family: "EB Garamond", serif; }
+    font-family: "Special Elite", serif; }
 
 .logo-container {
   display: table;
@@ -977,7 +974,7 @@ header {
           display: none; } }
   .logo-container .date, .logo-container .weather {
     font-size: .8em;
-    font-family: "Merriweather", serif;
+    font-family: "Roboto", sans-serif;
     display: none; }
     @media (min-width: 700px) {
       .logo-container .date, .logo-container .weather {
@@ -989,7 +986,7 @@ header {
   .logo-container .logo-subtext {
     text-align: center;
     font-size: 1em;
-    font-family: cursive; }
+    font-family: "Special Elite", serif; }
   .logo-container .mobile-hide {
     display: none; }
     @media (min-width: 900px) {
@@ -1312,12 +1309,12 @@ header {
   bottom: 0;
   z-index: 1000;
   height: 100%;
-  padding-top: 10%; }
+  padding-top: 12%; }
   @media (min-width: 700px) {
     .side-bar {
       width: 40%;
       box-shadow: 2px 2px 3px #2A363B;
-      padding-top: 7%; } }
+      padding-top: 9%; } }
   @media (min-width: 900px) {
     .side-bar {
       display: none; } }

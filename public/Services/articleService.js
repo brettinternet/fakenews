@@ -1,7 +1,10 @@
 angular.module('newsApp').service('articleService', function($http) {
-  // get articles by category
+
+  let server = 'http://news.brettgardiner.me',
+      port = '';
+
   this.getArticles = (category) => {
-    return $http.get('http://localhost:3000/api/category/' + category)
+    return $http.get(server+port+'/api/category/' + category)
       .then(function(res) {
         return res.data;
       })
@@ -11,7 +14,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getAllPosts = (category) => {
-    return $http.get('http://localhost:3000/api/allcategory/' + category)
+    return $http.get(server+port+'/api/allcategory/' + category)
       .then(function(res) {
         return res.data;
       })
@@ -21,7 +24,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getArticlesLoc = () => {
-    return $http.get('http://localhost:3000/api/location/')
+    return $http.get(server+port+'/api/location/')
       .then(function(res) {
         return res.data;
       })
@@ -31,7 +34,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getPics = (category) => {
-    return $http.get('http://localhost:3000/api/pics/' + category)
+    return $http.get(server+port+'/api/pics/' + category)
       .then(function(res) {
         return res.data;
       })
@@ -41,7 +44,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getArticleById = (id) => {
-    return $http.get('http://localhost:3000/api/article/' + id)
+    return $http.get(server+port+'/api/article/' + id)
       .then(function(res) {
         return res.data;
       })
@@ -51,7 +54,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.searchTitles = (query) => {
-    return $http.get('http://localhost:3000/api/search/' + query)
+    return $http.get(server+port+'/api/search/' + query)
       .then(function(res) {
         return res.data;
       })
@@ -61,7 +64,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getComments = (id) => {
-    return $http.get('http://localhost:3000/api/comments/' + id)
+    return $http.get(server+port+'/api/comments/' + id)
       .then(function(res) {
         return res.data;
       })
@@ -71,7 +74,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getOtherArticles = () => {
-    return $http.get('http://localhost:3000/api/other/all/')
+    return $http.get(server+port+'/api/other/all/')
       .then(function(res) {
         return res.data;
       })
@@ -81,7 +84,7 @@ angular.module('newsApp').service('articleService', function($http) {
   }
 
   this.getTagList = (category) => {
-    return $http.get('/api/tags/' + category)
+    return $http.get(server+port+'/api/tags/' + category)
       .then(function(res) {
         return res.data;
       })
@@ -104,14 +107,14 @@ angular.module('newsApp').service('articleService', function($http) {
 
   // verify authentication before peforming these actions!!
   this.putArticle = function(article) {
-    $http.put('http://localhost:3000/api/article/' + article.id, article);
+    $http.put(server+port+'/api/article/' + article.id, article);
   }
 
   this.postArticle = function(article) {
-    $http.post('http://localhost:3000/api/article', article);
+    $http.post(server+port+'/api/article', article);
   }
 
   this.deleteArticle = function(id) {
-    $http.delete('http://localhost:3000/api/article/' + id);
+    $http.delete(server+port+'/api/article/' + id);
   }
 })

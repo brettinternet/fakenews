@@ -10,7 +10,7 @@
           <div class="news-text">
             <span class="breakingnews" id="slickbreak" ng-if="article.breakingnews">Breaking News</span><br>
             <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title" id="slicktitle"></div>
-            <div ng-bind-html="article.headline" class="news-headline"></div></a>
+            <div ng-bind-html="article.headline  | cut:true:240:'...'" class="news-headline"></div></a>
             <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
             <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
             <span ng-bind="article.location" class="news-location"></span>
@@ -28,7 +28,7 @@
     <img ng-src="{{article.img}}"></img>
     <div class="news-text">
       <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-      <div ng-bind-html="article.headline" class="news-headline"></div></a>
+      <div ng-bind-html="article.headline  | cut:true:240:'...'" class="news-headline"></div></a>
       <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
       <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<div class="card earth-middle" id="map-card">
+<div class="card earth-middle" id="map-card" ng-mouseover="model.earthFocus()" ng-mouseleave="model.earthRestart()">
   <span class="card-title">World News</span>
   <div class="earth" id="earth_div"></div>
 </div>
@@ -58,7 +58,7 @@
     <img ng-src="{{article.img}}"></img>
     <div class="news-text">
       <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-      <div ng-bind-html="article.headline | cut:true:200:'...'" class="news-headline"></div></a>
+      <div ng-bind-html="article.headline  | cut:true:240:'...' | cut:true:240:'...'" class="news-headline"></div></a>
       <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
       <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
@@ -74,7 +74,7 @@
     <img ng-src="{{article.img}}"></img>
     <div class="news-text">
       <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-      <div ng-bind-html="article.headline" class="news-headline"></div></a>
+      <div ng-bind-html="article.headline  | cut:true:240:'...' | cut:true:240:'...'" class="news-headline"></div></a>
       <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
       <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
@@ -108,7 +108,7 @@
     <img ng-src="{{article.img}}"></img>
     <div class="news-text">
       <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-      <div ng-bind-html="article.headline" class="news-headline"></div></a>
+      <div ng-bind-html="article.headline  | cut:true:240:'...' | cut:true:240:'...'" class="news-headline"></div></a>
       <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
       <span am-time-ago="article.createdat" class="news-createdat"></span>
       <span ng-bind="article.location" class="news-location"></span>
@@ -133,7 +133,7 @@
           <img class="desktop-hide" ng-src="{{article.img}}">
           <div class="news-text">
             <a ui-sref="article({category: article.category, articleId: article.id})"><div ng-bind="article.title" class="news-title"></div>
-            <div ng-bind-html="article.headline" class="news-headline"></div></a>
+            <div ng-bind-html="article.headline  | cut:true:240:'...'" class="news-headline"></div></a>
             <span class="news-subtext">By </span><span ng-bind="article.author" class="news-author"></span><span class="news-subtext"> • </span>
             <span ng-bind="article.createdat | date: 'longDate'" class="news-createdat"></span>
             <span ng-bind="article.location" class="news-location"></span>

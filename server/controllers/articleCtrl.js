@@ -124,7 +124,7 @@ module.exports = {
   },
 
   getArticlesLoc: (req, response) => {
-    db.run("SELECT articles.*, categories.category FROM articles JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND articles.body != '' AND articles.headline != '' AND articles.city != '' ORDER BY articles.createdat DESC LIMIT 20", (err, res) => {
+    db.run("SELECT articles.id, articles.city, articles.title, articles.lat, articles.long, categories.category FROM articles JOIN categories ON categories.id = articles.categoryid WHERE articles.published = true AND articles.picpost != true AND articles.city != '' ORDER BY articles.createdat DESC LIMIT 20", (err, res) => {
       if (err) {
         winston.error.error(err);
         return response.status(500).send(err);

@@ -266,10 +266,6 @@ processData = (obj, entities) => {
             obj.lat = body.results[0].geometry.location.lat;
             obj.long = body.results[0].geometry.location.lng;
             saveData(obj);
-          } else if (obj.country) {
-            getByLocation(obj.country);
-          } else if (obj.state) {
-            getByLocation(obj.state);
           } else {
             saveData(obj);
           }
@@ -435,6 +431,8 @@ processText = (obj, entities, docSentiment) => {
       });
     }
     let newText = '';
+    winston.log.info(newText);
+
     arr.forEach((word) => {
       if (word.tag.search(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g) > -1) {
         newText += (word.word);
@@ -442,6 +440,8 @@ processText = (obj, entities, docSentiment) => {
         newText += (' ' + word.word);
       }
     });
+    newText = newText.replace(/\s'\s/g, "'");
+    newText = newText.charAt(0).toUpperCase() + newText.slice(1);
     if (newText.substr(newText.length-7) === '[BREAK]') {
       newText = newText.slice(0, (newText.length-7));
       console.log('had to cut last [break]');

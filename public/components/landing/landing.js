@@ -42,13 +42,29 @@ function landingCtrl(articleService, $timeout) {
     });
 
     var before = null;
+    var id;
+    requestAnimationFrame(function animate(now) {
+      var c = earth.getPosition();
+      var elapsed = before? now - before: 0;
+      before = now;
+      earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
+      id = requestAnimationFrame(animate);
+    });
+
+    model.earthFocus = () => {
+      cancelAnimationFrame(id);
+    }
+
+    model.earthRestart = () => {
+      var before = null;
       requestAnimationFrame(function animate(now) {
         var c = earth.getPosition();
         var elapsed = before? now - before: 0;
         before = now;
         earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
-        requestAnimationFrame(animate);
+        id = requestAnimationFrame(animate);
       });
+    }
 
     earth.setView([arr[0].lat,arr[0].long], 1.5);
   }
@@ -57,10 +73,12 @@ function landingCtrl(articleService, $timeout) {
 
     articleService.getArticlesLoc()
       .then(function(res) {
-        let arr = res.filter((i) => {
-          return i.lat && i.long;
-        });
-        model.setupMap(arr);
+        if (res) {
+          let arr = res.filter((i) => {
+            return i.lat && i.long;
+          });
+          model.setupMap(arr);
+        }
       })
       .catch(function(err) {
         model.error = err;

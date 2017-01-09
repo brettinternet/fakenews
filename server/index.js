@@ -60,6 +60,7 @@ app.put('/api/article/:articleId', articleCtrl.update);
 app.post('/api/article', articleCtrl.create);
 app.delete('/api/article/:articleId', articleCtrl.delete);
 
-app.listen(3000, function() {
-  console.log('Connected on 3000')
+let port = 8981;
+app.listen(port, function() {
+  console.log('Connected on ' + port);
 });
