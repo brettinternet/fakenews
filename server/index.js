@@ -14,8 +14,8 @@ const express = require('express'),
 
 const port = 3011;
 const app = module.exports = express();
-// app.use(express.static('public'));
-app.use(express.static(__dirname + 'public'));
+app.use(express.static('public'));
+// app.use(express.static(__dirname + 'public'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());

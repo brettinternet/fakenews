@@ -1,6 +1,6 @@
 angular.module('newsApp').service('articleService', function($http) {
 
-  let server = 'http://news.brettgardiner.me',
+  let server = 'http://fakenews.brett.pw',
       port = '';
 
   this.getArticles = (category) => {
