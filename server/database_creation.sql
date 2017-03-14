@@ -94,7 +94,10 @@ CREATE TABLE articles
   createdAt TIMESTAMP WITH TIME ZONE,
   CategoryId INTEGER REFERENCES Categories(id) not null,
   BreakingNews BOOLEAN not null,
-  flag BOOLEAN not null
+  origin VARCHAR(2000),
+  picpost BOOLEAN,
+  lat NUMERIC,
+  long NUMERIC
 );
 
 INSERT INTO articles (published, authorid, city, state, country, title, img, imgnail, imgdesc, headline, content, createdat, categoryid, breakingnews) VALUES ('');

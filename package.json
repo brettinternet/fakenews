@@ -29,6 +29,7 @@
     "body-parser": "^1.15.2",
     "breakpoint-sass": "^2.7.1",
     "clarifai": "^2.0.18",
+    "colors": "^1.1.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "express": "^4.14.0",

@@ -1,7 +1,3 @@
-// install forever
-// https://github.com/foreverjs/forever
-// http://stackoverflow.com/questions/12701259/how-to-make-a-node-js-application-run-permanently
-
 const express = require('express'),
       bodyParser = require('body-parser'),
       cors = require('cors'),
@@ -12,17 +8,14 @@ const express = require('express'),
       cookieParser = require('cookie-parser'),
       session = require('express-session'),
       winston = require('./services/winston'),
+      colors = require('colors'),
       FacebookStrategy = require('passport-facebook').Strategy;
 
 
+const port = 3011;
 const app = module.exports = express();
-app.use(express.static('public'));
-// app.use(express.static(__dirname + '../public'));
-
-// var corsOptions = {
-//   origin: 'http://127.0.0.1:3000'
-// };
-// app.use(cors(corsOptions));
+// app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -34,9 +27,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./services/dbSetup').runDBSetup();
+
 const massiveInstance = massive.connectSync({
   connectionString: config.connectionString
-})
+});
 
 app.set('db', massiveInstance);
 const db = app.get('db');
@@ -60,7 +55,6 @@ app.put('/api/article/:articleId', articleCtrl.update);
 app.post('/api/article', articleCtrl.create);
 app.delete('/api/article/:articleId', articleCtrl.delete);
 
-let port = 8981;
 app.listen(port, function() {
-  console.log('Connected on ' + port);
+  console.log(` FakeNews `.black.bgWhite.italic + ` is running on port `.green + ` ${port} `.white.bgBlue.bold);
 });
