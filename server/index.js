@@ -27,7 +27,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./services/dbSetup').runDBSetup();
+try {
+  console.log(`Initilizing the database...`.grey.dim);
+  require('./services/dbSetup').createTables();
+} catch (err) {
+  console.error('ERROR: unable to initialize the PostgreSQL database.'.red, err);
+}
 
 const massiveInstance = massive.connectSync({
   connectionString: config.connectionString

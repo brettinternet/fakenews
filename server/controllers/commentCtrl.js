@@ -155,6 +155,7 @@ saveComment = (str, redditid) => {
     let userid = res[0].id;
     db.run("SELECT id FROM articles ORDER BY createdat DESC LIMIT 12", (err, res) => {
       if (err) winston.process.error(err);
+      if (res.length === 0) return;
       let articleid = res[Math.floor(Math.random() * res.length)].id;
       let roll1 = rollDice(1, 10);
       console.log('commenting on articleID: ', articleid);
