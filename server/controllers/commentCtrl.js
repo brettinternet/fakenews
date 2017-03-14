@@ -17,10 +17,10 @@ const winston = require('../services/winston'),
 // │    └──────────────────── minute (0 - 59)
 // └───────────────────────── second (0 - 59, OPTIONAL)
 
-let ysk = new schedule.RecurrenceRule();
-ysk.minute = 10; // hh:10 hourly
+let commenting = new schedule.RecurrenceRule();
+commenting.minute = 10;
 
-schedule.scheduleJob('*/45 * * * *', () => {
+schedule.scheduleJob(commenting, () => {
   request('https://www.reddit.com/r/showerthoughts/top/.json', (err, res, raw) => {
     let source = 'shower';
     if (!err && res.statusCode == 200) {
@@ -32,7 +32,7 @@ schedule.scheduleJob('*/45 * * * *', () => {
   });
 });
 // ysk
-schedule.scheduleJob('* */2 * * *', () => {
+schedule.scheduleJob(commenting, () => {
   request('https://www.reddit.com/r/youshouldknow/top/.json', (err, res, raw) => {
     let source = 'ysk';
     if (!err && res.statusCode == 200) {
@@ -44,7 +44,7 @@ schedule.scheduleJob('* */2 * * *', () => {
   });
 });
 
-schedule.scheduleJob('*/40 * * * *', () => {
+schedule.scheduleJob(commenting, () => {
   request('https://www.reddit.com/r/todayilearned/top/.json', (err, res, raw) => {
     let source = 'til';
     if (!err && res.statusCode == 200) {
@@ -56,7 +56,7 @@ schedule.scheduleJob('*/40 * * * *', () => {
   });
 });
 
-schedule.scheduleJob('*/50 * * * *', () => {
+schedule.scheduleJob(commenting, () => {
   request('https://www.reddit.com/r/NoStupidQuestions/top/.json', (err, res, raw) => {
     let source = 'stupidq';
     if (!err && res.statusCode == 200) {
@@ -68,7 +68,7 @@ schedule.scheduleJob('*/50 * * * *', () => {
   });
 });
 
-schedule.scheduleJob('*/55 * * * *', () => {
+schedule.scheduleJob(commenting, () => {
   request('https://www.reddit.com/r/shittyaskscience/top/.json', (err, res, raw) => {
     let source = 'scienceq';
     if (!err && res.statusCode == 200) {

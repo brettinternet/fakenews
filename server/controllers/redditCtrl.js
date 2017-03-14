@@ -19,19 +19,43 @@ let front = new schedule.RecurrenceRule(),
     secondary = new schedule.RecurrenceRule(),
     pic = new schedule.RecurrenceRule();
 
-front.minute = 1;
-business.minute = 5;
-tech.minute = 10;
-economy.minute = 15;
-politics.minute = 20;
-science.minute = 25;
-health.minute = 30;
-sports.minute = 35;
-lifestyle.minute = 40;
-entertainment.minute = 45;
-world.minute = 50;
-opinion.minute = 55;
+front.hour = 1;
+front.minute = 0;
 
+business.hour = 2;
+business.minute = 0;
+
+tech.hour = 3;
+tech.minute = 0;
+
+economy.hour = 4;
+economy.minute = 0;
+
+politics.hour = 5;
+politics.minute = 0;
+
+science.hour = 6;
+science.minute = 0;
+
+health.hour = 7;
+health.minute = 0;
+
+sports.hour = 8;
+sports.minute = 0;
+
+lifestyle.hour = 9;
+lifestyle.minute = 0;
+
+entertainment.hour = 10;
+entertainment.minute = 0;
+
+world.hour = 11;
+world.minute = 0;
+
+opinion.hour = 12;
+opinion.minute = 0;
+
+pic.hour = 0;
 pic.minute = 0;
 secondary.hour = 17;
 secondary.minute = 0;
